@@ -4,6 +4,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_splash_screen/flutter_splash_screen.dart';
 
+/// INITIALIZE FIREBASE
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
@@ -13,7 +14,7 @@ void main() async {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
+  /// THIS WIDGET IS THE ROOT OF YOUR APPLICATION.
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
@@ -22,6 +23,7 @@ class MyApp extends StatelessWidget {
   }
 }
 
+/// SPLASH SCREEN
 class Splash extends StatefulWidget {
   const Splash({super.key});
 
@@ -40,6 +42,7 @@ class _SplashState extends State<Splash> {
   Future<void> hideScreen() async {
     Future.delayed(const Duration(milliseconds: 3600), () {
       FlutterSplashScreen.hide();
+      if (!mounted) return;
       Navigator.pushReplacement(
           context,
         MaterialPageRoute(builder: (context) => const Signup()
