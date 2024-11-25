@@ -1,2 +1,4 @@
 # E-commerce
-Flutter e-commerce project powered by firebase
+
+- A Flutter-based e-commerce application powered by Firebase.
+#
