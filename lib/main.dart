@@ -1,4 +1,4 @@
-import 'package:ecommerce/color.dart';
+import 'package:ecommerce/reusable_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_splash_screen/flutter_splash_screen.dart';
 
