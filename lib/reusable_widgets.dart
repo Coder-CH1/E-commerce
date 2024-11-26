@@ -13,6 +13,8 @@ const lightBlue = Color(0xff77aaff);
 
 const splashColor = Color(0xffDB3022);
 
+const titleAppBarColor = Color(0xff222222);
+
 /// CUSTOM BUTTON
 class Button extends StatelessWidget {
   final String text;
@@ -94,7 +96,7 @@ class _DefaultTextFieldState extends State<DefaultTextField> {
           text: TextSpan(
             text: widget.labelText,
             style: const TextStyle(
-              color: Colors.black,
+             // color: Colors.black,
               fontSize: 14,
               fontWeight: FontWeight.w600,
             ),
@@ -103,7 +105,7 @@ class _DefaultTextFieldState extends State<DefaultTextField> {
               const TextSpan(
                 text: ' *',
                 style: TextStyle(
-                  color: Colors.red,
+                  //color: Colors.red,
                 ),
               ),
             ]

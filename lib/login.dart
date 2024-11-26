@@ -12,7 +12,9 @@ class _LoginState extends State<Login> {
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
-      appBar: CustomAppBar(title: 'Login'),
+      appBar: CustomAppBar(
+          title: 'Login'
+      ),
     );
   }
 }
