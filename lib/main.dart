@@ -55,12 +55,7 @@ class _SplashState extends State<Splash> {
   Widget build(BuildContext context) {
     return const Scaffold(
       backgroundColor: splashColor,
-      body: Center(
-        child: Text(
-          '',
-          style: TextStyle(fontSize: 20),
-        ),
-      ),
+      body: Center(),
     );
   }
 }

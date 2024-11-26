@@ -85,6 +85,7 @@ class _DefaultTextFieldState extends State<DefaultTextField> {
     _obscuredText = widget.isObscured;
   }
 
+  @override
   Widget build(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -151,7 +152,7 @@ class CustomText extends StatelessWidget {
   final TextAlign align;
   final int maxLines;
   final TextOverflow overFlow;
-  CustomText({
+  const CustomText({super.key,
     required this.text,
     required this.style,
     this.align = TextAlign.start,
@@ -178,7 +179,7 @@ class CustomTextField extends StatelessWidget {
   final bool obscureText;
   final TextInputType? keyboardType;
   final TextEditingController? controller;
-  const CustomTextField({Key? key, this.labelText, this.hintText, this.obscureText = false, this.keyboardType, this.controller}) : super(key: key);
+  const CustomTextField({super.key, this.labelText, this.hintText, this.obscureText = false, this.keyboardType, this.controller});
 
   @override
   Widget build(BuildContext context) {
@@ -194,7 +195,32 @@ class CustomTextField extends StatelessWidget {
   }
 }
 
+/// CUSTOM APPBAR
+class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
+  final String title;
+  final Widget? leading;
+  final Color? background;
+  final TextStyle? textStyle;
+  const CustomAppBar({super.key, required this.title, this.leading, this.background, this.textStyle});
 
+  @override
+  Widget build(BuildContext context) {
+    return AppBar(
+      title: Text(title, style: textStyle),
+      leading: leading ?? IconButton(
+          onPressed: () {
+
+          },
+          icon: const Icon(Icons.arrow_back_ios_new_sharp)
+      ),
+      backgroundColor: background,
+    );
+  }
+
+  @override
+  // TODO: implement preferredSize
+  Size get preferredSize => throw UnimplementedError();
+}
 
 
 
