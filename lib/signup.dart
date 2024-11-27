@@ -13,6 +13,9 @@ class _SignupState extends State<Signup> {
   Widget build(BuildContext context) {
     return const Scaffold(
       appBar: CustomAppBar(title: 'Sign up'),
+      body: Column(
+        children: [],
+      ),
     );
   }
 }

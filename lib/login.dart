@@ -15,6 +15,9 @@ class _LoginState extends State<Login> {
       appBar: CustomAppBar(
           title: 'Login'
       ),
+      body: Column(
+        children: [],
+      ),
     );
   }
 }
