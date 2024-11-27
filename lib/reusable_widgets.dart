@@ -58,7 +58,7 @@ class DefaultTextField extends StatefulWidget {
   final bool isRequired;
   final TextEditingController? controller;
   final TextInputType keyboardType;
-  final String hintTextt;
+  final String hintText;
   final bool isObscured;
   final TextStyle? hintStyle;
   final Function(String)? onChanged;
@@ -66,7 +66,7 @@ class DefaultTextField extends StatefulWidget {
   const DefaultTextField(
       {super.key,
         required this.labelText,
-        required this.hintTextt,
+        required this.hintText,
         this.isRequired = false,
         this.controller,
         this.keyboardType = TextInputType.text,
@@ -119,7 +119,7 @@ class _DefaultTextFieldState extends State<DefaultTextField> {
           keyboardType: widget.keyboardType,
           onChanged: widget.onChanged,
           decoration: InputDecoration(
-            hintText: widget.hintTextt,
+            hintText: widget.hintText,
             hintStyle: widget.hintStyle,
             suffixIcon: widget.isObscured
                 ? IconButton(
