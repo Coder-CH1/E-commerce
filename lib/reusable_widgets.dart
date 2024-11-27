@@ -52,101 +52,6 @@ class Button extends StatelessWidget {
   }
 }
 
-/// CUSTOM TEXTFIELD
-class DefaultTextField extends StatefulWidget {
-  final String labelText;
-  final bool isRequired;
-  final TextEditingController? controller;
-  final TextInputType keyboardType;
-  final String hintText;
-  final bool isObscured;
-  final TextStyle? hintStyle;
-  final Function(String)? onChanged;
-
-  const DefaultTextField(
-      {super.key,
-        required this.labelText,
-        required this.hintText,
-        this.isRequired = false,
-        this.controller,
-        this.keyboardType = TextInputType.text,
-        this.isObscured = false,
-        this.hintStyle,
-        this.onChanged});
-
-  @override
-  State<DefaultTextField> createState() => _DefaultTextFieldState();
-}
-
-class _DefaultTextFieldState extends State<DefaultTextField> {
-  bool _obscuredText = true;
-
-  @override
-  void initState() {
-    super.initState();
-    _obscuredText = widget.isObscured;
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        RichText(
-          text: TextSpan(
-            text: widget.labelText,
-            style: const TextStyle(
-             // color: Colors.black,
-              fontSize: 14,
-              fontWeight: FontWeight.w600,
-            ),
-            children: widget.isRequired
-                ? [
-              const TextSpan(
-                text: ' *',
-                style: TextStyle(
-                  //color: Colors.red,
-                ),
-              ),
-            ]
-                : [],
-          ),
-        ),
-        const SizedBox(height: 8),
-        TextField(
-          obscureText: _obscuredText,
-          controller: widget.controller,
-          keyboardType: widget.keyboardType,
-          onChanged: widget.onChanged,
-          decoration: InputDecoration(
-            hintText: widget.hintText,
-            hintStyle: widget.hintStyle,
-            suffixIcon: widget.isObscured
-                ? IconButton(
-              icon: Icon(
-                _obscuredText ? Icons.visibility_off : Icons.visibility,
-              ),
-              onPressed: () {
-                setState(() {
-                  _obscuredText = !_obscuredText;
-                });
-              },
-            )
-                : null,
-            enabledBorder: const UnderlineInputBorder(
-              borderSide: BorderSide(color: Colors.black),
-            ),
-            focusedBorder: const UnderlineInputBorder(
-              borderSide: BorderSide(color: Colors.black),
-            ),
-          ),
-        ),
-      ],
-    );
-  }
-}
-
-
 /// CUSTOM TEXT
 class CustomText extends StatelessWidget {
   final String text;
@@ -174,7 +79,7 @@ class CustomText extends StatelessWidget {
   }
 }
 
-/// CUSTOM TEXTFIELD2
+/// CUSTOM TEXTFIELD
 class CustomTextField extends StatelessWidget {
   final String? labelText;
   final String? hintText;
