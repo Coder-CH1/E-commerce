@@ -43,4 +43,12 @@ flutter {
     source = "../.."
 }
 
+dependencies {
+    // Firebase dependencies
+    implementation 'com.google.firebase:firebase-auth:21.0.6'  // Firebase Authentication
+    implementation 'com.google.firebase:firebase-firestore:24.0.1'  // Firestore Database
+    implementation 'com.google.firebase:firebase-core:21.0.0'  // Firebase Core (Required for Firebase SDK)
+    implementation 'com.google.android.gms:play-services-auth:20.1.0'  // Google Play Services for Auth
+}
+
 apply plugin: 'com.google.gms.google-services'

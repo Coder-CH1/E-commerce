@@ -1,29 +1,30 @@
+// Root-level build.gradle (android/build.gradle)
+
+buildscript {
+    repositories {
+        google()      // Add Google's repository
+        mavenCentral() // Add Maven Central repository
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:7.3.1'  // Android Gradle Plugin
+        classpath 'com.google.gms:google-services:4.4.2'  // Google Services plugin (apply it later)
+    }
+}
+
 allprojects {
     repositories {
-        google()
-        mavenCentral()
+        google()      // Add Google's repository for all projects
+        mavenCentral() // Add Maven Central repository for all projects
     }
 }
 
 rootProject.buildDir = "../build"
+
 subprojects {
     project.buildDir = "${rootProject.buildDir}/${project.name}"
-}
-subprojects {
     project.evaluationDependsOn(":app")
 }
 
 tasks.register("clean", Delete) {
     delete rootProject.buildDir
-}
-
-buildscript {
-    repositories {
-        // Check that you have the following line (if not, add it):
-        google()  // Google's Maven repository
-    }
-    dependencies {
-        // Add this line
-        classpath 'com.google.gms:google-services:4.4.2'
-    }
 }
