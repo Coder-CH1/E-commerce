@@ -17,7 +17,14 @@ class _SignupState extends State<Signup> {
       body: Column(
         children: [
           const CustomTextField(),
+          const SizedBox(height: 20),
           const CustomTextField(),
+          const SizedBox(height: 20),
+          CustomTextButton(
+              text: 'Already have an account?',
+              onPressed: (){},
+          ),
+          const SizedBox(height: 20),
           CustomButton(
               text: '',
               onPressed: (){},

@@ -12,12 +12,27 @@ class Login extends StatefulWidget {
 class _LoginState extends State<Login> {
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      appBar: CustomAppBar(
+    return Scaffold(
+      appBar: const CustomAppBar(
           title: 'Login'
       ),
       body: Column(
-        children: [],
+        children: [
+          const CustomTextField(),
+          const SizedBox(height: 20),
+          const CustomTextField(),
+          const SizedBox(height: 20),
+          CustomTextButton(
+            text: 'Forgot your password?',
+            onPressed: (){},
+          ),
+          const SizedBox(height: 20),
+          CustomButton(
+            text: '',
+            onPressed: (){},
+            color: redColor,
+          )
+        ],
       ),
     );
   }
