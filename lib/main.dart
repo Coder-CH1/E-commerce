@@ -1,4 +1,4 @@
-import 'package:ecommerce/reusable_widgets.dart';
+import 'package:ecommerce/custom_widgets/custom_widgets.dart';
 import 'package:ecommerce/signup.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';

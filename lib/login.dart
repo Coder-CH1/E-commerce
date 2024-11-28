@@ -1,6 +1,7 @@
-import 'package:ecommerce/reusable_widgets.dart';
+import 'package:ecommerce/custom_widgets/custom_widgets.dart';
 import 'package:flutter/material.dart';
 
+/// LOGIN SCREEN
 class Login extends StatefulWidget {
   const Login({super.key});
 

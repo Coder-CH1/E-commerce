@@ -1,6 +1,7 @@
-import 'package:ecommerce/reusable_widgets.dart';
+import 'package:ecommerce/custom_widgets/custom_widgets.dart';
 import 'package:flutter/material.dart';
 
+/// SIGN UP SCREEN
 class Signup extends StatefulWidget {
   const Signup({super.key});
 
