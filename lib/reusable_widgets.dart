@@ -129,7 +129,45 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   Size get preferredSize => throw UnimplementedError();
 }
 
+/// CUSTOM TEXTBUTTON
+class TextButton extends StatelessWidget {
+  final String text;
+  final Color? color;
+  final TextStyle? buttonTextStyle;
+  final Function() onPressed;
+  const TextButton({super.key, required this.text, required this.onPressed, this.color, this.buttonTextStyle});
 
+  @override
+  Widget build(BuildContext context) {
+    return TextButton(
+        onPressed: onPressed,
+        text: '');
+  }
+}
+
+/// CUSTOM LISTVIEW
+class ListView extends StatelessWidget {
+  const ListView({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return const ListView(
+
+    );
+  }
+}
+
+/// CUSTOM MULTI LINE TEXT
+class MultiLineText extends StatelessWidget {
+  const MultiLineText({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return const MultiLineText(
+
+    );
+  }
+}
 
 
 
