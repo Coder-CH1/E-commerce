@@ -15,7 +15,15 @@ class _SignupState extends State<Signup> {
     return const Scaffold(
       appBar: CustomAppBar(title: 'Sign up'),
       body: Column(
-        children: [],
+        children: [
+          CustomTextField(),
+          CustomTextField(),
+          CustomButton(
+              text: text,
+              onPressed: onPressed,
+              color: color
+          )
+        ],
       ),
     );
   }

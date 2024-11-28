@@ -15,8 +15,10 @@ const splashColor = Color(0xffDB3022);
 
 const titleAppBarColor = Color(0xff222222);
 
+const opacityWhite = Color(0xffF9F9F9);
+
 /// CUSTOM BUTTON
-class Button extends StatelessWidget {
+class CustomButton extends StatelessWidget {
   final String text;
   final Widget? navigatorDestination;
   final Function() onPressed;
@@ -25,7 +27,7 @@ class Button extends StatelessWidget {
   final Color? color;
   final TextStyle? buttonTextStyle;
   final BorderSide? side;
-  const Button(
+  const CustomButton(
       {super.key,
         required this.text,
         required this.onPressed,
