@@ -130,29 +130,34 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
 }
 
 /// CUSTOM TEXTBUTTON
-class TextButton extends StatelessWidget {
+class CustomTextButton extends StatelessWidget {
   final String text;
   final Color? color;
   final TextStyle? buttonTextStyle;
   final Function() onPressed;
-  const TextButton({super.key, required this.text, required this.onPressed, this.color, this.buttonTextStyle});
+  const CustomTextButton({super.key, required this.text, required this.onPressed, this.color, this.buttonTextStyle});
 
   @override
   Widget build(BuildContext context) {
-    return TextButton(
+    return CustomTextButton(
         onPressed: onPressed,
         text: '');
   }
 }
 
 /// CUSTOM LISTVIEW
-class ListView extends StatelessWidget {
-  const ListView({super.key});
+class CustomListView<T> extends StatelessWidget {
+  final List<T> items;
+  final Widget Function(BuildContext, T) itemBuilder;
+  const CustomListView({super.key, required this.items, required this.itemBuilder});
 
   @override
   Widget build(BuildContext context) {
-    return const ListView(
-
+    return ListView.builder(
+    itemCount: items.length,
+      itemBuilder: (context, index) {
+      return itemBuilder(context, items[index]);
+      }
     );
   }
 }
