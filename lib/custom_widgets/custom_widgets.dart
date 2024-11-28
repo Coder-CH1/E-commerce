@@ -17,6 +17,8 @@ const titleAppBarColor = Color(0xff222222);
 
 const opacityWhite = Color(0xffF9F9F9);
 
+const redColor = Color(0xffDB3022);
+
 /// CUSTOM BUTTON
 class CustomButton extends StatelessWidget {
   final String text;
