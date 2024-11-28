@@ -157,17 +157,6 @@ class ListView extends StatelessWidget {
   }
 }
 
-/// CUSTOM MULTI LINE TEXT
-class MultiLineText extends StatelessWidget {
-  const MultiLineText({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return const MultiLineText(
-
-    );
-  }
-}
 
 
 
