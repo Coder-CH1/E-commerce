@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import '../model/firestore_model.dart';
 import '../model/user.dart';
 
 class DatabaseManager {
@@ -22,4 +23,22 @@ class DatabaseManager {
       throw Exception('Error in creating user $e');
     }
   }
+
+
+  /// ASYNCHRONOUS METHOD TO FETCH DATA FROM FIRESTORE COLLECTION FOR MAIN
+Future<List<Main>> fetchMainData() async {
+    try {
+      QuerySnapshot snapshot = await _firestore.collection('main').get();
+
+      List<Main> mainList = snapshot.docs.map((doc) {
+        return Main(
+            img: doc['img1'],
+            title: doc['text1']
+        );
+      }).toList();
+      return mainList;
+    } catch (e) {
+      throw Exception('');
+    }
+}
 }
