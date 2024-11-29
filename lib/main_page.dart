@@ -1,3 +1,4 @@
+import 'package:ecommerce/custom_widgets/custom_widgets.dart';
 import 'package:flutter/material.dart';
 
 class MainPage extends StatefulWidget {
@@ -23,6 +24,22 @@ class _MainPageState extends State<MainPage> {
                    image: AssetImage('asset/images/mainImage.png'),
                  fit: BoxFit.cover,
                ),)),
+         const SizedBox(height: 20),
+         Row(
+           children: [
+             const CustomText(
+                 text: 'New',
+                 style: TextStyle(),
+               align: TextAlign.left,
+             ),
+             const Spacer(),
+             CustomButton(
+                 text: 'View all',
+                 onPressed: (){},
+                 color: titleAppBarColor,
+             )
+           ],
+         )
        ],
      ),
     );
