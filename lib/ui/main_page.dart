@@ -207,7 +207,27 @@ class Women extends StatefulWidget {
 class _WomenState extends State<Women> {
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return Scaffold(
+      body: GridView.builder(
+          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: 1),
+          itemBuilder: (context, index) {
+            return GridTile(
+                child: Container(
+                  decoration: const BoxDecoration(
+                    image: DecorationImage(
+                      image: NetworkImage('')
+                    )
+                  ),
+                  child: const CustomText(
+                      text: '',
+                      style: TextStyle()
+                  ),
+                )
+            );
+          }
+      )
+    );
   }
 }
 
@@ -221,7 +241,9 @@ class Men extends StatefulWidget {
 class _MenState extends State<Men> {
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return const Scaffold(
+
+    );
   }
 }
 
@@ -235,6 +257,8 @@ class Kids extends StatefulWidget {
 class _KidsState extends State<Kids> {
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return const Scaffold(
+
+    );
   }
 }
