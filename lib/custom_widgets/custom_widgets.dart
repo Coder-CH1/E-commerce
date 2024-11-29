@@ -121,7 +121,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      title: Text(title, style: textStyle),
+      title: Text(title, style: const TextStyle(color: titleAppBarColor)),
       leading: leading ?? IconButton(
           onPressed: () {
 
