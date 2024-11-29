@@ -1,13 +1,12 @@
 import 'package:ecommerce/custom_widgets/custom_widgets.dart';
 import 'package:flutter/material.dart';
 
+///
 class MainPage extends StatefulWidget {
   const MainPage({super.key});
-
   @override
   State<MainPage> createState() => _MainPageState();
 }
-
 class _MainPageState extends State<MainPage> {
   @override
   Widget build(BuildContext context) {
@@ -88,17 +87,17 @@ class _MainPageState extends State<MainPage> {
   }
 }
 
+///
 class MainPageViewContents extends StatelessWidget {
   const MainPageViewContents({super.key});
-
   @override
   Widget build(BuildContext context) {
     return Container(
-
     );
   }
 }
 
+///
 class BottomNavigationBar extends StatelessWidget {
   final List items;
   const BottomNavigationBar({super.key, required this.items});
@@ -132,13 +131,12 @@ class BottomNavigationBar extends StatelessWidget {
   }
 }
 
+///
 class Categories extends StatefulWidget {
   const Categories({super.key});
-
   @override
   State<Categories> createState() => _CategoriesState();
 }
-
 class _CategoriesState extends State<Categories> {
   int _selectedIndex = 0;
   @override
@@ -153,7 +151,6 @@ class _CategoriesState extends State<Categories> {
             Icon(Icons.arrow_back_ios_new_sharp, color: darkBlue)
         ),
         title: 'Categories', textStyle: const TextStyle(fontSize: 22),
-
       ),
       body: Column(
         children: [
@@ -163,6 +160,8 @@ class _CategoriesState extends State<Categories> {
       )
     );
   }
+
+///
   Widget _buildSegments(String label, int index) {
     return InkWell(
       onTap: () {
@@ -182,6 +181,7 @@ class _CategoriesState extends State<Categories> {
     );
   }
 
+///
   Widget _buildContentForSegments(int segment) {
     switch (segment) {
       case 0:
@@ -196,14 +196,12 @@ class _CategoriesState extends State<Categories> {
   }
 }
 
-
+///
 class Women extends StatefulWidget {
   const Women({super.key});
-
   @override
   State<Women> createState() => _WomenState();
 }
-
 class _WomenState extends State<Women> {
   @override
   Widget build(BuildContext context) {
@@ -231,13 +229,12 @@ class _WomenState extends State<Women> {
   }
 }
 
+///
 class Men extends StatefulWidget {
   const Men({super.key});
-
   @override
   State<Men> createState() => _MenState();
 }
-
 class _MenState extends State<Men> {
   @override
   Widget build(BuildContext context) {
@@ -247,13 +244,12 @@ class _MenState extends State<Men> {
   }
 }
 
+///
 class Kids extends StatefulWidget {
   const Kids({super.key});
-
   @override
   State<Kids> createState() => _KidsState();
 }
-
 class _KidsState extends State<Kids> {
   @override
   Widget build(BuildContext context) {
