@@ -29,6 +29,7 @@ class CustomButton extends StatelessWidget {
   final Color? color;
   final TextStyle? buttonTextStyle;
   final BorderSide? side;
+  final double? borderRadius;
   const CustomButton(
       {super.key,
         required this.text,
@@ -38,12 +39,15 @@ class CustomButton extends StatelessWidget {
         this.buttonHeight,
         this.buttonTextStyle,
         this.side,
+        this.borderRadius,
         required this.color});
 
   @override
   Widget build(BuildContext context) {
     return MaterialButton(
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(borderRadius ?? 12),
+      side: side ?? BorderSide.none,
+      ),
       height: buttonHeight ?? 40,
       minWidth: buttonWidth ?? 250,
       color: color,
