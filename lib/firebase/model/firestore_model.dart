@@ -1,21 +1,21 @@
 
 
 ///
-class MainModel {
+class Main {
   final String img;
   final String title;
 
   ///
-MainModel({required this.img, required this.title});
+Main({required this.img, required this.title});
 }
 
 ///
-class WomenModel {
+class Women {
   final String img;
   final String title;
 
 ///
-  WomenModel({required this.img, required this.title});
+  Women({required this.img, required this.title});
 }
 
 class WomenTop {
