@@ -1,4 +1,3 @@
-
 import 'package:ecommerce/custom_widgets/custom_widgets.dart';
 import 'package:flutter/material.dart';
 
@@ -52,26 +51,30 @@ class _MainPageState extends State<MainPage> {
          const SizedBox(
            height: 20
          ),
-         CustomListView(
-             items: items,
+         GridView.builder(
+             gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                 crossAxisCount: 3,
+               childAspectRatio: (screenWidth/3) / (screenHeight/8),
+             ),
+             itemCount: items.length,
              itemBuilder: (context, index) {
-                return ListTile(
-                  title: Container(
-                    height: screenHeight/8,
-                    width: screenWidth/3,
-                    decoration: const BoxDecoration(
-                      image: DecorationImage(
-                          image: AssetImage('')
-                      )
-                    ),
-                  ),
-                  subtitle: const CustomText(
-                      text: 'New',
-                      style: TextStyle(
-
-                      )),
-                );
-             }
+               final item = items[index];
+               return GridTile(
+                   child: Container(
+                      height: screenHeight/8,
+                     width: screenWidth/3,
+                     decoration: const BoxDecoration(
+                       image: DecorationImage(
+                           image: NetworkImage(''),
+                         fit: BoxFit.cover,
+                       )
+                     ),
+                     child: const CustomText(
+                         text: '',
+                         style: TextStyle()),
+                   )
+               );
+             },
          )
        ],
      ),
