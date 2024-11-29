@@ -69,9 +69,15 @@ class _MainPageState extends State<MainPage> {
                          fit: BoxFit.cover,
                        )
                      ),
-                     child: const CustomText(
-                         text: '',
-                         style: TextStyle()),
+                     child: Align(
+                       alignment: Alignment.topLeft,
+                       child: Container(
+                         padding: const EdgeInsets.symmetric(vertical: 5),
+                         child: const CustomText(
+                             text: '',
+                             style: TextStyle()),
+                       ),
+                     ),
                    )
                );
              },
