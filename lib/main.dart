@@ -1,8 +1,9 @@
+import 'dart:async';
+
 import 'package:ecommerce/custom_widgets/custom_widgets.dart';
 import 'package:ecommerce/ui/signup.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_splash_screen/flutter_splash_screen.dart';
 
 /// INITIALIZE FIREBASE
 void main() async {
@@ -32,34 +33,26 @@ class Splash extends StatefulWidget {
   const Splash({super.key});
 
   @override
-  State<Splash> createState() => _SplashState();
+  _SplashState createState() => _SplashState();
 }
-
 class _SplashState extends State<Splash> {
   @override
   void initState() {
     super.initState();
-    hideScreen();
-  }
-
-  /// hide your splash screen
-  Future<void> hideScreen() async {
-    Future.delayed(const Duration(milliseconds: 3600), () {
-      FlutterSplashScreen.hide();
-      if (!mounted) return;
-      Navigator.pushReplacement(
-          context,
-        MaterialPageRoute(builder: (context) => const Signup()
+    Timer(const Duration(seconds: 3),
+            ()=>Navigator.pushReplacement(context,
+            MaterialPageRoute(builder:
+                (context) =>
+                const Signup()
+            )
         )
-      );
-    });
+    );
   }
-
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      backgroundColor: splashColor,
-      body: Center(),
+    return Container(
+        color: Colors.white,
+        child:FlutterLogo(size:MediaQuery.of(context).size.height)
     );
   }
 }
