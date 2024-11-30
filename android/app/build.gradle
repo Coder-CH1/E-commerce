@@ -42,10 +42,5 @@ android {
 flutter {
     source = "../.."
 }
-depencies {
-    implementation "org.jetbrains.kotlin:kotlin-stdlib:1.9.24"  // Ensure Kotlin version is specified
-    implementation 'com.google.firebase:firebase-auth:21.0.1'  // Firebase Authentication dependency
-    // Other dependencies
-}
 
 apply plugin: 'com.google.gms.google-services'
