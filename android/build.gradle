@@ -1,7 +1,7 @@
 // Root-level build.gradle (android/build.gradle)
 
 buildscript {
-    ext.kotlin_version = '1.9.20'
+    ext.kotlin_version = '1.9.24'
     repositories {
         google()      // Add Google's repository
         mavenCentral() // Add Maven Central repository
