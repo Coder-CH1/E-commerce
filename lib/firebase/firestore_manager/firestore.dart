@@ -66,7 +66,7 @@ Future<List<Main>> fetchMainData() async {
         return WomenTop(
             img: doc['img1'],
             title: doc['titleText1'],
-            subTitle: doc['subTitleText1'],
+            subTitle: doc['subTitle1'],
           amt: doc['amt1']
         );
       }).toList();
