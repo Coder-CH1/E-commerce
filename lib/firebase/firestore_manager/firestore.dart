@@ -58,4 +58,22 @@ Future<List<Main>> fetchMainData() async {
     }
   }
 
+  Future<List<WomenTop>> fetchWomenTopData() async {
+    try {
+      QuerySnapshot snapshot = await _firestore.collection('womenTops').get();
+
+      List<WomenTop> mainList = snapshot.docs.map((doc) {
+        return WomenTop(
+            img: doc['img1'],
+            title: doc['titleText1'],
+            subTitle: doc['subTitleText1'],
+          amt: doc['amt1']
+        );
+      }).toList();
+      return mainList;
+    } catch (e) {
+      throw Exception('');
+    }
+  }
+
 }
