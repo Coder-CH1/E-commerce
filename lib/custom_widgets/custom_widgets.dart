@@ -118,7 +118,8 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   final Widget? leading;
   final Color? background;
   final TextStyle? textStyle;
-  const CustomAppBar({super.key, required this.title, this.leading, this.background, this.textStyle});
+  final Widget? trailingWidget;
+  const CustomAppBar({super.key, required this.title, this.leading, this.background, this.textStyle, this.trailingWidget});
 
   @override
   Widget build(BuildContext context) {
@@ -131,6 +132,9 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
           icon: const Icon(Icons.arrow_back_ios_new_sharp)
       ),
       backgroundColor: background,
+      actions: [
+        if (trailingWidget != null) trailingWidget!
+      ],
     );
   }
 
