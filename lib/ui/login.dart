@@ -4,11 +4,9 @@ import 'package:flutter/material.dart';
 /// LOGIN SCREEN
 class Login extends StatefulWidget {
   const Login({super.key});
-
   @override
   State<Login> createState() => _LoginState();
 }
-
 class _LoginState extends State<Login> {
   @override
   Widget build(BuildContext context) {
@@ -34,7 +32,7 @@ class _LoginState extends State<Login> {
             ),
             const SizedBox(height: 20),
             CustomButton(
-              text: 'SIGN UP', buttonTextStyle: const TextStyle(color: whiteColor),
+              text: 'LOGIN', buttonTextStyle: const TextStyle(color: whiteColor),
               onPressed: (){},
               color: redColor,
               side: BorderSide.none,
