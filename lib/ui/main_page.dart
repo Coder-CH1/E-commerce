@@ -62,12 +62,12 @@ class _MainPageState extends State<MainPage> {
                    child: Container(
                       height: screenHeight/8,
                      width: screenWidth/3,
-                     decoration: const BoxDecoration(
-                       image: DecorationImage(
-                           image: NetworkImage(''),
-                         fit: BoxFit.cover,
-                       )
-                     ),
+                     // decoration: const BoxDecoration(
+                     //   image: DecorationImage(
+                     //
+                     //     fit: BoxFit.cover,
+                     //   )
+                     // ),
                      child: Align(
                        alignment: Alignment.topLeft,
                        child: Container(
