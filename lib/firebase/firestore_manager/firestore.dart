@@ -24,7 +24,6 @@ class DatabaseManager {
     }
   }
 
-
   /// ASYNCHRONOUS METHOD TO FETCH DATA FROM FIRESTORE COLLECTION FOR MAIN
 Future<List<Main>> fetchMainData() async {
     try {
