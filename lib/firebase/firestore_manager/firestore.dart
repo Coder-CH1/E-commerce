@@ -29,7 +29,6 @@ class DatabaseManager {
 Future<List<Main>> fetchMainData() async {
     try {
       QuerySnapshot snapshot = await _firestore.collection('main').get();
-
       List<Main> mainList = snapshot.docs.map((doc) {
         return Main(
             img: doc['img1'],
@@ -45,7 +44,6 @@ Future<List<Main>> fetchMainData() async {
   Future<List<Women>> fetchWomenData() async {
     try {
       QuerySnapshot snapshot = await _firestore.collection('women').get();
-
       List<Women> mainList = snapshot.docs.map((doc) {
         return Women(
             img: doc['img1'],
@@ -61,7 +59,6 @@ Future<List<Main>> fetchMainData() async {
   Future<List<WomenTop>> fetchWomenTopData() async {
     try {
       QuerySnapshot snapshot = await _firestore.collection('womenTops').get();
-
       List<WomenTop> mainList = snapshot.docs.map((doc) {
         return WomenTop(
             img: doc['img1'],
@@ -75,5 +72,4 @@ Future<List<Main>> fetchMainData() async {
       throw Exception('');
     }
   }
-
 }
