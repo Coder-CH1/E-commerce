@@ -21,7 +21,7 @@ class _MainPageState extends State<MainPage> {
              width: screenWidth,
              decoration: const BoxDecoration(
                image: DecorationImage(
-                   image: AssetImage('asset/images/mainImage.png'),
+                   image: AssetImage('assets/images/mainImage.png'),
                  fit: BoxFit.cover,
                ),)),
          const SizedBox(height: 20),
