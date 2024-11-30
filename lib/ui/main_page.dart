@@ -151,6 +151,10 @@ class _CategoriesState extends State<Categories> {
             Icon(Icons.arrow_back_ios_new_sharp, color: darkBlue)
         ),
         title: 'Categories', textStyle: const TextStyle(fontSize: 22),
+        trailingWidget: IconButton(
+            onPressed: (){},
+            icon: const Icon(Icons.search),
+        )
       ),
       body: Column(
         children: [
