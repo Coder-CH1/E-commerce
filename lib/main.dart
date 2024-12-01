@@ -1,5 +1,4 @@
 import 'dart:async';
-
 import 'package:ecommerce/custom_widgets/custom_widgets.dart';
 import 'package:ecommerce/ui/signup.dart';
 import 'package:firebase_core/firebase_core.dart';
