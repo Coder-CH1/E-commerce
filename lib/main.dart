@@ -7,7 +7,12 @@ import 'package:flutter/material.dart';
 /// INITIALIZE FIREBASE
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp();
+  await Firebase.initializeApp(
+    options: const FirebaseOptions(
+        apiKey: 'AIzaSyCt5GocTEpVcwE7VmlqRzyy3Ndg67bKQ_Y',
+        appId: '1:268987935569:android:3e0c44d4933d70709fc170',
+        messagingSenderId: '268987935569',
+        projectId: 'ecommerce-4963a'));
   runApp(const MyApp());
 }
 
@@ -51,7 +56,14 @@ class _SplashState extends State<_Splash> {
   Widget build(BuildContext context) {
     return Container(
         color: Colors.white,
-        child:FlutterLogo(size:MediaQuery.of(context).size.height)
+        child: Container(
+          color: splashColor,
+          child: const CustomText(text: 'Hoodies', style: TextStyle(
+            fontSize: 40,
+            color: whiteColor,
+            fontWeight: FontWeight.bold,
+          )),
+        )
     );
   }
 }
