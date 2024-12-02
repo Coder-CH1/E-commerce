@@ -22,19 +22,19 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         scaffoldBackgroundColor: opacityWhite,
       ),
-      home: const Splash(),
+      home: const _Splash(),
     );
   }
 }
 
 /// SPLASH SCREEN
-class Splash extends StatefulWidget {
-  const Splash({super.key});
+class _Splash extends StatefulWidget {
+  const _Splash();
 
   @override
   _SplashState createState() => _SplashState();
 }
-class _SplashState extends State<Splash> {
+class _SplashState extends State<_Splash> {
   @override
   void initState() {
     super.initState();
