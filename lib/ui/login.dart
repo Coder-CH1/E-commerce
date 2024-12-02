@@ -25,11 +25,13 @@ class _LoginState extends State<Login> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const CustomTextField(
+              CustomTextField(
+                controller: emailController,
                 labelText: 'email',
               ),
               const SizedBox(height: 20),
-              const CustomTextField(
+              CustomTextField(
+                controller: passwordController,
                 labelText: 'password',
               ),
               const SizedBox(height: 20),

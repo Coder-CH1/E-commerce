@@ -21,11 +21,13 @@ class _SignupState extends State<Signup> {
           key: _formKey,
           child: Column(
             children: [
-              const CustomTextField(
+               CustomTextField(
+                controller: emailController,
                 labelText: 'email',
               ),
               const SizedBox(height: 20),
-              const CustomTextField(
+               CustomTextField(
+                controller: passwordController,
                 labelText: 'password',
               ),
               const SizedBox(height: 20),
