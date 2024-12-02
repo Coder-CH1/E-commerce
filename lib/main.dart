@@ -56,15 +56,12 @@ class _SplashState extends State<_Splash> {
   @override
   Widget build(BuildContext context) {
     return Container(
-        color: Colors.white,
-        child: Container(
-          color: splashColor,
-          child: const CustomText(text: 'Hoodies', style: TextStyle(
-            fontSize: 40,
-            color: whiteColor,
-            fontWeight: FontWeight.bold,
-          )),
-        )
+      color: splashColor,
+      child: const CustomText(text: 'Hoodies', style: TextStyle(
+        fontSize: 40,
+        color: whiteColor,
+        fontWeight: FontWeight.bold,
+      )),
     );
   }
 }
