@@ -96,11 +96,19 @@ class CustomTextField extends StatelessWidget {
   final bool obscureText;
   final TextInputType? keyboardType;
   final TextEditingController? controller;
-  const CustomTextField({super.key, this.labelText, this.hintText, this.obscureText = false, this.keyboardType, this.controller});
+  final FormFieldValidator<String>? validator;
+  const CustomTextField({super.key,
+    this.labelText,
+    this.hintText,
+    this.obscureText = false,
+    this.keyboardType,
+    this.controller,
+    this.validator,
+  });
 
   @override
   Widget build(BuildContext context) {
-    return TextField(
+    return TextFormField(
       controller: controller,
       keyboardType: keyboardType,
       obscureText: obscureText,
@@ -108,6 +116,7 @@ class CustomTextField extends StatelessWidget {
         labelText: labelText,
         hintText: hintText,
       ),
+      validator: validator,
     );
   }
 }
@@ -140,7 +149,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
 
   @override
   // TODO: implement preferredSize
-  Size get preferredSize => Size.fromHeight(kToolbarHeight);
+  Size get preferredSize => const Size.fromHeight(kToolbarHeight);
 }
 
 /// CUSTOM TEXTBUTTON

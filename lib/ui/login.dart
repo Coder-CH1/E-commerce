@@ -28,11 +28,22 @@ class _LoginState extends State<Login> {
               CustomTextField(
                 controller: emailController,
                 labelText: 'email',
+                validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return 'Please enter an email';
+                  }
+                }
               ),
               const SizedBox(height: 20),
               CustomTextField(
                 controller: passwordController,
                 labelText: 'password',
+                  validator: (value) {
+                    if (value == null || value.length < 6) {
+                      return 'Password must be at least 6 characters';
+                    }
+                    return null;
+                  }
               ),
               const SizedBox(height: 20),
               CustomTextButton(
