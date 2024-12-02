@@ -32,6 +32,9 @@ class _LoginState extends State<Login> {
                   if (value == null || value.isEmpty) {
                     return 'Please enter an email';
                   }
+                  if (!value.isValidEmail()) {
+                    return 'Please enter a valid email address';
+                  }
                 }
               ),
               const SizedBox(height: 20),
@@ -70,5 +73,11 @@ class _LoginState extends State<Login> {
         ),
       ),
     );
+  }
+  @override
+  void dispose() {
+    super.dispose();
+    emailController.dispose();
+    passwordController.dispose();
   }
 }
