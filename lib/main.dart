@@ -4,6 +4,7 @@ import 'package:ecommerce/ui/signup.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
+import 'package:animated_text_kit/animated_text_kit.dart';
 
 /// INITIALIZE FIREBASE
 void main() async {
@@ -51,14 +52,20 @@ class _SplashState extends State<_Splash> {
   }
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return Scaffold(
       backgroundColor: splashColor,
       body: Center(
-        child: CustomText(text: 'Hoodies', style: TextStyle(
-          fontSize: 40,
-          color: whiteColor,
-          fontWeight: FontWeight.bold,
-        )),
+        child: AnimatedTextKit(
+          animatedTexts: [
+            TyperAnimatedText(
+              'HOODIES',
+              speed: const Duration(milliseconds: 250),
+              textStyle: const TextStyle(color: whiteColor, fontSize: 18, fontWeight: FontWeight.w600
+              ),
+            ),
+          ],
+          totalRepeatCount: 2,
+        ),
       ),
     );
   }
