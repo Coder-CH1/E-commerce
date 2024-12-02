@@ -3,16 +3,17 @@ import 'package:ecommerce/custom_widgets/custom_widgets.dart';
 import 'package:ecommerce/ui/signup.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 /// INITIALIZE FIREBASE
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
-    options: const FirebaseOptions(
-        apiKey: 'AIzaSyCt5GocTEpVcwE7VmlqRzyy3Ndg67bKQ_Y',
-        appId: '1:268987935569:android:3e0c44d4933d70709fc170',
-        messagingSenderId: '268987935569',
-        projectId: 'ecommerce-4963a'));
+    options: FirebaseOptions(
+        apiKey: dotenv.env['FIREBASE_API_KEY']!,
+        appId: dotenv.env['FIREBASE_APP_ID']!,
+        messagingSenderId: dotenv.env['FIREBASE_MESSAGING_SENDER_ID']!,
+        projectId: dotenv.env['FIREBASE_PROJECT_ID']!));
   runApp(const MyApp());
 }
 
