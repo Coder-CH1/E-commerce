@@ -35,6 +35,7 @@ class _LoginState extends State<Login> {
                   if (!value.isValidEmail()) {
                     return 'Please enter a valid email address';
                   }
+                  return null;
                 }
               ),
               const SizedBox(height: 20),
