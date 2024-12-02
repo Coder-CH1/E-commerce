@@ -8,6 +8,7 @@ class Login extends StatefulWidget {
   State<Login> createState() => _LoginState();
 }
 class _LoginState extends State<Login> {
+/// GLOBAL KEY FOR THE FORM STATE AND CONTROLLERS FOR EMAIL/PASSWORD INPUT FIELD
   final _formKey = GlobalKey<FormState>();
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
@@ -75,6 +76,7 @@ class _LoginState extends State<Login> {
       ),
     );
   }
+ /// DISPOSING THE CONTROLLERS
   @override
   void dispose() {
     super.dispose();
