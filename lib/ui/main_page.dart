@@ -5,16 +5,16 @@ import 'package:flutter/material.dart';
 class MainPage extends StatefulWidget {
   const MainPage({super.key});
   @override
-  State<MainPage> createState() => _MainPageState();
+  State<MainPage> createState() => MainPageState();
 }
-class _MainPageState extends State<MainPage> {
+class MainPageState extends State<MainPage> {
   int _selectedIndex = 0;
   final List<Widget> pages = [
-    Container(color: blueColor),
-    Container(color: redColor),
-    Container(color: darkBlue),
-    Container(color: lightBlue),
-    Container(color: grayColor)
+    const Home(),
+    const Shop(),
+    const Bag(),
+    const Favorites(),
+    const Profile(),
   ];
 
   void _itemTapped(int index) {
@@ -24,11 +24,54 @@ class _MainPageState extends State<MainPage> {
   }
   @override
   Widget build(BuildContext context) {
+    return Scaffold(
+      bottomNavigationBar: BottomNavigationBar(
+        currentIndex: _selectedIndex,
+        onTap: _itemTapped,
+        selectedItemColor: redColor,
+        unselectedItemColor: grayColor,
+        selectedLabelStyle: const TextStyle(
+          color: redColor,
+        ),
+        backgroundColor: darkBlue,
+        items: [
+          BottomNavigationBarItem(
+              label: 'Home',
+              icon: Icon(Icons.home, color: _selectedIndex == 0 ? redColor : grayColor)),
+          BottomNavigationBarItem(
+              label: 'Shop',
+              icon: Icon(Icons.shopping_cart, color: _selectedIndex == 1 ? redColor : grayColor)),
+          BottomNavigationBarItem(
+              label: 'Bag',
+              icon: Icon(Icons.shopping_bag, color: _selectedIndex == 2 ? redColor : grayColor)),
+          BottomNavigationBarItem(
+              label: 'Favorite',
+              icon: Icon(Icons.favorite, color: _selectedIndex == 3 ? redColor : grayColor)),
+          BottomNavigationBarItem(
+              label: 'Profile',
+              icon: Icon(Icons.person, color: _selectedIndex == 4 ? redColor : grayColor)),
+        ],
+      ),
+    );
+  }
+}
+
+class Home extends StatefulWidget {
+  const Home({super.key});
+
+  @override
+  State<Home> createState() => _HomeState();
+}
+
+class _HomeState extends State<Home> {
+  @override
+  Widget build(BuildContext context) {
     List items = [];
     double screenHeight = MediaQuery.of(context).size.height;
-    double screenWidth = MediaQuery.of(context).size.height;
-    return Scaffold(
-      body: Column(
+    double screenWidth = MediaQuery.of(context).size.width;
+    return Container(
+      color: Colors.red,
+      child: Column(
         children: [
           Stack(
             children: [
@@ -123,35 +166,70 @@ class _MainPageState extends State<MainPage> {
           )
         ],
       ),
-      bottomNavigationBar: BottomNavigationBar(
-        currentIndex: _selectedIndex,
-        onTap: _itemTapped,
-        selectedItemColor: redColor,
-        unselectedItemColor: grayColor,
-        selectedLabelStyle: const TextStyle(
-          color: redColor,
-        ),
-        items: [
-          BottomNavigationBarItem(
-              label: 'Home',
-              icon: Icon(Icons.home, color: _selectedIndex == 0 ? redColor : grayColor)),
-          BottomNavigationBarItem(
-              label: 'Shop',
-              icon: Icon(Icons.shopping_cart, color: _selectedIndex == 1 ? redColor : grayColor)),
-          BottomNavigationBarItem(
-              label: 'Bag',
-              icon: Icon(Icons.shopping_bag, color: _selectedIndex == 2 ? redColor : grayColor)),
-          BottomNavigationBarItem(
-              label: 'Favorite',
-              icon: Icon(Icons.favorite, color: _selectedIndex == 3 ? redColor : grayColor)),
-          BottomNavigationBarItem(
-              label: 'Profile',
-              icon: Icon(Icons.person, color: _selectedIndex == 4 ? redColor : grayColor)),
-        ],
-      ),
     );
   }
 }
+
+///
+class Shop extends StatefulWidget {
+  const Shop({super.key});
+
+  @override
+  State<Shop> createState() => _ShopState();
+}
+
+class _ShopState extends State<Shop> {
+  @override
+  Widget build(BuildContext context) {
+    return const Placeholder();
+  }
+}
+
+///
+class Bag extends StatefulWidget {
+  const Bag({super.key});
+
+  @override
+  State<Bag> createState() => _BagState();
+}
+
+class _BagState extends State<Bag> {
+  @override
+  Widget build(BuildContext context) {
+    return const Placeholder();
+  }
+}
+
+///
+class Favorites extends StatefulWidget {
+  const Favorites({super.key});
+
+  @override
+  State<Favorites> createState() => _FavoritesState();
+}
+
+class _FavoritesState extends State<Favorites> {
+  @override
+  Widget build(BuildContext context) {
+    return const Placeholder();
+  }
+}
+
+///
+class Profile extends StatefulWidget {
+  const Profile({super.key});
+
+  @override
+  State<Profile> createState() => _ProfileState();
+}
+
+class _ProfileState extends State<Profile> {
+  @override
+  Widget build(BuildContext context) {
+    return const Placeholder();
+  }
+}
+
 
 ///
 class Categories extends StatefulWidget {
@@ -268,15 +346,17 @@ class _MenState extends State<Men> {
   }
 }
 
-///
 class Kids extends StatefulWidget {
   const Kids({super.key});
+
   @override
   State<Kids> createState() => _KidsState();
 }
+
 class _KidsState extends State<Kids> {
   @override
   Widget build(BuildContext context) {
-    return const Scaffold();
+    return const Placeholder();
   }
 }
+
