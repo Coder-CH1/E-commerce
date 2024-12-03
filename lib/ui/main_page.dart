@@ -59,13 +59,14 @@ class MainPageState extends State<MainPage> {
 }
 
 class Home extends StatefulWidget {
-  const Home({super.key});
+  const Home({Key? key}) : super(key: key);
 
   @override
   State<Home> createState() => _HomeState();
 }
+
 class _HomeState extends State<Home> {
-  List<String> listHeader = ['HEADER1','HEADER2','HEADER3','HEADER4','HEADER5','HEADER6','HEADER7','HEADER8','HEADER9','HEADER10',];
+  List<String> listHeader = ['HEADER1','HEADER2','HEADER3','HEADER4','HEADER5','HEADER6',];
   List<String> listTitle = ['title1','title2','title3','title4',];
   @override
   Widget build(BuildContext context) {
@@ -92,7 +93,7 @@ class _HomeState extends State<Home> {
                   ),
                   Positioned(
                       top: screenHeight/3.5,
-                      right: screenWidth/4.5,
+                      right: screenWidth/2.1,
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
@@ -151,7 +152,7 @@ class _HomeState extends State<Home> {
                 color: redColor,
                 child: Padding(
                   padding: const EdgeInsets.only(left: 12.0, top: 6.0, bottom: 2.0),
-                  child: Center(child: Text(listTitle[index], style: const TextStyle(fontSize: 14, color: Colors.black54),)),
+                  child: Center(child: Text(listTitle[index], style: const TextStyle(fontSize: 14, color: whiteColor),)),
                 ),
               );
             },
