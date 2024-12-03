@@ -178,7 +178,11 @@ class Shop extends StatefulWidget {
 class _ShopState extends State<Shop> {
   @override
   Widget build(BuildContext context) {
-    return  Container();
+    return  Scaffold(
+      body: Container(
+        color: darkBlue,
+      ),
+    );
   }
 }
 
@@ -193,7 +197,11 @@ class Bag extends StatefulWidget {
 class _BagState extends State<Bag> {
   @override
   Widget build(BuildContext context) {
-    return  Container();
+    return   Scaffold(
+        body: Container(
+        color: redColor,
+    ),
+    );
   }
 }
 
@@ -208,7 +216,11 @@ class Favorites extends StatefulWidget {
 class _FavoritesState extends State<Favorites> {
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return  Scaffold(
+        body: Container(
+        color: lightBlue,
+    ),
+    );
   }
 }
 
@@ -223,6 +235,10 @@ class Profile extends StatefulWidget {
 class _ProfileState extends State<Profile> {
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return  Scaffold(
+        body: Container(
+        color: grayColor,
+    ),
+    );
   }
 }
