@@ -66,7 +66,7 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-  List<String> listHeader = ['HEADER1','HEADER2','HEADER3','HEADER4','HEADER5','HEADER6',];
+  List<String> listHeader = ['New In','Top Selling','','Categories','Hot Picks','Trending',];
   List<String> listTitle = ['New','New','New','New',];
   @override
   Widget build(BuildContext context) {
