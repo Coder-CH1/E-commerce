@@ -57,7 +57,7 @@ class _SplashState extends State<_Splash> {
             ()=>Navigator.pushReplacement(context,
             MaterialPageRoute(builder:
                 (context) =>
-                const Signup()
+            const Home()
             )
         )
     );
@@ -71,8 +71,8 @@ class _SplashState extends State<_Splash> {
           animatedTexts: [
             TyperAnimatedText(
               'HOODIES',
-              speed: const Duration(milliseconds: 250),
-              textStyle: const TextStyle(color: whiteColor, fontSize: 18, fontWeight: FontWeight.w600
+              speed: const Duration(milliseconds: 100),
+              textStyle: const TextStyle(color: whiteColor, fontSize: 24, fontWeight: FontWeight.bold,
               ),
             ),
           ],
