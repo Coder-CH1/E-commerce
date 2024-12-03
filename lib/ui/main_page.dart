@@ -10,73 +10,103 @@ class MainPage extends StatefulWidget {
 class _MainPageState extends State<MainPage> {
   @override
   Widget build(BuildContext context) {
-     List items = [];
+    List items = [];
     double screenHeight = MediaQuery.of(context).size.height;
     double screenWidth = MediaQuery.of(context).size.height;
     return Scaffold(
-     body: Column(
-       children: [
-         Container(
-           height: screenHeight/2,
-             width: screenWidth,
-             decoration: const BoxDecoration(
-               image: DecorationImage(
-                   image: AssetImage('assets/images/mainImage.png'),
-                 fit: BoxFit.cover,
-               ),)),
-         const SizedBox(height: 20),
-         Row(
-           children: [
-             const CustomText(
-                 text: 'New',
-                 style: TextStyle(),
-               align: TextAlign.left,
-             ),
-             const Spacer(),
-             CustomTextButton(
-                 text: 'View all',
-                 onPressed: (){},
-                 color: titleAppBarColor,
-             )
-           ],
-         ),
-         const SizedBox(
-           height: 20
-         ),
-         const CustomText(
-             text: 'You have never seen it before!',
-             style: TextStyle()
-         ),
-         const SizedBox(
-           height: 20
-         ),
-         GridView.builder(
-             gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                 crossAxisCount: 3,
-               childAspectRatio: (screenWidth/3) / (screenHeight/8),
-             ),
-             itemCount: items.length,
-             itemBuilder: (context, index) {
-               final item = items[index];
-               return GridTile(
-                   child: Container(
-                      height: screenHeight/8,
-                     width: screenWidth/3,
-                     child: Align(
-                       alignment: Alignment.topLeft,
-                       child: Container(
-                         padding: const EdgeInsets.symmetric(vertical: 5),
-                         child: const CustomText(
-                             text: '',
-                             style: TextStyle()),
-                       ),
-                     ),
-                   )
-               );
-             },
-         )
-       ],
-     ),
+      body: Column(
+        children: [
+          Stack(
+            children: [
+              Container(
+                  height: screenHeight/1.8,
+                  width: screenWidth,
+                  decoration: const BoxDecoration(
+                    image: DecorationImage(
+                      image: AssetImage('assets/images/mainImage.png'),
+                      fit: BoxFit.cover,
+                    ),
+                  )
+              ),
+              Positioned(
+                  top: screenHeight/3.5,
+                  right: screenWidth/4.5,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      const CustomText(
+                          text: 'Fashion',
+                          style: TextStyle(fontSize: 50, color: whiteColor, fontWeight: FontWeight.bold)),
+                      const CustomText(
+                          text: 'Sale',
+                          style: TextStyle(fontSize: 50, color: whiteColor, fontWeight: FontWeight.bold)),
+                      CustomButton(
+                        text: 'Check',
+                        onPressed: (){},
+                        color: redColor,
+                        buttonHeight: 35,
+                        buttonWidth: 140,
+                        borderRadius: 18,
+                        buttonTextStyle: const TextStyle(color: whiteColor),
+                      ),
+                    ],
+                  )
+              )
+            ],
+          ),
+          const Spacer(),
+          Row(
+            children: [
+              const CustomText(
+                text: 'New',
+                style: TextStyle(color: darkBlue),
+                align: TextAlign.left,
+              ),
+              const Spacer(),
+              CustomTextButton(
+                text: 'View all',
+                onPressed: (){},
+                color: titleAppBarColor,
+              )
+            ],
+          ),
+          const SizedBox(
+              height: 20
+          ),
+          const CustomText(
+              text: 'You have never seen it before!',
+              style: TextStyle()
+          ),
+          const SizedBox(
+              height: 20
+          ),
+          GridView.builder(
+            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: 3,
+              childAspectRatio: (screenWidth/3) / (screenHeight/8),
+            ),
+            itemCount: items.length,
+            itemBuilder: (context, index) {
+              final item = items[index];
+              return GridTile(
+                  child: SizedBox(
+                    height: screenHeight/8,
+                    width: screenWidth/3,
+                    child: Align(
+                      alignment: Alignment.topLeft,
+                      child: Container(
+                        padding: const EdgeInsets.symmetric(vertical: 5),
+                        child: const CustomText(
+                            text: '',
+                            style: TextStyle()),
+                      ),
+                    ),
+                  )
+              );
+            },
+          )
+        ],
+      ),
     );
   }
 }
@@ -136,30 +166,30 @@ class _CategoriesState extends State<Categories> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: CustomAppBar(
-        leading: IconButton(
-            onPressed: () {
-              Navigator.pop(context);
-            },
-            icon: const
-            Icon(Icons.arrow_back_ios_new_sharp, color: darkBlue)
+        appBar: CustomAppBar(
+            leading: IconButton(
+                onPressed: () {
+                  Navigator.pop(context);
+                },
+                icon: const
+                Icon(Icons.arrow_back_ios_new_sharp, color: darkBlue)
+            ),
+            title: 'Categories', textStyle: const TextStyle(fontSize: 22),
+            trailingWidget: IconButton(
+              onPressed: (){},
+              icon: const Icon(Icons.search),
+            )
         ),
-        title: 'Categories', textStyle: const TextStyle(fontSize: 22),
-        trailingWidget: IconButton(
-            onPressed: (){},
-            icon: const Icon(Icons.search),
+        body: Column(
+          children: [
+            Expanded(
+                child: _buildContentForSegments(_selectedIndex))
+          ],
         )
-      ),
-      body: Column(
-        children: [
-          Expanded(
-              child: _buildContentForSegments(_selectedIndex))
-        ],
-      )
     );
   }
 
-///
+  ///
   Widget _buildSegments(String label, int index) {
     return InkWell(
       onTap: () {
@@ -179,7 +209,7 @@ class _CategoriesState extends State<Categories> {
     );
   }
 
-///
+  ///
   Widget _buildContentForSegments(int segment) {
     switch (segment) {
       case 0:
@@ -204,25 +234,25 @@ class _WomenState extends State<Women> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: GridView.builder(
-          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: 1),
-          itemBuilder: (context, index) {
-            return GridTile(
-                child: Container(
-                  decoration: const BoxDecoration(
-                    image: DecorationImage(
-                      image: NetworkImage('')
-                    )
-                  ),
-                  child: const CustomText(
-                      text: '',
-                      style: TextStyle()
-                  ),
-                )
-            );
-          }
-      )
+        body: GridView.builder(
+            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 1),
+            itemBuilder: (context, index) {
+              return GridTile(
+                  child: Container(
+                    decoration: const BoxDecoration(
+                        image: DecorationImage(
+                            image: NetworkImage('')
+                        )
+                    ),
+                    child: const CustomText(
+                        text: '',
+                        style: TextStyle()
+                    ),
+                  )
+              );
+            }
+        )
     );
   }
 }
