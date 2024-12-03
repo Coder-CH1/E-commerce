@@ -57,7 +57,7 @@ class _SplashState extends State<_Splash> {
             ()=>Navigator.pushReplacement(context,
             MaterialPageRoute(builder:
                 (context) =>
-            const Home()
+            const Signup(),
             )
         )
     );
