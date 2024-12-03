@@ -8,9 +8,15 @@ import 'package:animated_text_kit/animated_text_kit.dart';
 
 /// INITIALIZE FIREBASE
 void main() async {
+  //await dotenv.load(fileName: ".env");
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp();
-  await dotenv.load(fileName: ".env");
+  await Firebase.initializeApp(
+    options: FirebaseOptions(
+      apiKey: dotenv.env['FIREBASE_API_KEY']!,
+          appId: dotenv.env['FIREBASE_APP_ID']!,
+          messagingSenderId: dotenv.env['FIREBASE_MESSAGING_SENDER_ID']!,
+          projectId: dotenv.env['FIREBASE_PROJECT_ID']!,),
+  );
   runApp(const MyApp());
 }
 
