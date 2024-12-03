@@ -25,6 +25,7 @@ class MainPageState extends State<MainPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      body: pages[_selectedIndex],
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _selectedIndex,
         onTap: _itemTapped,
@@ -181,7 +182,7 @@ class Shop extends StatefulWidget {
 class _ShopState extends State<Shop> {
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return  Container();
   }
 }
 
@@ -196,7 +197,7 @@ class Bag extends StatefulWidget {
 class _BagState extends State<Bag> {
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return  Container();
   }
 }
 
@@ -211,7 +212,7 @@ class Favorites extends StatefulWidget {
 class _FavoritesState extends State<Favorites> {
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return Container();
   }
 }
 
@@ -226,7 +227,7 @@ class Profile extends StatefulWidget {
 class _ProfileState extends State<Profile> {
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return Container();
   }
 }
 
