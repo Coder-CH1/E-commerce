@@ -34,7 +34,7 @@ class MainPageState extends State<MainPage> {
         selectedLabelStyle: const TextStyle(
           color: redColor,
         ),
-        backgroundColor: darkBlue,
+        backgroundColor: Colors.white24,
         items: [
           BottomNavigationBarItem(
               label: 'Home',
