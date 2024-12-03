@@ -171,9 +171,10 @@ class CustomTextButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return CustomTextButton(
-        onPressed: onPressed,
-        text: '');
+    return TextButton(
+      onPressed: onPressed,
+      child: Text(text),
+    );
   }
 }
 
