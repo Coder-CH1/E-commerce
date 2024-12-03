@@ -56,8 +56,7 @@ class _LoginState extends State<Login> {
                 onPressed: (){},
               ),
               const SizedBox(height: 20),
-              Expanded(
-              child:  Align(
+              Align(
                 alignment: Alignment.bottomCenter,
                 child: CustomButton(
                   text: 'LOGIN', buttonTextStyle: const TextStyle(color: whiteColor),
@@ -68,7 +67,6 @@ class _LoginState extends State<Login> {
                   buttonWidth: MediaQuery.of(context).size.width,
                   borderRadius: 25,
                 ),
-              )
               )
             ],
           ),

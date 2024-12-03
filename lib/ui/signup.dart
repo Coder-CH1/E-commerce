@@ -52,20 +52,18 @@ class _SignupState extends State<Signup> {
                   onPressed: (){},
               ),
               const SizedBox(height: 20),
-              Expanded(
-                child: Align(
-                  alignment: Alignment.bottomCenter,
-                child: CustomButton(
-                  text: 'LOGIN', buttonTextStyle: const TextStyle(color: whiteColor),
-                    onPressed: (){},
-                    color: redColor,
-                  side: BorderSide.none,
-                  buttonHeight: 50,
-                  buttonWidth: MediaQuery.of(context).size.width,
-                  borderRadius: 25,
-                ),
-              )
-              )
+              Align(
+                alignment: Alignment.bottomCenter,
+              child: CustomButton(
+                text: 'LOGIN', buttonTextStyle: const TextStyle(color: whiteColor),
+                  onPressed: (){},
+                  color: redColor,
+                side: BorderSide.none,
+                buttonHeight: 50,
+                buttonWidth: MediaQuery.of(context).size.width,
+                borderRadius: 25,
+              ),
+                            )
             ],
           ),
         ),
