@@ -67,7 +67,7 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
   List<String> listHeader = ['HEADER1','HEADER2','HEADER3','HEADER4','HEADER5','HEADER6',];
-  List<String> listTitle = ['title1','title2','title3','title4',];
+  List<String> listTitle = ['New','New','New','New',];
   @override
   Widget build(BuildContext context) {
     List items = [];
@@ -141,21 +141,26 @@ class _HomeState extends State<Home> {
               style: const TextStyle(color: redColor, fontSize: 20,fontWeight: FontWeight.bold),
             ),
           ),
-          content: GridView.builder(
-            shrinkWrap: true,
-            physics: const NeverScrollableScrollPhysics(),
-            itemCount: listTitle.length,
-            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 4,childAspectRatio: 1,),
-            itemBuilder: (context, index){
-              return Card(
-                margin: const EdgeInsets.all(4.0),
-                color: redColor,
-                child: Padding(
-                  padding: const EdgeInsets.only(left: 12.0, top: 6.0, bottom: 2.0),
-                  child: Center(child: Text(listTitle[index], style: const TextStyle(fontSize: 14, color: whiteColor),)),
-                ),
-              );
-            },
+          content: SizedBox(
+            height: 200,
+            child: ListView.builder(
+              shrinkWrap: true,
+              scrollDirection: Axis.horizontal,
+              itemCount: listTitle.length,
+              itemBuilder: (context, index){
+                return SizedBox(
+                  width: 200,
+                  child: Card(
+                    margin: const EdgeInsets.all(4.0),
+                    color: redColor,
+                    child: Padding(
+                      padding: const EdgeInsets.only(left: 12.0, top: 6.0, bottom: 2.0),
+                      child: Center(child: Text(listTitle[index], style: const TextStyle(fontSize: 14, color: whiteColor),)),
+                    ),
+                  ),
+                );
+              },
+            ),
           ),
         );
       },
