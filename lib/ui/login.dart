@@ -1,6 +1,8 @@
 import 'package:ecommerce/custom_widgets/custom_widgets.dart';
 import 'package:flutter/material.dart';
 
+import 'main_page.dart';
+
 /// LOGIN SCREEN
 class Login extends StatefulWidget {
   const Login({super.key});
@@ -60,7 +62,12 @@ class _LoginState extends State<Login> {
                 alignment: Alignment.bottomCenter,
                 child: CustomButton(
                   text: 'LOGIN', buttonTextStyle: const TextStyle(color: whiteColor),
-                  onPressed: (){},
+                  onPressed: (){
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => const MainPage()),
+                    );
+                  },
                   color: redColor,
                   side: BorderSide.none,
                   buttonHeight: 50,

@@ -1,6 +1,8 @@
 import 'package:ecommerce/custom_widgets/custom_widgets.dart';
 import 'package:flutter/material.dart';
 
+import 'main_page.dart';
+
 /// SIGN UP SCREEN
 class Signup extends StatefulWidget {
   const Signup({super.key});
@@ -55,8 +57,13 @@ class _SignupState extends State<Signup> {
               Align(
                 alignment: Alignment.bottomCenter,
               child: CustomButton(
-                text: 'LOGIN', buttonTextStyle: const TextStyle(color: whiteColor),
-                  onPressed: (){},
+                text: 'SIGNUP', buttonTextStyle: const TextStyle(color: whiteColor),
+                  onPressed: (){
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => const MainPage()),
+                    );
+                  },
                   color: redColor,
                 side: BorderSide.none,
                 buttonHeight: 50,
