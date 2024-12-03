@@ -58,13 +58,6 @@ class MainPageState extends State<MainPage> {
   }
 }
 
-class Home extends StatefulWidget {
-  const Home({super.key});
-
-  @override
-  State<Home> createState() => _HomeState();
-}
-
 class _HomeState extends State<Home> {
   List<String> listHeader = ['HEADER1','HEADER2','HEADER3','HEADER4','HEADER5','HEADER6','HEADER7','HEADER8','HEADER9','HEADER10',];
   List<String> listTitle = ['title1','title2','title3','title4',];
