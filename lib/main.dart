@@ -8,7 +8,6 @@ import 'package:animated_text_kit/animated_text_kit.dart';
 
 /// INITIALIZE FIREBASE
 void main() async {
-  //await dotenv.load(fileName: ".env");
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
     options: FirebaseOptions(
