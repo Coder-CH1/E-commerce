@@ -1,6 +1,6 @@
 import 'dart:async';
 import 'package:ecommerce/custom_widgets/custom_widgets.dart';
-import 'package:ecommerce/ui/signup.dart';
+import 'package:ecommerce/ui/registration_login/signup.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';

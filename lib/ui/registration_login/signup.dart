@@ -1,7 +1,7 @@
 import 'package:ecommerce/custom_widgets/custom_widgets.dart';
 import 'package:flutter/material.dart';
 
-import 'main_page/main_page.dart';
+import '../main_page/main_page.dart';
 
 /// SIGN UP SCREEN
 class Signup extends StatefulWidget {
