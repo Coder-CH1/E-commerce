@@ -1,5 +1,6 @@
 import 'package:ecommerce/custom_widgets/custom_widgets.dart';
 import 'package:flutter/material.dart';
+import 'package:sticky_headers/sticky_headers/widget.dart';
 
 ///
 class MainPage extends StatefulWidget {
@@ -58,7 +59,7 @@ class MainPageState extends State<MainPage> {
 }
 
 class Home extends StatefulWidget {
-  const Home({Key? key}) : super(key: key);
+  const Home({super.key});
 
   @override
   State<Home> createState() => _HomeState();
