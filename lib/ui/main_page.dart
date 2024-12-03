@@ -34,7 +34,7 @@ class MainPageState extends State<MainPage> {
         selectedLabelStyle: const TextStyle(
           color: redColor,
         ),
-        backgroundColor: Colors.white24,
+        backgroundColor: darkBlue,
         items: [
           BottomNavigationBarItem(
               label: 'Home',
@@ -58,115 +58,106 @@ class MainPageState extends State<MainPage> {
 }
 
 class Home extends StatefulWidget {
-  const Home({super.key});
+  const Home({Key? key}) : super(key: key);
 
   @override
   State<Home> createState() => _HomeState();
 }
 
 class _HomeState extends State<Home> {
+  List<String> listHeader = ['HEADER1','HEADER2','HEADER3','HEADER4','HEADER5','HEADER6','HEADER7','HEADER8','HEADER9','HEADER10',];
+  List<String> listTitle = ['title1','title2','title3','title4',];
   @override
   Widget build(BuildContext context) {
     List items = [];
     double screenHeight = MediaQuery.of(context).size.height;
     double screenWidth = MediaQuery.of(context).size.width;
-    return Container(
-      color: Colors.red,
-      child: Column(
-        children: [
-          Stack(
+    return Scaffold(
+      body: SingleChildScrollView(
+        child: Container(
+          color: opacityWhite,
+          child: Column(
             children: [
-              Container(
-                  height: screenHeight/1.8,
-                  width: screenWidth,
-                  decoration: const BoxDecoration(
-                    image: DecorationImage(
-                      image: AssetImage('assets/images/mainImage.png'),
-                      fit: BoxFit.cover,
-                    ),
-                  )
-              ),
-              Positioned(
-                  top: screenHeight/3.5,
-                  right: screenWidth/4.5,
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      const CustomText(
-                          text: 'Fashion',
-                          style: TextStyle(fontSize: 50, color: whiteColor, fontWeight: FontWeight.bold)),
-                      const CustomText(
-                          text: 'Sale',
-                          style: TextStyle(fontSize: 50, color: whiteColor, fontWeight: FontWeight.bold)),
-                      CustomButton(
-                        text: 'Check',
-                        onPressed: (){},
-                        color: redColor,
-                        buttonHeight: 35,
-                        buttonWidth: 140,
-                        borderRadius: 18,
-                        buttonTextStyle: const TextStyle(color: whiteColor),
-                      ),
-                    ],
-                  )
-              )
-            ],
-          ),
-          const Spacer(),
-          Row(
-            children: [
-              const CustomText(
-                text: 'New',
-                style: TextStyle(color: darkBlue),
-                align: TextAlign.left,
-              ),
-              const Spacer(),
-              CustomTextButton(
-                text: 'View all',
-                onPressed: (){},
-                color: titleAppBarColor,
-              )
-            ],
-          ),
-          const SizedBox(
-            height: 20,
-          ),
-          const CustomText(
-              text: 'You have never seen it before!',
-              style: TextStyle()
-          ),
-          const SizedBox(
-              height: 20
-          ),
-          Expanded(
-            child: GridView.builder(
-              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 3,
-                childAspectRatio: (screenWidth/3) / (screenHeight/8),
-              ),
-              itemCount: items.length,
-              itemBuilder: (context, index) {
-                final item = items[index];
-                return GridTile(
-                    child: SizedBox(
-                      height: screenHeight/8,
-                      width: screenWidth/3,
-                      child: Align(
-                        alignment: Alignment.topLeft,
-                        child: Container(
-                          padding: const EdgeInsets.symmetric(vertical: 5),
-                          child: const CustomText(
-                              text: '',
-                              style: TextStyle()),
+              Stack(
+                children: [
+                  Container(
+                      height: screenHeight/1.8,
+                      width: screenWidth,
+                      decoration: const BoxDecoration(
+                        image: DecorationImage(
+                          image: AssetImage('assets/images/mainImage.png'),
+                          fit: BoxFit.cover,
                         ),
-                      ),
-                    )
-                );
-              },
-            ),
-          )
-        ],
+                      )
+                  ),
+                  Positioned(
+                      top: screenHeight/3.5,
+                      right: screenWidth/4.5,
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          const CustomText(
+                              text: 'Fashion',
+                              style: TextStyle(fontSize: 50, color: whiteColor, fontWeight: FontWeight.bold)),
+                          const CustomText(
+                              text: 'Sale',
+                              style: TextStyle(fontSize: 50, color: whiteColor, fontWeight: FontWeight.bold)),
+                          CustomButton(
+                            text: 'Check',
+                            onPressed: (){},
+                            color: redColor,
+                            buttonHeight: 35,
+                            buttonWidth: 140,
+                            borderRadius: 18,
+                            buttonTextStyle: const TextStyle(color: whiteColor),
+                          ),
+                        ],
+                      )
+                  )
+                ],
+              ),
+              gridHeader(),
+
+            ],
+          ),
+        ),
       ),
+    );
+  }
+  Widget gridHeader(){
+    return ListView.builder(
+      itemCount: listHeader.length,
+      shrinkWrap: true,
+      physics: const NeverScrollableScrollPhysics(),
+      itemBuilder: (context, index) {
+        return StickyHeader(
+          header: Container(
+            height: 38.0,
+            color: Colors.white,
+            padding: const EdgeInsets.symmetric(horizontal: 12.0),
+            alignment: Alignment.centerLeft,
+            child: Text(listHeader[index],
+              style: const TextStyle(color: redColor, fontSize: 20,fontWeight: FontWeight.bold),
+            ),
+          ),
+          content: GridView.builder(
+            shrinkWrap: true,
+            physics: const NeverScrollableScrollPhysics(),
+            itemCount: listTitle.length,
+            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 4,childAspectRatio: 1,),
+            itemBuilder: (context, index){
+              return Card(
+                margin: const EdgeInsets.all(4.0),
+                color: redColor,
+                child: Padding(
+                  padding: const EdgeInsets.only(left: 12.0, top: 6.0, bottom: 2.0),
+                  child: Center(child: Text(listTitle[index], style: const TextStyle(fontSize: 14, color: Colors.black54),)),
+                ),
+              );
+            },
+          ),
+        );
+      },
     );
   }
 }
