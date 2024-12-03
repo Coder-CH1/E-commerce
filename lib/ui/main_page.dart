@@ -8,6 +8,20 @@ class MainPage extends StatefulWidget {
   State<MainPage> createState() => _MainPageState();
 }
 class _MainPageState extends State<MainPage> {
+  int _selectedIndex = 0;
+  final List<Widget> pages = [
+    Container(color: blueColor),
+    Container(color: redColor),
+    Container(color: darkBlue),
+    Container(color: lightBlue),
+    Container(color: grayColor)
+  ];
+
+  void _itemTapped(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
+  }
   @override
   Widget build(BuildContext context) {
     List items = [];
@@ -71,7 +85,7 @@ class _MainPageState extends State<MainPage> {
             ],
           ),
           const SizedBox(
-              height: 20
+            height: 20,
           ),
           const CustomText(
               text: 'You have never seen it before!',
@@ -80,77 +94,61 @@ class _MainPageState extends State<MainPage> {
           const SizedBox(
               height: 20
           ),
-          GridView.builder(
-            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: 3,
-              childAspectRatio: (screenWidth/3) / (screenHeight/8),
-            ),
-            itemCount: items.length,
-            itemBuilder: (context, index) {
-              final item = items[index];
-              return GridTile(
-                  child: SizedBox(
-                    height: screenHeight/8,
-                    width: screenWidth/3,
-                    child: Align(
-                      alignment: Alignment.topLeft,
-                      child: Container(
-                        padding: const EdgeInsets.symmetric(vertical: 5),
-                        child: const CustomText(
-                            text: '',
-                            style: TextStyle()),
+          Expanded(
+            child: GridView.builder(
+              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 3,
+                childAspectRatio: (screenWidth/3) / (screenHeight/8),
+              ),
+              itemCount: items.length,
+              itemBuilder: (context, index) {
+                final item = items[index];
+                return GridTile(
+                    child: SizedBox(
+                      height: screenHeight/8,
+                      width: screenWidth/3,
+                      child: Align(
+                        alignment: Alignment.topLeft,
+                        child: Container(
+                          padding: const EdgeInsets.symmetric(vertical: 5),
+                          child: const CustomText(
+                              text: '',
+                              style: TextStyle()),
+                        ),
                       ),
-                    ),
-                  )
-              );
-            },
+                    )
+                );
+              },
+            ),
           )
         ],
       ),
-    );
-  }
-}
-
-///
-class MainPageViewContents extends StatelessWidget {
-  const MainPageViewContents({super.key});
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-    );
-  }
-}
-
-///
-class BottomNavigationBar extends StatelessWidget {
-  final List items;
-  const BottomNavigationBar({super.key, required this.items});
-  //int _selectedIndex = 0;
-  @override
-  Widget build(BuildContext context) {
-    return const BottomNavigationBar(
-      items: [
-        BottomNavigationBarItem(
-          label: 'Home',
-          icon: Icon(Icons.home),
+      bottomNavigationBar: BottomNavigationBar(
+        currentIndex: _selectedIndex,
+        onTap: _itemTapped,
+        selectedItemColor: redColor,
+        unselectedItemColor: grayColor,
+        selectedLabelStyle: const TextStyle(
+          color: redColor,
         ),
-        BottomNavigationBarItem(
-          label: 'Shop',
-          icon: Icon(Icons.shopping_cart),
-        ),
-        BottomNavigationBarItem(
-          label: 'Bag',
-          icon: Icon(Icons.shopping_bag),
-        ),
-        BottomNavigationBarItem(
-          label: 'Favorite',
-          icon: Icon(Icons.favorite),
-        ),
-        BottomNavigationBarItem(
-          label: 'Profile',
-          icon: Icon(Icons.person),
-        ),
-      ],
+        items: [
+          BottomNavigationBarItem(
+              label: 'Home',
+              icon: Icon(Icons.home, color: _selectedIndex == 0 ? redColor : grayColor)),
+          BottomNavigationBarItem(
+              label: 'Shop',
+              icon: Icon(Icons.shopping_cart, color: _selectedIndex == 1 ? redColor : grayColor)),
+          BottomNavigationBarItem(
+              label: 'Bag',
+              icon: Icon(Icons.shopping_bag, color: _selectedIndex == 2 ? redColor : grayColor)),
+          BottomNavigationBarItem(
+              label: 'Favorite',
+              icon: Icon(Icons.favorite, color: _selectedIndex == 3 ? redColor : grayColor)),
+          BottomNavigationBarItem(
+              label: 'Profile',
+              icon: Icon(Icons.person, color: _selectedIndex == 4 ? redColor : grayColor)),
+        ],
+      ),
     );
   }
 }
