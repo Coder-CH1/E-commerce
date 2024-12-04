@@ -12,46 +12,78 @@ class _CategoriesState extends State<Categories> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: CustomAppBar(
-            leading: IconButton(
-                onPressed: () {
-                  Navigator.pop(context);
-                },
-                icon: const
-                Icon(Icons.arrow_back_ios_new_sharp, color: darkBlue)
-            ),
-            title: 'Categories', textStyle: const TextStyle(fontSize: 22),
-            trailingWidget: IconButton(
-              onPressed: (){},
-              icon: const Icon(Icons.search),
-            )
-        ),
-        body: Column(
+      appBar: CustomAppBar(
+          leading: IconButton(
+              onPressed: () {
+                Navigator.pop(context);
+              },
+              icon: const
+              Icon(Icons.arrow_back_ios_new_sharp, color: darkBlue)
+          ),
+          title: 'Categories', textStyle: const TextStyle(fontSize: 22),
+          trailingWidget: IconButton(
+            onPressed: (){},
+            icon: const Icon(Icons.search),
+          )
+      ),
+      body: Column(
           children: [
+            const SizedBox(height: 40),
+            _buildCustomSegmentedControl(),
             Expanded(
-                child: _buildContentForSegments(_selectedIndex))
-          ],
-        )
+              child: _buildContentForSegments(_selectedIndex),
+            ),
+          ]
+      ),
     );
   }
-
-  ///
-  Widget _buildSegments(String label, int index) {
-    return InkWell(
-      onTap: () {
-        setState(() {
-          _selectedIndex = index;
-        });
-      },
-      child: Container(
-        margin: const EdgeInsets.only(right: 16),
-        child: Text(label, style: TextStyle(
-          fontSize: 16,
-          fontWeight: FontWeight.normal,
-          color: _selectedIndex == index ? Colors.black : Colors.grey,
-        ),
+  Widget _buildCustomSegmentedControl() {
+    return Padding(
+      padding: const EdgeInsets.only(left: 10),
+      child: SingleChildScrollView(
+        scrollDirection: Axis.horizontal,
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            _buildSegments('Men', 0),
+            _buildSegments('Women', 1),
+            _buildSegments('Kids', 2),
+          ],
         ),
       ),
+    );
+  }
+  ///
+  Widget _buildSegments(String label, int index) {
+    bool isSelected = _selectedIndex == index;
+    double segmentWidth = MediaQuery.of(context).size.width/3.5;
+    return Column(
+      children: [
+        InkWell(
+          onTap: () {
+            setState(() {
+              _selectedIndex = index;
+            });
+          },
+          child: Container(
+            margin: const EdgeInsets.only(right: 60),
+            padding: const EdgeInsets.only(left: 20, right: 20),
+            child: Text(label, style: TextStyle(
+              fontSize: 16,
+              fontWeight: FontWeight.normal,
+              color: _selectedIndex == index ? Colors.black : Colors.grey,
+            ),
+            ),
+          ),
+        ),
+        isSelected ? Container(
+          margin: EdgeInsets.only(top: 5),
+          height: 2,
+          width: segmentWidth,
+          color: redColor,
+        )
+            : Container(),
+      ],
     );
   }
 
@@ -117,7 +149,7 @@ class _MenState extends State<Men> {
 }
 
 class Kids extends StatefulWidget {
-  const Kids({super.key});
+  const Kids({Key? key}) : super(key: key);
 
   @override
   State<Kids> createState() => _KidsState();
@@ -126,7 +158,7 @@ class Kids extends StatefulWidget {
 class _KidsState extends State<Kids> {
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return const Scaffold();
   }
 }
 
