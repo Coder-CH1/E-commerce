@@ -78,7 +78,7 @@ class _CategoriesState extends State<Categories> {
         ),
         isSelected ? Stack(
             children: [  Container(
-              margin: EdgeInsets.only(top: 1, left: 0),
+              margin: const EdgeInsets.only(top: 1, left: 0),
               //padding:  EdgeInsets.only(right: 0, left: 0),
               height: 2,
               width: segmentWidth,
