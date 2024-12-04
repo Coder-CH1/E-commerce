@@ -56,7 +56,7 @@ class _CategoriesState extends State<Categories> {
   ///
   Widget _buildSegments(String label, int index) {
     bool isSelected = _selectedIndex == index;
-    double segmentWidth = MediaQuery.of(context).size.width/3.5;
+    double segmentWidth = MediaQuery.of(context).size.width/3.2;
     return Column(
       children: [
         InkWell(
@@ -67,7 +67,7 @@ class _CategoriesState extends State<Categories> {
           },
           child: Container(
             margin: const EdgeInsets.only(right: 60),
-            padding: const EdgeInsets.only(left: 20, right: 20),
+            padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 20),
             child: Text(label, style: TextStyle(
               fontSize: 16,
               fontWeight: FontWeight.normal,
@@ -76,11 +76,15 @@ class _CategoriesState extends State<Categories> {
             ),
           ),
         ),
-        isSelected ? Container(
-          margin: EdgeInsets.only(top: 5),
-          height: 2,
-          width: segmentWidth,
-          color: redColor,
+        isSelected ? Stack(
+            children: [  Container(
+              margin: EdgeInsets.only(top: 1, left: 0),
+              //padding:  EdgeInsets.only(right: 0, left: 0),
+              height: 2,
+              width: segmentWidth,
+              color: redColor,
+            ),
+            ]
         )
             : Container(),
       ],
