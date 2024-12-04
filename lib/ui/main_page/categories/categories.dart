@@ -60,15 +60,21 @@ class _CategoriesState extends State<Categories> {
               _selectedIndex = index;
             });
           },
-          child: Container(
-            margin: const EdgeInsets.only(right: 40),
-            padding: const EdgeInsets.only(left: 20, right: 20),
-            child: Text(label, style: TextStyle(
-              fontSize: 16,
-              fontWeight: FontWeight.normal,
-              color: _selectedIndex == index ? Colors.black : Colors.grey,
-            ),
-            ),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Container(
+                margin: const EdgeInsets.only(right: 45),
+                padding: const EdgeInsets.symmetric(horizontal: 10),
+                child: Text(label, style: TextStyle(
+                  fontSize: 16,
+                  fontWeight: FontWeight.normal,
+                  color: _selectedIndex == index ? Colors.black : Colors.grey,
+                ),
+                ),
+              ),
+            ],
           ),
         ),
         isSelected ? Align(
