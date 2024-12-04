@@ -153,7 +153,7 @@ class _MenState extends State<Men> {
 }
 
 class Kids extends StatefulWidget {
-  const Kids({Key? key}) : super(key: key);
+  const Kids({super.key});
 
   @override
   State<Kids> createState() => _KidsState();
