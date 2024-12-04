@@ -81,7 +81,6 @@ class _CategoriesState extends State<Categories> {
           alignment: FractionalOffset.centerLeft,
           child: Container(
             margin: const EdgeInsets.only(top: 1, left: 0, right: 40),
-            //padding:  EdgeInsets.only(right: 0, left: 0),
             height: 2,
             width: segmentWidth,
             color: redColor,
@@ -116,23 +115,22 @@ class Women extends StatefulWidget {
 class _WomenState extends State<Women> {
   @override
   Widget build(BuildContext context) {
-    //double width = MediaQuery.of(context).size.width/4;
     return Scaffold(
         body: ListView.builder(
             itemCount: 10,
             itemBuilder: (context, index) {
-              return const Padding(
-                padding: EdgeInsets.all(10),
+              return Padding(
+                padding: const EdgeInsets.all(10),
                 child: GridTile(
                     child: SizedBox(
                       height: 100,
                       width: 300,
                       child: Card(
                         color: redColor,
-                        child: CustomText(
-                            text: 'hi',
-                            style: TextStyle()
-                        ),
+                        child: IconButton(
+                          onPressed: (){},
+                          icon: const Icon(Icons.favorite_border)
+                        )
                       ),
                     )
                 ),
