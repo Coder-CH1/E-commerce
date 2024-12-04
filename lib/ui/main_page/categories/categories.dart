@@ -115,23 +115,26 @@ class Women extends StatefulWidget {
 class _WomenState extends State<Women> {
   @override
   Widget build(BuildContext context) {
+    //double width = MediaQuery.of(context).size.width/4;
     return Scaffold(
-        body: GridView.builder(
-            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 1),
+        body: ListView.builder(
+            itemCount: 10,
             itemBuilder: (context, index) {
-              return GridTile(
-                  child: Container(
-                    decoration: const BoxDecoration(
-                        image: DecorationImage(
-                            image: NetworkImage('')
-                        )
-                    ),
-                    child: const CustomText(
-                        text: '',
-                        style: TextStyle()
-                    ),
-                  )
+              return const Padding(
+                padding: EdgeInsets.all(10),
+                child: GridTile(
+                    child: SizedBox(
+                      height: 100,
+                      width: 300,
+                      child: Card(
+                        color: redColor,
+                        child: CustomText(
+                            text: 'hi',
+                            style: TextStyle()
+                        ),
+                      ),
+                    )
+                ),
               );
             }
         )
