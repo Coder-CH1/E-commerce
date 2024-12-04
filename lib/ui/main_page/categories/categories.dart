@@ -79,9 +79,8 @@ class _CategoriesState extends State<Categories> {
         isSelected ? Align(
           alignment: FractionalOffset.centerLeft,
           child: Container(
-            margin: const EdgeInsets.only(top: 1, left: 0),
-            //padding:  EdgeInsets.only(right: 0, left: 0),
-            height: 2,
+            margin: const EdgeInsets.only(top: 1, left: 0, right: 20),
+            height: 3,
             width: segmentWidth,
             color: redColor,
           ),
