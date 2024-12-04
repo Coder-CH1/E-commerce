@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:ecommerce/custom_widgets/custom_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:sticky_headers/sticky_headers/widget.dart';
@@ -67,7 +69,6 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
   List<String> listHeader = ['New In','Top Selling','Hot Deals','Categories','Hot Picks','Trending',];
-  List<String> listTitle = ['New','New','New','New',];
   @override
   Widget build(BuildContext context) {
     List items = [];
@@ -124,42 +125,75 @@ class _HomeState extends State<Home> {
       ),
     );
   }
-  Widget gridHeader(){
+  Widget gridHeader() {
     return ListView.builder(
       itemCount: listHeader.length,
       shrinkWrap: true,
       physics: const NeverScrollableScrollPhysics(),
       itemBuilder: (context, index) {
+        double height = (index % 2 == 0) ? 250.0 : 150.0;
+        double width = Random().nextInt(70) + 60.0;
         return StickyHeader(
           header: Container(
-            height: 38.0,
-            color: Colors.white,
-            padding: const EdgeInsets.symmetric(horizontal: 12.0),
-            alignment: Alignment.centerLeft,
-            child: Text(listHeader[index],
-              style: const TextStyle(color: redColor, fontSize: 20,fontWeight: FontWeight.bold),
-            ),
+              height: 38.0,
+              color: Colors.white,
+              padding: const EdgeInsets.symmetric(horizontal: 12.0),
+              alignment: Alignment.centerLeft,
+              child: Row(
+                children: [
+                  Text(listHeader[index],
+                    style: const TextStyle(color: redColor, fontSize: 20,fontWeight: FontWeight.bold),
+                  ),
+                  const SizedBox(width: 180),
+                  CustomTextButton(
+                    text: 'See All',
+                    onPressed: (){},
+                    buttonTextStyle: const TextStyle(color: Colors.red),
+                  ),
+                ],
+              )
           ),
           content: SizedBox(
-            height: 200,
-            child: ListView.builder(
-              shrinkWrap: true,
-              scrollDirection: Axis.horizontal,
-              itemCount: listTitle.length,
-              itemBuilder: (context, index){
-                return SizedBox(
-                  width: 200,
-                  child: Card(
-                    margin: const EdgeInsets.all(4.0),
-                    color: redColor,
-                    child: Padding(
-                      padding: const EdgeInsets.only(left: 12.0, top: 6.0, bottom: 2.0),
-                      child: Center(child: Text(listTitle[index], style: const TextStyle(fontSize: 14, color: whiteColor),)),
+              height: height,
+              //width: width,
+              child: Column(
+                children: [
+                  Expanded(
+                    child: GridView.builder(
+                      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                        crossAxisCount: 1,
+                        mainAxisSpacing: 10,
+                        crossAxisSpacing: 10,
+                      ),
+                      shrinkWrap: true,
+                      scrollDirection: Axis.horizontal,
+                      itemCount: 7,
+                      itemBuilder: (context, index){
+                        return SizedBox(
+                          height: height,
+                          width: width,
+                          child: Card(
+                            margin: const EdgeInsets.all(4.0),
+                            color: redColor,
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(10)
+                            ),
+                            child: const Padding(
+                              padding: EdgeInsets.only(left: 12.0, top: 6.0, bottom: 2.0),
+                              child: Center(
+                                  child: Text( 'New',
+                                    style: TextStyle(
+                                        fontSize: 14,
+                                        color: whiteColor),)
+                              ),
+                            ),
+                          ),
+                        );
+                      },
                     ),
                   ),
-                );
-              },
-            ),
+                ],
+              )
           ),
         );
       },
