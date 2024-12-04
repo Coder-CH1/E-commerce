@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import '../../../custom_widgets/custom_widgets.dart';
 
-///
 class Categories extends StatefulWidget {
   const Categories({super.key});
   @override
@@ -13,22 +12,23 @@ class _CategoriesState extends State<Categories> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: CustomAppBar(
-          leading: IconButton(
-              onPressed: () {
-                Navigator.pop(context);
-              },
-              icon: const
-              Icon(Icons.arrow_back_ios_new_sharp, color: darkBlue)
-          ),
-          title: 'Categories', textStyle: const TextStyle(fontSize: 22),
-          trailingWidget: IconButton(
-            onPressed: (){},
-            icon: const Icon(Icons.search),
-          )
+        leading: IconButton(
+            onPressed: () {
+              Navigator.pop(context);
+            },
+            icon: const
+            Icon(Icons.arrow_back_ios_new_sharp, color: darkBlue)
+        ),
+        title: 'Categories', textStyle: const TextStyle(fontSize: 22),
+        trailingWidget: IconButton(
+          onPressed: (){},
+          icon: const Icon(Icons.search),
+        ),
+        background: opacityWhite,
       ),
       body: Column(
           children: [
-            const SizedBox(height: 40),
+            const SizedBox(height: 10),
             _buildCustomSegmentedControl(),
             Expanded(
               child: _buildContentForSegments(_selectedIndex),
@@ -38,25 +38,20 @@ class _CategoriesState extends State<Categories> {
     );
   }
   Widget _buildCustomSegmentedControl() {
-    return Padding(
-      padding: const EdgeInsets.only(left: 10),
-      child: SingleChildScrollView(
-        scrollDirection: Axis.horizontal,
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            _buildSegments('Men', 0),
-            _buildSegments('Women', 1),
-            _buildSegments('Kids', 2),
-          ],
-        ),
-      ),
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: <Widget>[
+        _buildSegments('Men', 0),
+        _buildSegments('Women', 1),
+        _buildSegments('Kids', 2),
+      ],
+
     );
   }
   ///
   Widget _buildSegments(String label, int index) {
     bool isSelected = _selectedIndex == index;
-    double segmentWidth = MediaQuery.of(context).size.width/3.2;
+    double segmentWidth = MediaQuery.of(context).size.width/3;
     return Column(
       children: [
         InkWell(
@@ -66,8 +61,8 @@ class _CategoriesState extends State<Categories> {
             });
           },
           child: Container(
-            margin: const EdgeInsets.only(right: 60),
-            padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 20),
+            margin: const EdgeInsets.only(right: 40),
+            padding: const EdgeInsets.only(left: 20, right: 20),
             child: Text(label, style: TextStyle(
               fontSize: 16,
               fontWeight: FontWeight.normal,
@@ -79,8 +74,9 @@ class _CategoriesState extends State<Categories> {
         isSelected ? Align(
           alignment: FractionalOffset.centerLeft,
           child: Container(
-            margin: const EdgeInsets.only(top: 1, left: 0, right: 20),
-            height: 3,
+            margin: const EdgeInsets.only(top: 1, left: 0, right: 40),
+            //padding:  EdgeInsets.only(right: 0, left: 0),
+            height: 2,
             width: segmentWidth,
             color: redColor,
           ),
