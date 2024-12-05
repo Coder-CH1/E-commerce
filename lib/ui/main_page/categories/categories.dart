@@ -26,83 +26,28 @@ class _CategoriesState extends State<Categories> {
         ),
         background: opacityWhite,
       ),
-      body: const Column(
-          children: [
-            SizedBox(height: 10),
-            //_buildCustomSegmentedControl(),
-            // Expanded(
-            //   child: _buildContentForSegments(_selectedIndex),
-            // ),
-          ]
-      ),
+      body: CategoriesSegmentedControl(),
     );
   }
-  Widget _buildCustomSegmentedControl() {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: <Widget>[
-        _buildSegments('Men', 0),
-        _buildSegments('Women', 1),
-        _buildSegments('Kids', 2),
-      ],
+}
 
-    );
-  }
-  ///
-  Widget _buildSegments(String label, int index) {
-    bool isSelected = _selectedIndex == index;
-    double segmentWidth = MediaQuery.of(context).size.width/3;
-    return Column(
-      children: [
-        InkWell(
-          onTap: () {
-            setState(() {
-              _selectedIndex = index;
-            });
-          },
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              Container(
-                margin: const EdgeInsets.only(right: 45),
-                padding: const EdgeInsets.symmetric(horizontal: 10),
-                child: Text(label, style: TextStyle(
-                  fontSize: 16,
-                  fontWeight: FontWeight.normal,
-                  color: _selectedIndex == index ? Colors.black : Colors.grey,
-                ),
-                ),
-              ),
-            ],
-          ),
-        ),
-        isSelected ? Align(
-          alignment: FractionalOffset.centerLeft,
-          child: Container(
-            margin: const EdgeInsets.only(top: 1, left: 0, right: 40),
-            height: 2,
-            width: segmentWidth,
-            color: redColor,
-          ),
-        )
-            : Container(),
-      ],
-    );
-  }
+class CategoriesSegmentedControl extends StatefulWidget {
+  const CategoriesSegmentedControl({Key? key}) : super(key: key);
 
-  ///
-  Widget _buildContentForSegments(int segment) {
-    switch (segment) {
-      case 0:
-        return const Women();
-      case 1:
-        return const Men();
-      case 2:
-        return const Kids();
-      default:
-        return const Center(child: Text('default'));
-    }
+  @override
+  State<CategoriesSegmentedControl> createState() => _CategoriesSegmentedControlState();
+}
+
+class _CategoriesSegmentedControlState extends State<CategoriesSegmentedControl> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Column(
+        children: [
+
+        ],
+      )
+    );
   }
 }
 
