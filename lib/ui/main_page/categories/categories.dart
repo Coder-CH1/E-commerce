@@ -146,7 +146,6 @@ class Women extends StatefulWidget {
 class _WomenState extends State<Women> {
   @override
   Widget build(BuildContext context) {
-    //double width = MediaQuery.of(context).size.width/4;
     return const Scaffold(
       body: WomenGridLayout(),
     );
@@ -155,7 +154,6 @@ class _WomenState extends State<Women> {
 
 class WomenGridLayout extends StatelessWidget {
   const WomenGridLayout({super.key});
-
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
@@ -183,7 +181,6 @@ class WomenGridLayout extends StatelessWidget {
   }
 }
 
-
 ///
 class Men extends StatefulWidget {
   const Men({super.key});
@@ -201,7 +198,6 @@ class _MenState extends State<Men> {
 
 class MenGridLayout extends StatelessWidget {
   const MenGridLayout({super.key});
-
   @override
   Widget build(BuildContext context) {
     return Flexible(
