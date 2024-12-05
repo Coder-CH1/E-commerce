@@ -7,7 +7,6 @@ class Categories extends StatefulWidget {
   State<Categories> createState() => _CategoriesState();
 }
 class _CategoriesState extends State<Categories> {
-  int _selectedIndex = 0;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -26,25 +25,81 @@ class _CategoriesState extends State<Categories> {
         ),
         background: opacityWhite,
       ),
-      body: CategoriesSegmentedControl(),
+      body: const CategoriesSegmentedControl(),
     );
   }
 }
 
 class CategoriesSegmentedControl extends StatefulWidget {
-  const CategoriesSegmentedControl({Key? key}) : super(key: key);
+  const CategoriesSegmentedControl({super.key});
 
   @override
   State<CategoriesSegmentedControl> createState() => _CategoriesSegmentedControlState();
 }
 
 class _CategoriesSegmentedControlState extends State<CategoriesSegmentedControl> {
+  int _currentSelection = 0;
+  final List<bool> _selected = [true, false, false];
+  final Map<int, Widget> _screen = {
+    0: const Men(),
+    1: const Women(),
+    2: const Kids(),
+  };
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Column(
         children: [
-
+          ToggleButtons(
+              onPressed: (int index) {
+                setState(() {
+                  _currentSelection = index;
+                  for (int i = 0; i < _selected.length; i++) {
+                    _selected[i] = i == index;
+                  }
+                });
+              },
+              isSelected: _selected,
+            borderColor: Colors.transparent,
+            selectedColor: blackColor,
+            fillColor: Colors.transparent,
+            borderRadius: BorderRadius.zero,
+            renderBorder: false,
+            children:
+            const [
+              Padding(
+                padding: EdgeInsets.only(left: 5, right: 5),
+                child: CustomText(
+                    text: 'Men',
+                    style: TextStyle()),
+              ),
+              Padding(
+                padding: EdgeInsets.only(left: 60, right: 60),
+                child: CustomText(
+                    text: 'Women',
+                    style: TextStyle()),
+              ),
+              Padding(
+                padding: EdgeInsets.only(left: 5, right: 5),
+                child: CustomText(
+                    text: 'Kids',
+                    style: TextStyle()),
+              ),
+            ],
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: List.generate(3, (index) {
+              return Container(
+                margin: const EdgeInsets.symmetric(horizontal: 40),
+                height: 2,
+                width: _selected[index] ? 40 : 0,
+                color: _selected[index] ? redColor : Colors.transparent,
+              );
+            })
+          ),
+          Expanded(
+              child: _screen[_currentSelection]!),
         ],
       )
     );
