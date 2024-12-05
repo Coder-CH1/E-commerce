@@ -25,7 +25,12 @@ class _CategoriesState extends State<Categories> {
         ),
         background: opacityWhite,
       ),
-      body: const CategoriesSegmentedControl(),
+      body: Column(
+          children: [
+            const SizedBox(height: 10),
+            Expanded(child: CategoriesSegmentedControl()),
+          ]
+      ),
     );
   }
 }
@@ -74,7 +79,7 @@ class _CategoriesSegmentedControlState extends State<CategoriesSegmentedControl>
                     style: TextStyle()),
               ),
               Padding(
-                padding: EdgeInsets.only(left: 60, right: 60),
+                padding: EdgeInsets.only(left: 100, right: 100),
                 child: CustomText(
                     text: 'Women',
                     style: TextStyle()),
@@ -94,7 +99,7 @@ class _CategoriesSegmentedControlState extends State<CategoriesSegmentedControl>
                 margin: const EdgeInsets.symmetric(horizontal: 40),
                 height: 2,
                 width: _selected[index] ? 40 : 0,
-                color: _selected[index] ? redColor : Colors.transparent,
+                color: _selected[index] ? whiteColor : Colors.transparent,
               );
             })
           ),
