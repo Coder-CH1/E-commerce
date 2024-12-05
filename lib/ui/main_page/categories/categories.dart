@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../../../custom_widgets/custom_widgets.dart';
 
+///
 class Categories extends StatefulWidget {
   const Categories({super.key});
   @override
@@ -44,13 +45,17 @@ class CategoriesSegmentedControl extends StatefulWidget {
 
 class _CategoriesSegmentedControlState extends State<CategoriesSegmentedControl> {
   int _currentSelection = 0;
+
   final List<bool> _selected = [true, false, false];
+
   final Map<int, Widget> _screen = {
     0: const Men(),
     1: const Women(),
     2: const Kids(),
   };
+
   final GlobalKey _toggleButtonKey = GlobalKey();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
