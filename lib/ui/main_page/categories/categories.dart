@@ -146,31 +146,43 @@ class Women extends StatefulWidget {
 class _WomenState extends State<Women> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        body: ListView.builder(
-            itemCount: 10,
-            itemBuilder: (context, index) {
-              return Padding(
-                padding: const EdgeInsets.all(10),
-                child: GridTile(
-                    child: SizedBox(
-                      height: 100,
-                      width: 300,
-                      child: Card(
-                        color: redColor,
-                        child: IconButton(
-                          onPressed: (){},
-                          icon: const Icon(Icons.favorite_border)
-                        )
-                      ),
-                    )
-                ),
-              );
-            }
-        )
+    //double width = MediaQuery.of(context).size.width/4;
+    return const Scaffold(
+      body: WomenGridLayout(),
     );
   }
 }
+
+class WomenGridLayout extends StatelessWidget {
+  const WomenGridLayout({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return ListView.builder(
+        shrinkWrap: true,
+        itemCount: 10,
+        itemBuilder: (context, index) {
+          return const Padding(
+            padding: EdgeInsets.all(10),
+            child: GridTile(
+                child: SizedBox(
+                  height: 100,
+                  width: 300,
+                  child: Card(
+                    color: redColor,
+                    child: CustomText(
+                        text: 'hi',
+                        style: TextStyle()
+                    ),
+                  ),
+                )
+            ),
+          );
+        }
+    );
+  }
+}
+
 
 ///
 class Men extends StatefulWidget {
@@ -181,7 +193,39 @@ class Men extends StatefulWidget {
 class _MenState extends State<Men> {
   @override
   Widget build(BuildContext context) {
-    return const Scaffold();
+    return const Scaffold(
+      body: MenGridLayout(),
+    );
+  }
+}
+
+class MenGridLayout extends StatelessWidget {
+  const MenGridLayout({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Flexible(
+      child: GridView.builder(
+          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+            crossAxisCount: 2,
+            crossAxisSpacing: 4,
+            mainAxisSpacing: 4,
+          ),
+          itemCount: 20,
+          itemBuilder: (context, index) {
+            return const GridTile(
+                child: SizedBox(
+                  height: 300,
+                  width: 80,
+                  child: Card(
+                    color: redColor,
+                    child: Icon(Icons.favorite_border),
+                  ),
+                )
+            );
+          }
+      ),
+    );
   }
 }
 
