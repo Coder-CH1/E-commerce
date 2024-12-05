@@ -17,6 +17,11 @@ void main() async {
       projectId: dotenv.env['FIREBASE_PROJECT_ID']!,),
 
   );
+  try {
+  await dotenv.load(fileName: ".env"); // Load environment variables
+} catch (e) {
+  throw Exception('Error loading .env file: $e'); // Print error if any
+}
   runApp(const MyApp());
 }
 
