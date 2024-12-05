@@ -54,82 +54,80 @@ class _CategoriesSegmentedControlState extends State<CategoriesSegmentedControl>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
-        children: [
-          ToggleButtons(
-            key: _toggleButtonKey,
-              onPressed: (int index) {
-                setState(() {
-                  _currentSelection = index;
-                  for (int i = 0; i < _selected.length; i++) {
-                    _selected[i] = i == index;
-                  }
-                });
-              },
-              isSelected: _selected,
-            borderColor: Colors.transparent,
-            selectedColor: blackColor,
-            fillColor: Colors.transparent,
-            borderRadius: BorderRadius.zero,
-            renderBorder: false,
-            children:
-            const [
-              Padding(
-                padding: EdgeInsets.only(left: 5, right: 5),
-                child: CustomText(
-                    text: 'Men',
-                    style: TextStyle()),
+        body: Column(
+          children: [
+            Flexible(
+              child: ToggleButtons(
+                key: _toggleButtonKey,
+                onPressed: (int index) {
+                  setState(() {
+                    _currentSelection = index;
+                    for (int i = 0; i < _selected.length; i++) {
+                      _selected[i] = i == index;
+                    }
+                  });
+                },
+                isSelected: _selected,
+                borderColor: Colors.transparent,
+                selectedColor: blackColor,
+                fillColor: Colors.transparent,
+                borderRadius: BorderRadius.zero,
+                renderBorder: false,
+                children:
+                const [
+                  CustomText(
+                      text: 'Men',
+                      style: TextStyle()),
+                  Padding(
+                    padding: EdgeInsets.only(left: 90, right: 90),
+                    child: CustomText(
+                        text: 'Women',
+                        style: TextStyle()),
+                  ),
+                  CustomText(
+                      text: 'Kids',
+                      style: TextStyle()),
+                ],
               ),
-              Padding(
-                padding: EdgeInsets.only(left: 100, right: 100),
-                child: CustomText(
-                    text: 'Women',
-                    style: TextStyle()),
-              ),
-              Padding(
-                padding: EdgeInsets.only(left: 5, right: 5),
-                child: CustomText(
-                    text: 'Kids',
-                    style: TextStyle()),
-              ),
-            ],
-          ),
-        LayoutBuilder(
-            builder: (context, contraints) {
-              double segmentWidth = contraints.maxWidth / 3;
-              double lineOffSet = segmentWidth * _currentSelection;
+            ),
+            LayoutBuilder(
+                builder: (context, contraints) {
+                  double segmentWidth = contraints.maxWidth / 3;
+                  double lineOffSet = segmentWidth * _currentSelection;
 
-              return Stack(
-                  children: [
-                    Row(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        children: List.generate(3, (index) {
-                          return Container(
-                            margin: const EdgeInsets.symmetric(horizontal: 40),
-                            height: 2,
-                            width: segmentWidth,
-                            color: _selected[index] ? whiteColor : Colors
-                                .transparent,
-                          );
-                        })
-                    ),
-                    Positioned(
-                      left: lineOffSet,
-                        bottom: 0,
-                        child: Container(
-                          width: segmentWidth,
-                          color: redColor,
-                          height: 2,
+                  return Stack(
+                      children: [
+                        Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                            children: List.generate(3, (index) {
+                              return Expanded(
+                                child: Container(
+                                  margin: const EdgeInsets.symmetric(horizontal: 40),
+                                  height: 2,
+                                  width: segmentWidth,
+                                  color: _selected[index] ? whiteColor : Colors
+                                      .transparent,
+                                ),
+                              );
+                            })
+                        ),
+                        Positioned(
+                            left: lineOffSet,
+                            bottom: 0,
+                            child: Container(
+                              width: segmentWidth,
+                              color: redColor,
+                              height: 2,
+                            )
                         )
-                    )
-                  ]
-              );
-            }
-        ),
-          Expanded(
-              child: _screen[_currentSelection]!),
-        ],
-      )
+                      ]
+                  );
+                }
+            ),
+            Expanded(
+                child: _screen[_currentSelection]!),
+          ],
+        )
     );
   }
 }
