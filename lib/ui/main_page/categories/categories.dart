@@ -25,9 +25,9 @@ class _CategoriesState extends State<Categories> {
         ),
         background: opacityWhite,
       ),
-      body: Column(
+      body: const Column(
           children: [
-            const SizedBox(height: 10),
+            SizedBox(height: 10),
             Expanded(child: CategoriesSegmentedControl()),
           ]
       ),
@@ -50,12 +50,14 @@ class _CategoriesSegmentedControlState extends State<CategoriesSegmentedControl>
     1: const Women(),
     2: const Kids(),
   };
+  final GlobalKey _toggleButtonKey = GlobalKey();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Column(
         children: [
           ToggleButtons(
+            key: _toggleButtonKey,
               onPressed: (int index) {
                 setState(() {
                   _currentSelection = index;
@@ -92,17 +94,38 @@ class _CategoriesSegmentedControlState extends State<CategoriesSegmentedControl>
               ),
             ],
           ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: List.generate(3, (index) {
-              return Container(
-                margin: const EdgeInsets.symmetric(horizontal: 40),
-                height: 2,
-                width: _selected[index] ? 40 : 0,
-                color: _selected[index] ? whiteColor : Colors.transparent,
+        LayoutBuilder(
+            builder: (context, contraints) {
+              double segmentWidth = contraints.maxWidth / 3;
+              double lineOffSet = segmentWidth * _currentSelection;
+
+              return Stack(
+                  children: [
+                    Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: List.generate(3, (index) {
+                          return Container(
+                            margin: const EdgeInsets.symmetric(horizontal: 40),
+                            height: 2,
+                            width: segmentWidth,
+                            color: _selected[index] ? whiteColor : Colors
+                                .transparent,
+                          );
+                        })
+                    ),
+                    Positioned(
+                      left: lineOffSet,
+                        bottom: 0,
+                        child: Container(
+                          width: segmentWidth,
+                          color: redColor,
+                          height: 2,
+                        )
+                    )
+                  ]
               );
-            })
-          ),
+            }
+        ),
           Expanded(
               child: _screen[_currentSelection]!),
         ],
