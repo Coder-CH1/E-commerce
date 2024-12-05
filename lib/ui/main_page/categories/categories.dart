@@ -26,9 +26,9 @@ class _CategoriesState extends State<Categories> {
         ),
         background: opacityWhite,
       ),
-      body: Column(
+      body: const Column(
           children: [
-            const SizedBox(height: 10),
+            SizedBox(height: 10),
             //_buildCustomSegmentedControl(),
             // Expanded(
             //   child: _buildContentForSegments(_selectedIndex),
