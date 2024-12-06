@@ -160,18 +160,17 @@ class WomenGridLayout extends StatelessWidget {
         shrinkWrap: true,
         itemCount: 10,
         itemBuilder: (context, index) {
-          return const Padding(
-            padding: EdgeInsets.all(10),
+          return Padding(
+            padding: const EdgeInsets.all(10),
             child: GridTile(
                 child: SizedBox(
                   height: 100,
                   width: 300,
                   child: Card(
                     color: redColor,
-                    child: CustomText(
-                        text: 'hi',
-                        style: TextStyle()
-                    ),
+                    child: IconButton(
+                        onPressed: (){},
+                        icon: const Icon(Icons.favorite_border))
                   ),
                 )
             ),
