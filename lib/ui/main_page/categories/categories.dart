@@ -146,36 +146,29 @@ class Women extends StatefulWidget {
 class _WomenState extends State<Women> {
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      body: WomenGridLayout(),
-    );
-  }
-}
-
-class WomenGridLayout extends StatelessWidget {
-  const WomenGridLayout({super.key});
-  @override
-  Widget build(BuildContext context) {
-    return ListView.builder(
-        shrinkWrap: true,
-        itemCount: 10,
-        itemBuilder: (context, index) {
-          return Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: GridTile(
-                child: SizedBox(
-                  height: 100,
-                  width: 300,
-                  child: Card(
-                    color: redColor,
-                    child: IconButton(
-                        onPressed: (){},
-                        icon: const Icon(Icons.favorite_border))
-                  ),
-                )
-            ),
-          );
-        }
+    //double width = MediaQuery.of(context).size.width/4;
+    return Scaffold(
+      body: ListView.builder(
+          itemCount: 10,
+          itemBuilder: (context, index) {
+            return const Padding(
+              padding: EdgeInsets.all(5.0),
+              child: GridTile(
+                  child: SizedBox(
+                    height: 100,
+                    width: 300,
+                    child: Card(
+                      color: redColor,
+                      child: CustomText(
+                          text: 'hi',
+                          style: TextStyle()
+                      ),
+                    ),
+                  )
+              ),
+            );
+          }
+      ),
     );
   }
 }
@@ -189,34 +182,30 @@ class Men extends StatefulWidget {
 class _MenState extends State<Men> {
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      body: MenGridLayout(),
-    );
-  }
-}
-
-class MenGridLayout extends StatelessWidget {
-  const MenGridLayout({super.key});
-  @override
-  Widget build(BuildContext context) {
-    return Flexible(
-      child: GridView.builder(
+    return Scaffold(
+      body: GridView.builder(
+          shrinkWrap: true,
+          padding: EdgeInsets.zero,
           gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
             crossAxisCount: 2,
             crossAxisSpacing: 4,
             mainAxisSpacing: 4,
+            childAspectRatio: 1,
           ),
           itemCount: 20,
           itemBuilder: (context, index) {
-            return const GridTile(
-                child: SizedBox(
-                  height: 300,
-                  width: 80,
-                  child: Card(
-                    color: redColor,
-                    child: Icon(Icons.favorite_border),
-                  ),
-                )
+            return const Padding(
+              padding: EdgeInsets.all(5.0),
+              child: GridTile(
+                  child: SizedBox(
+                    height: 300,
+                    width: 80,
+                    child: Card(
+                      color: redColor,
+                      child: Icon(Icons.favorite_border),
+                    ),
+                  )
+              ),
             );
           }
       ),
@@ -225,7 +214,7 @@ class MenGridLayout extends StatelessWidget {
 }
 
 class Kids extends StatefulWidget {
-  const Kids({super.key});
+  const Kids({Key? key}) : super(key: key);
 
   @override
   State<Kids> createState() => _KidsState();
@@ -234,37 +223,29 @@ class Kids extends StatefulWidget {
 class _KidsState extends State<Kids> {
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      body: KidsGridLayout(),
-    );
-  }
-}
-
-class KidsGridLayout extends StatelessWidget {
-  const KidsGridLayout({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return ListView.builder(
-        shrinkWrap: true,
-        itemCount: 10,
-        itemBuilder: (context, index) {
-          return Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: GridTile(
-                child: SizedBox(
-                  height: 100,
-                  width: 300,
-                  child: Card(
-                      color: redColor,
-                      child: IconButton(
-                          onPressed: (){},
-                          icon: const Icon(Icons.favorite_border))
-                  ),
-                )
-            ),
-          );
-        }
+    return Scaffold(
+      body: Expanded(
+        child: GridView.count(
+          crossAxisCount: 2,
+          crossAxisSpacing: 10.0,
+          mainAxisSpacing: 10.0,
+          shrinkWrap: true,
+          children: List.generate(20, (index) {
+            return Padding(
+              padding: const EdgeInsets.all(10.0),
+              child: Container(
+                height: 300,
+                width: 100,
+                decoration: const BoxDecoration(
+                  color: redColor,
+                  borderRadius:
+                  BorderRadius.all(Radius.circular(50.0),),
+                ),
+              ),
+            );
+          },),
+        ),
+      ),
     );
   }
 }
