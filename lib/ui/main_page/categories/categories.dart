@@ -161,7 +161,7 @@ class WomenGridLayout extends StatelessWidget {
         itemCount: 10,
         itemBuilder: (context, index) {
           return Padding(
-            padding: const EdgeInsets.all(10),
+            padding: const EdgeInsets.all(8.0),
             child: GridTile(
                 child: SizedBox(
                   height: 100,
@@ -234,7 +234,37 @@ class Kids extends StatefulWidget {
 class _KidsState extends State<Kids> {
   @override
   Widget build(BuildContext context) {
-    return const Scaffold();
+    return const Scaffold(
+      body: KidsGridLayout(),
+    );
   }
 }
 
+class KidsGridLayout extends StatelessWidget {
+  const KidsGridLayout({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return ListView.builder(
+        shrinkWrap: true,
+        itemCount: 10,
+        itemBuilder: (context, index) {
+          return Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: GridTile(
+                child: SizedBox(
+                  height: 100,
+                  width: 300,
+                  child: Card(
+                      color: redColor,
+                      child: IconButton(
+                          onPressed: (){},
+                          icon: const Icon(Icons.favorite_border))
+                  ),
+                )
+            ),
+          );
+        }
+    );
+  }
+}
