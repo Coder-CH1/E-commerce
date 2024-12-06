@@ -137,10 +137,20 @@ class Women extends StatefulWidget {
   @override
   State<Women> createState() => _WomenState();
 }
-class _WomenState extends State<Women> {
+class _WomenState extends State<Women>  with SingleTickerProviderStateMixin {
+
+  late List<bool> _favorites;
+  @override
+  void initState() {
+    super.initState();
+    _favorites = List.generate(20, (index) => false);
+  }
+
+  late final AnimationController _controller = AnimationController(
+      duration: const Duration(milliseconds: 200), vsync: this, value: 1.0);
+
   @override
   Widget build(BuildContext context) {
-    //double width = MediaQuery.of(context).size.width/4;
     return ListView.builder(
         padding: const EdgeInsets.only(bottom: 0),
         itemCount: 10,
@@ -191,7 +201,17 @@ class Men extends StatefulWidget {
   @override
   State<Men> createState() => _MenState();
 }
-class _MenState extends State<Men> {
+class _MenState extends State<Men>  with SingleTickerProviderStateMixin {
+  late List<bool> _favorites;
+  @override
+  void initState() {
+    super.initState();
+    _favorites = List.generate(20, (index) => false);
+  }
+
+  late final AnimationController _controller = AnimationController(
+      duration: const Duration(milliseconds: 200), vsync: this, value: 1.0);
+
   @override
   Widget build(BuildContext context) {
     return GridView.builder(
@@ -246,13 +266,23 @@ class _MenState extends State<Men> {
 }
 
 class Kids extends StatefulWidget {
-  const Kids({super.key});
+  const Kids({Key? key}) : super(key: key);
 
   @override
   State<Kids> createState() => _KidsState();
 }
 
-class _KidsState extends State<Kids> {
+class _KidsState extends State<Kids> with SingleTickerProviderStateMixin {
+  late List<bool> _favorites;
+  @override
+  void initState() {
+    super.initState();
+    _favorites = List.generate(20, (index) => false);
+  }
+
+  late final AnimationController _controller = AnimationController(
+      duration: const Duration(milliseconds: 200), vsync: this, value: 1.0);
+
   @override
   Widget build(BuildContext context) {
     return GridView.count(
@@ -285,9 +315,28 @@ class _KidsState extends State<Kids> {
                       Positioned(
                         top: 8,
                         left: 8,
-                        child: IconButton(
-                            onPressed: () {},
-                            icon: const Icon(Icons.favorite_border)),
+                        child: ScaleTransition(
+                          scale: Tween(begin: 0.7, end: 1.0).animate(
+                              CurvedAnimation(parent: _controller, curve: Curves.easeOut)),
+                          child: IconButton(
+                            onPressed: () {
+                              setState(() {
+                                _favorites[index] = !_favorites[index];
+                              });
+                              _controller
+                                  .reverse()
+                                  .then((value) => _controller.forward());
+                            },
+                            icon: _favorites[index]  ? const Icon(
+                              Icons.favorite,
+                              size: 30,
+                              color: Colors.red,
+                            )
+                                : const Icon(
+                              Icons.favorite_border,
+                              size: 30,
+                            ),),
+                        ),
                       ),
                     ]
                 ),
@@ -298,7 +347,13 @@ class _KidsState extends State<Kids> {
       },),
     );
   }
+  @override
+  void dispose() {
+    super.dispose();
+    _controller.dispose();
+  }
 }
+
 
 
 
