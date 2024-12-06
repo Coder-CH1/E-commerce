@@ -137,15 +137,17 @@ class Women extends StatefulWidget {
   @override
   State<Women> createState() => _WomenState();
 }
-class _WomenState extends State<Women> with SingleTickerProviderStateMixin {
+class _WomenState extends State<Women> with TickerProviderStateMixin {
   late List<bool> _favorites;
-  late final AnimationController _controller;
+  late List<AnimationController> _controller;
   @override
   void initState() {
     super.initState();
     _favorites = List.generate(20, (index) => false);
-    _controller  = AnimationController(
-        duration: const Duration(milliseconds: 200), vsync: this, value: 1.0);
+    _controller  = List.generate(20, (index) => AnimationController(
+        duration: const Duration(milliseconds: 200),
+        vsync: this),
+    );
   }
   @override
   Widget build(BuildContext context) {
@@ -179,15 +181,15 @@ class _WomenState extends State<Women> with SingleTickerProviderStateMixin {
                               left: 8,
                               child: ScaleTransition(
                                 scale: Tween(begin: 0.7, end: 1.0).animate(
-                                    CurvedAnimation(parent: _controller, curve: Curves.easeOut)),
+                                    CurvedAnimation(parent: _controller[index], curve: Curves.easeOut)),
                                 child: IconButton(
                                   onPressed: () {
                                     setState(() {
                                       _favorites[index] = !_favorites[index];
                                     });
-                                    _controller
+                                    _controller[index]
                                         .reverse()
-                                        .then((value) => _controller.forward());
+                                        .then((value) => _controller[index].forward());
                                   },
                                   icon: _favorites[index]  ? const Icon(
                                     Icons.favorite,
@@ -213,7 +215,9 @@ class _WomenState extends State<Women> with SingleTickerProviderStateMixin {
   @override
   void dispose() {
     super.dispose();
-    _controller.dispose();
+    for(var controller in _controller) {
+      controller.dispose();
+    }
   }
 }
 
@@ -223,15 +227,17 @@ class Men extends StatefulWidget {
   @override
   State<Men> createState() => _MenState();
 }
-class _MenState extends State<Men> with SingleTickerProviderStateMixin {
+class _MenState extends State<Men> with TickerProviderStateMixin {
   late List<bool> _favorites;
-  late final AnimationController _controller;
+  late List<AnimationController> _controller;
   @override
   void initState() {
     super.initState();
     _favorites = List.generate(20, (index) => false);
-    _controller  = AnimationController(
-        duration: const Duration(milliseconds: 200), vsync: this, value: 1.0);
+    _controller  = List.generate(20, (index) => AnimationController(
+        duration: const Duration(milliseconds: 200),
+        vsync: this),
+    );
   }
   @override
   Widget build(BuildContext context) {
@@ -272,15 +278,15 @@ class _MenState extends State<Men> with SingleTickerProviderStateMixin {
                               left: 8,
                               child: ScaleTransition(
                                 scale: Tween(begin: 0.7, end: 1.0).animate(
-                                    CurvedAnimation(parent: _controller, curve: Curves.easeOut)),
+                                    CurvedAnimation(parent: _controller[index], curve: Curves.easeOut)),
                                 child: IconButton(
                                   onPressed: () {
                                     setState(() {
                                       _favorites[index] = !_favorites[index];
                                     });
-                                    _controller
+                                    _controller[index]
                                         .reverse()
-                                        .then((value) => _controller.forward());
+                                        .then((value) => _controller[index].forward());
                                   },
                                   icon: _favorites[index]  ? const Icon(
                                     Icons.favorite,
@@ -306,27 +312,30 @@ class _MenState extends State<Men> with SingleTickerProviderStateMixin {
   @override
   void dispose() {
     super.dispose();
-    _controller.dispose();
+    for(var controller in _controller) {
+      controller.dispose();
+    }
   }
 }
 
-///
 class Kids extends StatefulWidget {
-  const Kids({super.key});
+  const Kids({Key? key}) : super(key: key);
 
   @override
   State<Kids> createState() => _KidsState();
 }
 
-class _KidsState extends State<Kids> with SingleTickerProviderStateMixin {
+class _KidsState extends State<Kids> with TickerProviderStateMixin {
   late List<bool> _favorites;
-  late final AnimationController _controller;
+  late List<AnimationController> _controller;
   @override
   void initState() {
     super.initState();
     _favorites = List.generate(20, (index) => false);
-    _controller  = AnimationController(
-        duration: const Duration(milliseconds: 200), vsync: this, value: 1.0);
+    _controller  = List.generate(20, (index) => AnimationController(
+        duration: const Duration(milliseconds: 200),
+        vsync: this),
+    );
   }
 
   @override
@@ -363,15 +372,15 @@ class _KidsState extends State<Kids> with SingleTickerProviderStateMixin {
                         left: 8,
                         child: ScaleTransition(
                           scale: Tween(begin: 0.7, end: 1.0).animate(
-                              CurvedAnimation(parent: _controller, curve: Curves.easeOut)),
+                              CurvedAnimation(parent: _controller[index], curve: Curves.easeOut)),
                           child: IconButton(
                             onPressed: () {
                               setState(() {
                                 _favorites[index] = !_favorites[index];
                               });
-                              _controller
+                              _controller[index]
                                   .reverse()
-                                  .then((value) => _controller.forward());
+                                  .then((value) => _controller[index].forward());
                             },
                             icon: _favorites[index]  ? const Icon(
                               Icons.favorite,
@@ -396,7 +405,9 @@ class _KidsState extends State<Kids> with SingleTickerProviderStateMixin {
   @override
   void dispose() {
     super.dispose();
-    _controller.dispose();
+    for(var controller in _controller) {
+      controller.dispose();
+    }
   }
 }
 
