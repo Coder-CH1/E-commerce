@@ -142,7 +142,7 @@ class _WomenState extends State<Women> {
   Widget build(BuildContext context) {
     //double width = MediaQuery.of(context).size.width/4;
     return ListView.builder(
-        padding: EdgeInsets.only(bottom: 0),
+        padding: const EdgeInsets.only(bottom: 0),
         itemCount: 10,
         itemBuilder: (context, index) {
           return Padding(
@@ -151,11 +151,26 @@ class _WomenState extends State<Women> {
                 child: SizedBox(
                   height: 100,
                   width: 300,
-                  child: Card(
-                      color: redColor,
-                      child: IconButton(
-                          onPressed: () {},
-                          icon: const Icon(Icons.favorite_border))
+                  child: Container(
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(8),
+                        border: Border.all(
+                          width: 0.5,
+                          color: redColor,
+                        )
+                    ),
+                    child:  Stack(
+                        children:
+                        [
+                          Positioned(
+                            top: 8,
+                            left: 8,
+                            child: IconButton(
+                                onPressed: () {},
+                                icon: const Icon(Icons.favorite_border)),
+                          ),
+                        ]
+                    ),
                   ),
                 )
             ),
@@ -176,7 +191,7 @@ class _MenState extends State<Men> {
   Widget build(BuildContext context) {
     return GridView.builder(
         shrinkWrap: true,
-        padding: EdgeInsets.only(bottom: 0),
+        padding: const EdgeInsets.only(bottom: 0),
         gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: 2,
           crossAxisSpacing: 4,
@@ -191,11 +206,26 @@ class _MenState extends State<Men> {
                 child: SizedBox(
                   height: 300,
                   width: 80,
-                  child: Card(
-                      color: redColor,
-                      child:  IconButton(
-                          onPressed: () {},
-                          icon: const Icon(Icons.favorite_border))
+                  child: Container(
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(8),
+                        border: Border.all(
+                          width: 0.5,
+                          color: redColor,
+                        )
+                    ),
+                    child:  Stack(
+                        children:
+                        [
+                          Positioned(
+                            top: 8,
+                            left: 8,
+                            child: IconButton(
+                                onPressed: () {},
+                                icon: const Icon(Icons.favorite_border)),
+                          ),
+                        ]
+                    ),
                   ),
                 )
             ),
@@ -206,7 +236,7 @@ class _MenState extends State<Men> {
 }
 
 class Kids extends StatefulWidget {
-  const Kids({Key? key}) : super(key: key);
+  const Kids({super.key});
 
   @override
   State<Kids> createState() => _KidsState();
@@ -227,11 +257,26 @@ class _KidsState extends State<Kids> {
           child: SizedBox(
             height: 300,
             width: 100,
-            child: Card(
-              color: redColor,
-              child:  IconButton(
-                  onPressed: () {},
-                  icon: const Icon(Icons.favorite_border)),
+            child: Container(
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(8),
+                  border: Border.all(
+                    width: 0.5,
+                    color: redColor,
+                  )
+              ),
+              child:  Stack(
+                  children:
+                  [
+                    Positioned(
+                      top: 8,
+                      left: 8,
+                      child: IconButton(
+                          onPressed: () {},
+                          icon: const Icon(Icons.favorite_border)),
+                    ),
+                  ]
+              ),
             ),
           ),
         );
@@ -239,4 +284,6 @@ class _KidsState extends State<Kids> {
     );
   }
 }
+
+
 
