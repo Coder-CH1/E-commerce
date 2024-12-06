@@ -151,31 +151,47 @@ class _WomenState extends State<Women> {
                 child: SizedBox(
                   height: 100,
                   width: 300,
-                  child: Container(
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(8),
-                        border: Border.all(
-                          width: 0.5,
-                          color: redColor,
-                        )
-                    ),
-                    child:  Stack(
-                        children:
-                        [
-                          Positioned(
-                            top: 8,
-                            left: 8,
-                            child: IconButton(
-                                onPressed: () {},
-                                icon: const Icon(Icons.favorite_border)),
-                          ),
-                        ]
+                  child: InkWell(
+                    onTap: show,
+                    child: Container(
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(8),
+                          border: Border.all(
+                            width: 0.5,
+                            color: redColor,
+                          )
+                      ),
+                      child:  Stack(
+                          children:
+                          [
+                            Positioned(
+                              top: 8,
+                              left: 8,
+                              child: IconButton(
+                                  onPressed: () {},
+                                  icon: const Icon(Icons.favorite_border)),
+                            ),
+                          ]
+                      ),
                     ),
                   ),
                 )
             ),
           );
         }
+    );
+  }
+  void show() {
+    showModalBottomSheet(
+      context: context,
+      builder: (BuildContext context) {
+        return Container(
+          height: 400, // Set your desired height
+          child: Center(
+            child: Text('This is a Modal Bottom Sheet'),
+          ),
+        );
+      },
     );
   }
 }
@@ -206,25 +222,28 @@ class _MenState extends State<Men> {
                 child: SizedBox(
                   height: 300,
                   width: 80,
-                  child: Container(
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(8),
-                        border: Border.all(
-                          width: 0.5,
-                          color: redColor,
-                        )
-                    ),
-                    child:  Stack(
-                        children:
-                        [
-                          Positioned(
-                            top: 8,
-                            left: 8,
-                            child: IconButton(
-                                onPressed: () {},
-                                icon: const Icon(Icons.favorite_border)),
-                          ),
-                        ]
+                  child: InkWell(
+                    onTap: show,
+                    child: Container(
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(8),
+                          border: Border.all(
+                            width: 0.5,
+                            color: redColor,
+                          )
+                      ),
+                      child:  Stack(
+                          children:
+                          [
+                            Positioned(
+                              top: 8,
+                              left: 8,
+                              child: IconButton(
+                                  onPressed: () {},
+                                  icon: const Icon(Icons.favorite_border)),
+                            ),
+                          ]
+                      ),
                     ),
                   ),
                 )
@@ -233,10 +252,23 @@ class _MenState extends State<Men> {
         }
     );
   }
+  void show() {
+    showModalBottomSheet(
+      context: context,
+      builder: (BuildContext context) {
+        return Container(
+          height: 400, // Set your desired height
+          child: Center(
+            child: Text('This is a Modal Bottom Sheet'),
+          ),
+        );
+      },
+    );
+  }
 }
 
 class Kids extends StatefulWidget {
-  const Kids({super.key});
+  const Kids({Key? key}) : super(key: key);
 
   @override
   State<Kids> createState() => _KidsState();
@@ -257,25 +289,28 @@ class _KidsState extends State<Kids> {
           child: SizedBox(
             height: 300,
             width: 100,
-            child: Container(
-              decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(8),
-                  border: Border.all(
-                    width: 0.5,
-                    color: redColor,
-                  )
-              ),
-              child:  Stack(
-                  children:
-                  [
-                    Positioned(
-                      top: 8,
-                      left: 8,
-                      child: IconButton(
-                          onPressed: () {},
-                          icon: const Icon(Icons.favorite_border)),
-                    ),
-                  ]
+            child: InkWell(
+              onTap: show,
+              child: Container(
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(8),
+                    border: Border.all(
+                      width: 0.5,
+                      color: redColor,
+                    )
+                ),
+                child:  Stack(
+                    children:
+                    [
+                      Positioned(
+                        top: 8,
+                        left: 8,
+                        child: IconButton(
+                            onPressed: () {},
+                            icon: const Icon(Icons.favorite_border)),
+                      ),
+                    ]
+                ),
               ),
             ),
           ),
@@ -283,7 +318,21 @@ class _KidsState extends State<Kids> {
       },),
     );
   }
+  void show() {
+    showModalBottomSheet(
+      context: context,
+      builder: (BuildContext context) {
+        return Container(
+          height: 400, // Set your desired height
+          child: Center(
+            child: Text('This is a Modal Bottom Sheet'),
+          ),
+        );
+      },
+    );
+  }
 }
+
 
 
 
