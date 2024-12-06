@@ -202,8 +202,24 @@ void showCustomBottomSheet(BuildContext context, String message) {
       builder: (BuildContext context){
         return SizedBox(
           height: 400,
-          child: Center(
-            child: Text(message),
+          width: MediaQuery.of(context).size.width,
+          child: Column(
+            children: [
+              const Spacer(),
+              CustomText(
+                  text: message,
+                  style: const TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                      color: blackColor)),
+              const SizedBox(height: 20),
+              CustomButton(
+                text: 'Add to cart', buttonTextStyle: const TextStyle(color: whiteColor),
+                onPressed: () {},
+                color: redColor,
+              ),
+              const SizedBox(height: 30)
+            ],
           ),
         );
       });
