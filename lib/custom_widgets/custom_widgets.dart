@@ -195,8 +195,19 @@ class CustomListView<T> extends StatelessWidget {
   }
 }
 
-
-
+/// CUSTOM BOTTOM SHEET
+void showCustomBottomSheet(BuildContext context, String message) {
+  showModalBottomSheet(
+      context: context,
+      builder: (BuildContext context){
+        return Container(
+          height: 400,
+          child: Center(
+            child: Text(message),
+          ),
+        );
+      });
+}
 
 
 

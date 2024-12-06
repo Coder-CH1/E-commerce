@@ -152,7 +152,9 @@ class _WomenState extends State<Women> {
                   height: 100,
                   width: 300,
                   child: InkWell(
-                    onTap: show,
+                    onTap: () {
+                      showCustomBottomSheet(context, 'Bottom sheet for the women');
+                    },
                     child: Container(
                       decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(8),
@@ -179,19 +181,6 @@ class _WomenState extends State<Women> {
             ),
           );
         }
-    );
-  }
-  void show() {
-    showModalBottomSheet(
-      context: context,
-      builder: (BuildContext context) {
-        return Container(
-          height: 400, // Set your desired height
-          child: Center(
-            child: Text('This is a Modal Bottom Sheet'),
-          ),
-        );
-      },
     );
   }
 }
@@ -223,7 +212,9 @@ class _MenState extends State<Men> {
                   height: 300,
                   width: 80,
                   child: InkWell(
-                    onTap: show,
+                    onTap: () {
+                      showCustomBottomSheet(context, 'Bottom sheet for the men');
+                    },
                     child: Container(
                       decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(8),
@@ -252,23 +243,10 @@ class _MenState extends State<Men> {
         }
     );
   }
-  void show() {
-    showModalBottomSheet(
-      context: context,
-      builder: (BuildContext context) {
-        return Container(
-          height: 400, // Set your desired height
-          child: Center(
-            child: Text('This is a Modal Bottom Sheet'),
-          ),
-        );
-      },
-    );
-  }
 }
 
 class Kids extends StatefulWidget {
-  const Kids({Key? key}) : super(key: key);
+  const Kids({super.key});
 
   @override
   State<Kids> createState() => _KidsState();
@@ -290,7 +268,9 @@ class _KidsState extends State<Kids> {
             height: 300,
             width: 100,
             child: InkWell(
-              onTap: show,
+              onTap: () {
+                showCustomBottomSheet(context, 'Bottom sheet for the kids');
+              },
               child: Container(
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(8),
@@ -318,21 +298,7 @@ class _KidsState extends State<Kids> {
       },),
     );
   }
-  void show() {
-    showModalBottomSheet(
-      context: context,
-      builder: (BuildContext context) {
-        return Container(
-          height: 400, // Set your desired height
-          child: Center(
-            child: Text('This is a Modal Bottom Sheet'),
-          ),
-        );
-      },
-    );
-  }
 }
-
 
 
 
