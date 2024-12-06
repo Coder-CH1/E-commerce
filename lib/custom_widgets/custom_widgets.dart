@@ -196,7 +196,7 @@ class CustomListView<T> extends StatelessWidget {
 }
 
 /// CUSTOM BOTTOM SHEET
-void showCustomBottomSheet(BuildContext context, String message) {
+void showCustomBottomSheet(BuildContext context, String message, Widget customButtonContents) {
   showModalBottomSheet(
       context: context,
       builder: (BuildContext context){
@@ -213,19 +213,13 @@ void showCustomBottomSheet(BuildContext context, String message) {
                       fontWeight: FontWeight.bold,
                       color: blackColor)),
               const SizedBox(height: 20),
-              CustomButton(
-                text: 'Add to cart', buttonTextStyle: const TextStyle(color: whiteColor),
-                onPressed: () {},
-                color: redColor,
-              ),
+              customButtonContents,
               const SizedBox(height: 30)
             ],
           ),
         );
       });
 }
-
-
 
 
 

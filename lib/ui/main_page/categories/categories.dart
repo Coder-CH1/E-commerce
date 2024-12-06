@@ -164,7 +164,113 @@ class _WomenState extends State<Women> with TickerProviderStateMixin {
                   width: 300,
                   child: InkWell(
                     onTap: () {
-                      showCustomBottomSheet(context, 'Bottom sheet for the women');
+                      showCustomBottomSheet(context, 'Bottom sheet for the women', CustomButton(
+                        text: 'Women index item added to cart', buttonTextStyle: const TextStyle(color: whiteColor),
+                        onPressed: () {},
+                        color: redColor,
+                      ),);
+                    },
+                    child: Container(
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(8),
+                          border: Border.all(
+                            width: 0.5,
+                            color: redColor,
+                          )
+                      ),
+                      child:  Stack(
+                          children:
+                          [
+                            Positioned(
+                              top: 8,
+                              left: 8,
+                              child: ScaleTransition(
+                                scale: Tween(begin: 0.7, end: 1.0).animate(
+                                    CurvedAnimation(parent: _controller[index], curve: Curves.easeOut)),
+                                child: IconButton(
+                                  onPressed: () {
+                                    setState(() {
+                                      _favorites[index] = !_favorites[index];
+                                    });
+                                    _controller[index]
+                                        .reverse()
+                                        .then((value) => _controller[index].forward());
+                                  },
+                                  icon: _favorites[index]  ? const Icon(
+                                    Icons.favorite,
+                                    size: 30,
+                                    color: redColor,
+                                  )
+                                      : const Icon(
+                                    Icons.favorite_border,
+                                    size: 30,
+                                  ),),
+                              ),
+                            ),
+                          ]
+                      ),
+                    ),
+                  ),
+                )
+            ),
+          );
+        }
+    );
+  }
+/// DISPOSING THE CONTROLLERS
+  @override
+  void dispose() {
+    super.dispose();
+    for(var controller in _controller) {
+      controller.dispose();
+    }
+  }
+}
+
+/// MEN CLOTHING SEGMENT
+class Men extends StatefulWidget {
+  const Men({super.key});
+  @override
+  State<Men> createState() => _MenState();
+}
+class _MenState extends State<Men> with TickerProviderStateMixin {
+  late List<bool> _favorites;
+  late List<AnimationController> _controller;
+  @override
+  void initState() {
+    super.initState();
+    _favorites = List.generate(20, (index) => false);
+    _controller  = List.generate(20, (index) => AnimationController(
+        duration: const Duration(milliseconds: 200),
+        vsync: this),
+    );
+  }
+  @override
+  Widget build(BuildContext context) {
+    return GridView.builder(
+        shrinkWrap: true,
+        padding: const EdgeInsets.only(bottom: 0),
+        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+          crossAxisCount: 2,
+          crossAxisSpacing: 4,
+          mainAxisSpacing: 4,
+          childAspectRatio: 1,
+        ),
+        itemCount: 20,
+        itemBuilder: (context, index) {
+          return Padding(
+            padding: const EdgeInsets.all(5.0),
+            child: GridTile(
+                child: SizedBox(
+                  height: 300,
+                  width: 80,
+                  child: InkWell(
+                    onTap: () {
+                      showCustomBottomSheet(context, 'Bottom sheet for the men', CustomButton(
+                        text: 'Men index item added to cart', buttonTextStyle: const TextStyle(color: whiteColor),
+                        onPressed: () {},
+                        color: redColor,
+                      ),);
                     },
                     child: Container(
                       decoration: BoxDecoration(
@@ -224,106 +330,8 @@ class _WomenState extends State<Women> with TickerProviderStateMixin {
 }
 
 /// MEN CLOTHING SEGMENT
-class Men extends StatefulWidget {
-  const Men({super.key});
-  @override
-  State<Men> createState() => _MenState();
-}
-class _MenState extends State<Men> with TickerProviderStateMixin {
-  late List<bool> _favorites;
-  late List<AnimationController> _controller;
-  @override
-  void initState() {
-    super.initState();
-    _favorites = List.generate(20, (index) => false);
-    _controller  = List.generate(20, (index) => AnimationController(
-        duration: const Duration(milliseconds: 200),
-        vsync: this),
-    );
-  }
-  @override
-  Widget build(BuildContext context) {
-    return GridView.builder(
-        shrinkWrap: true,
-        padding: const EdgeInsets.only(bottom: 0),
-        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-          crossAxisCount: 2,
-          crossAxisSpacing: 4,
-          mainAxisSpacing: 4,
-          childAspectRatio: 1,
-        ),
-        itemCount: 20,
-        itemBuilder: (context, index) {
-          return Padding(
-            padding: const EdgeInsets.all(5.0),
-            child: GridTile(
-                child: SizedBox(
-                  height: 300,
-                  width: 80,
-                  child: InkWell(
-                    onTap: () {
-                      showCustomBottomSheet(context, 'Bottom sheet for the men');
-                    },
-                    child: Container(
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(8),
-                          border: Border.all(
-                            width: 0.5,
-                            color: redColor,
-                          )
-                      ),
-                      child:  Stack(
-                          children:
-                          [
-                            Positioned(
-                              top: 8,
-                              left: 8,
-                              child: ScaleTransition(
-                                scale: Tween(begin: 0.7, end: 1.0).animate(
-                                    CurvedAnimation(parent: _controller[index], curve: Curves.easeOut)),
-                                child: IconButton(
-                                  onPressed: () {
-                                    setState(() {
-                                      _favorites[index] = !_favorites[index];
-                                    });
-                                    _controller[index]
-                                        .reverse()
-                                        .then((value) => _controller[index].forward());
-                                  },
-                                  icon: _favorites[index]  ? const Icon(
-                                    Icons.favorite,
-                                    size: 30,
-                                    color: redColor,
-                                  )
-                                      : const Icon(
-                                    Icons.favorite_border,
-                                    size: 30,
-                                  ),),
-                              ),
-                            ),
-                          ]
-                      ),
-                    ),
-                  ),
-                )
-            ),
-          );
-        }
-    );
-  }
-  /// DISPOSING THE CONTROLLERS
-  @override
-  void dispose() {
-    super.dispose();
-    for(var controller in _controller) {
-      controller.dispose();
-    }
-  }
-}
-
-/// KIDS CLOTHING SEGMENT
 class Kids extends StatefulWidget {
-  const Kids({Key? key}) : super(key: key);
+  const Kids({super.key});
 
   @override
   State<Kids> createState() => _KidsState();
@@ -358,7 +366,11 @@ class _KidsState extends State<Kids> with TickerProviderStateMixin {
             width: 100,
             child: InkWell(
               onTap: () {
-                showCustomBottomSheet(context, 'Bottom sheet for the kids');
+                showCustomBottomSheet(context, 'Bottom sheet for the kids', CustomButton(
+                  text: 'Kids index item added to cart', buttonTextStyle: const TextStyle(color: whiteColor),
+                  onPressed: () {},
+                  color: redColor,
+                ),);
               },
               child: Container(
                 decoration: BoxDecoration(
@@ -406,7 +418,7 @@ class _KidsState extends State<Kids> with TickerProviderStateMixin {
       },),
     );
   }
-/// DISPOSING THE CONTROLLERS
+  /// DISPOSING THE CONTROLLERS
   @override
   void dispose() {
     super.dispose();
@@ -415,6 +427,8 @@ class _KidsState extends State<Kids> with TickerProviderStateMixin {
     }
   }
 }
+
+
 
 
 
