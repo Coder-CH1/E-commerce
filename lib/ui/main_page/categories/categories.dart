@@ -329,7 +329,7 @@ class _MenState extends State<Men> with TickerProviderStateMixin {
   }
 }
 
-/// MEN CLOTHING SEGMENT
+/// KIDS CLOTHING SEGMENT
 class Kids extends StatefulWidget {
   const Kids({super.key});
 
