@@ -137,18 +137,16 @@ class Women extends StatefulWidget {
   @override
   State<Women> createState() => _WomenState();
 }
-class _WomenState extends State<Women>  with SingleTickerProviderStateMixin {
-
+class _WomenState extends State<Women> with SingleTickerProviderStateMixin {
   late List<bool> _favorites;
+  late final AnimationController _controller;
   @override
   void initState() {
     super.initState();
     _favorites = List.generate(20, (index) => false);
+    _controller  = AnimationController(
+        duration: const Duration(milliseconds: 200), vsync: this, value: 1.0);
   }
-
-  late final AnimationController _controller = AnimationController(
-      duration: const Duration(milliseconds: 200), vsync: this, value: 1.0);
-
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
@@ -179,9 +177,28 @@ class _WomenState extends State<Women>  with SingleTickerProviderStateMixin {
                             Positioned(
                               top: 8,
                               left: 8,
-                              child: IconButton(
-                                  onPressed: () {},
-                                  icon: const Icon(Icons.favorite_border)),
+                              child: ScaleTransition(
+                                scale: Tween(begin: 0.7, end: 1.0).animate(
+                                    CurvedAnimation(parent: _controller, curve: Curves.easeOut)),
+                                child: IconButton(
+                                  onPressed: () {
+                                    setState(() {
+                                      _favorites[index] = !_favorites[index];
+                                    });
+                                    _controller
+                                        .reverse()
+                                        .then((value) => _controller.forward());
+                                  },
+                                  icon: _favorites[index]  ? const Icon(
+                                    Icons.favorite,
+                                    size: 30,
+                                    color: redColor,
+                                  )
+                                      : const Icon(
+                                    Icons.favorite_border,
+                                    size: 30,
+                                  ),),
+                              ),
                             ),
                           ]
                       ),
@@ -193,6 +210,11 @@ class _WomenState extends State<Women>  with SingleTickerProviderStateMixin {
         }
     );
   }
+  @override
+  void dispose() {
+    super.dispose();
+    _controller.dispose();
+  }
 }
 
 ///
@@ -201,17 +223,16 @@ class Men extends StatefulWidget {
   @override
   State<Men> createState() => _MenState();
 }
-class _MenState extends State<Men>  with SingleTickerProviderStateMixin {
+class _MenState extends State<Men> with SingleTickerProviderStateMixin {
   late List<bool> _favorites;
+  late final AnimationController _controller;
   @override
   void initState() {
     super.initState();
     _favorites = List.generate(20, (index) => false);
+    _controller  = AnimationController(
+        duration: const Duration(milliseconds: 200), vsync: this, value: 1.0);
   }
-
-  late final AnimationController _controller = AnimationController(
-      duration: const Duration(milliseconds: 200), vsync: this, value: 1.0);
-
   @override
   Widget build(BuildContext context) {
     return GridView.builder(
@@ -249,9 +270,28 @@ class _MenState extends State<Men>  with SingleTickerProviderStateMixin {
                             Positioned(
                               top: 8,
                               left: 8,
-                              child: IconButton(
-                                  onPressed: () {},
-                                  icon: const Icon(Icons.favorite_border)),
+                              child: ScaleTransition(
+                                scale: Tween(begin: 0.7, end: 1.0).animate(
+                                    CurvedAnimation(parent: _controller, curve: Curves.easeOut)),
+                                child: IconButton(
+                                  onPressed: () {
+                                    setState(() {
+                                      _favorites[index] = !_favorites[index];
+                                    });
+                                    _controller
+                                        .reverse()
+                                        .then((value) => _controller.forward());
+                                  },
+                                  icon: _favorites[index]  ? const Icon(
+                                    Icons.favorite,
+                                    size: 30,
+                                    color: redColor,
+                                  )
+                                      : const Icon(
+                                    Icons.favorite_border,
+                                    size: 30,
+                                  ),),
+                              ),
                             ),
                           ]
                       ),
@@ -263,10 +303,16 @@ class _MenState extends State<Men>  with SingleTickerProviderStateMixin {
         }
     );
   }
+  @override
+  void dispose() {
+    super.dispose();
+    _controller.dispose();
+  }
 }
 
+///
 class Kids extends StatefulWidget {
-  const Kids({Key? key}) : super(key: key);
+  const Kids({super.key});
 
   @override
   State<Kids> createState() => _KidsState();
@@ -274,14 +320,14 @@ class Kids extends StatefulWidget {
 
 class _KidsState extends State<Kids> with SingleTickerProviderStateMixin {
   late List<bool> _favorites;
+  late final AnimationController _controller;
   @override
   void initState() {
     super.initState();
     _favorites = List.generate(20, (index) => false);
+    _controller  = AnimationController(
+        duration: const Duration(milliseconds: 200), vsync: this, value: 1.0);
   }
-
-  late final AnimationController _controller = AnimationController(
-      duration: const Duration(milliseconds: 200), vsync: this, value: 1.0);
 
   @override
   Widget build(BuildContext context) {
@@ -330,7 +376,7 @@ class _KidsState extends State<Kids> with SingleTickerProviderStateMixin {
                             icon: _favorites[index]  ? const Icon(
                               Icons.favorite,
                               size: 30,
-                              color: Colors.red,
+                              color: redColor,
                             )
                                 : const Icon(
                               Icons.favorite_border,
