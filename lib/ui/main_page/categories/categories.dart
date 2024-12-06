@@ -45,55 +45,49 @@ class CategoriesSegmentedControl extends StatefulWidget {
 
 class _CategoriesSegmentedControlState extends State<CategoriesSegmentedControl> {
   int _currentSelection = 0;
-
   final List<bool> _selected = [true, false, false];
-
   final Map<int, Widget> _screen = {
     0: const Men(),
     1: const Women(),
     2: const Kids(),
   };
-
   final GlobalKey _toggleButtonKey = GlobalKey();
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         body: Column(
           children: [
-            Flexible(
-              child: ToggleButtons(
-                key: _toggleButtonKey,
-                onPressed: (int index) {
-                  setState(() {
-                    _currentSelection = index;
-                    for (int i = 0; i < _selected.length; i++) {
-                      _selected[i] = i == index;
-                    }
-                  });
-                },
-                isSelected: _selected,
-                borderColor: Colors.transparent,
-                selectedColor: blackColor,
-                fillColor: Colors.transparent,
-                borderRadius: BorderRadius.zero,
-                renderBorder: false,
-                children:
-                const [
-                  CustomText(
-                      text: 'Men',
+            ToggleButtons(
+              key: _toggleButtonKey,
+              onPressed: (int index) {
+                setState(() {
+                  _currentSelection = index;
+                  for (int i = 0; i < _selected.length; i++) {
+                    _selected[i] = i == index;
+                  }
+                });
+              },
+              isSelected: _selected,
+              borderColor: Colors.transparent,
+              selectedColor: blackColor,
+              fillColor: Colors.transparent,
+              borderRadius: BorderRadius.zero,
+              renderBorder: false,
+              children:
+              const [
+                CustomText(
+                    text: 'Men',
+                    style: TextStyle()),
+                Padding(
+                  padding: EdgeInsets.only(left: 90, right: 90),
+                  child: CustomText(
+                      text: 'Women',
                       style: TextStyle()),
-                  Padding(
-                    padding: EdgeInsets.only(left: 90, right: 90),
-                    child: CustomText(
-                        text: 'Women',
-                        style: TextStyle()),
-                  ),
-                  CustomText(
-                      text: 'Kids',
-                      style: TextStyle()),
-                ],
-              ),
+                ),
+                CustomText(
+                    text: 'Kids',
+                    style: TextStyle()),
+              ],
             ),
             LayoutBuilder(
                 builder: (context, contraints) {
@@ -129,7 +123,7 @@ class _CategoriesSegmentedControlState extends State<CategoriesSegmentedControl>
                   );
                 }
             ),
-            Expanded(
+            Flexible(
                 child: _screen[_currentSelection]!),
           ],
         )
@@ -147,28 +141,27 @@ class _WomenState extends State<Women> {
   @override
   Widget build(BuildContext context) {
     //double width = MediaQuery.of(context).size.width/4;
-    return Scaffold(
-      body: ListView.builder(
-          itemCount: 10,
-          itemBuilder: (context, index) {
-            return const Padding(
-              padding: EdgeInsets.all(5.0),
-              child: GridTile(
-                  child: SizedBox(
-                    height: 100,
-                    width: 300,
-                    child: Card(
-                      color: redColor,
-                      child: CustomText(
-                          text: 'hi',
-                          style: TextStyle()
-                      ),
+    return ListView.builder(
+        padding: const EdgeInsets.only(bottom: 0),
+        itemCount: 10,
+        itemBuilder: (context, index) {
+          return const Padding(
+            padding: EdgeInsets.all(5.0),
+            child: GridTile(
+                child: SizedBox(
+                  height: 100,
+                  width: 300,
+                  child: Card(
+                    color: redColor,
+                    child: CustomText(
+                        text: 'hi',
+                        style: TextStyle()
                     ),
-                  )
-              ),
-            );
-          }
-      ),
+                  ),
+                )
+            ),
+          );
+        }
     );
   }
 }
@@ -182,39 +175,37 @@ class Men extends StatefulWidget {
 class _MenState extends State<Men> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: GridView.builder(
-          shrinkWrap: true,
-          padding: EdgeInsets.zero,
-          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: 2,
-            crossAxisSpacing: 4,
-            mainAxisSpacing: 4,
-            childAspectRatio: 1,
-          ),
-          itemCount: 20,
-          itemBuilder: (context, index) {
-            return const Padding(
-              padding: EdgeInsets.all(5.0),
-              child: GridTile(
-                  child: SizedBox(
-                    height: 300,
-                    width: 80,
-                    child: Card(
-                      color: redColor,
-                      child: Icon(Icons.favorite_border),
-                    ),
-                  )
-              ),
-            );
-          }
-      ),
+    return GridView.builder(
+        shrinkWrap: true,
+        padding: const EdgeInsets.only(bottom: 0),
+        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+          crossAxisCount: 2,
+          crossAxisSpacing: 4,
+          mainAxisSpacing: 4,
+          childAspectRatio: 1,
+        ),
+        itemCount: 20,
+        itemBuilder: (context, index) {
+          return const Padding(
+            padding: EdgeInsets.all(5.0),
+            child: GridTile(
+                child: SizedBox(
+                  height: 300,
+                  width: 80,
+                  child: Card(
+                    color: redColor,
+                    child: Icon(Icons.favorite_border),
+                  ),
+                )
+            ),
+          );
+        }
     );
   }
 }
 
 class Kids extends StatefulWidget {
-  const Kids({Key? key}) : super(key: key);
+  const Kids({super.key});
 
   @override
   State<Kids> createState() => _KidsState();
@@ -223,26 +214,24 @@ class Kids extends StatefulWidget {
 class _KidsState extends State<Kids> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: GridView.count(
-        crossAxisCount: 2,
-        crossAxisSpacing: 10.0,
-        mainAxisSpacing: 10.0,
-        shrinkWrap: true,
-        padding: EdgeInsets.zero,
-        children: List.generate(20, (index) {
-          return Padding(
-            padding: const EdgeInsets.all(10.0),
-            child: SizedBox(
-              height: 300,
-              width: 100,
-              child: Card(
-                color: redColor,
-              ),
+    return GridView.count(
+      crossAxisCount: 2,
+      crossAxisSpacing: 10.0,
+      mainAxisSpacing: 10.0,
+      shrinkWrap: true,
+      padding: EdgeInsets.zero,
+      children: List.generate(20, (index) {
+        return const Padding(
+          padding: EdgeInsets.all(10.0),
+          child: SizedBox(
+            height: 300,
+            width: 100,
+            child: Card(
+              color: redColor,
             ),
-          );
-        },),
-      ),
+          ),
+        );
+      },),
     );
   }
 }
