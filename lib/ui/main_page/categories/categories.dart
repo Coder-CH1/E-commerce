@@ -165,7 +165,7 @@ class _WomenState extends State<Women> with TickerProviderStateMixin {
                   child: InkWell(
                     onTap: () {
                       showCustomBottomSheet(context, 'Bottom sheet for the women', CustomButton(
-                        text: 'Women index item added to cart', buttonTextStyle: const TextStyle(color: whiteColor),
+                        text: 'Women index item added to the cart', buttonTextStyle: const TextStyle(color: whiteColor),
                         onPressed: () {},
                         color: redColor,
                       ),);
@@ -267,7 +267,7 @@ class _MenState extends State<Men> with TickerProviderStateMixin {
                   child: InkWell(
                     onTap: () {
                       showCustomBottomSheet(context, 'Bottom sheet for the men', CustomButton(
-                        text: 'Men index item added to cart', buttonTextStyle: const TextStyle(color: whiteColor),
+                        text: 'Men index item added to the cart', buttonTextStyle: const TextStyle(color: whiteColor),
                         onPressed: () {},
                         color: redColor,
                       ),);
@@ -367,7 +367,7 @@ class _KidsState extends State<Kids> with TickerProviderStateMixin {
             child: InkWell(
               onTap: () {
                 showCustomBottomSheet(context, 'Bottom sheet for the kids', CustomButton(
-                  text: 'Kids index item added to cart', buttonTextStyle: const TextStyle(color: whiteColor),
+                  text: 'Kids index item added to the cart', buttonTextStyle: const TextStyle(color: whiteColor),
                   onPressed: () {},
                   color: redColor,
                 ),);
