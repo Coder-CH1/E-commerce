@@ -200,7 +200,7 @@ void showCustomBottomSheet(BuildContext context, String message) {
   showModalBottomSheet(
       context: context,
       builder: (BuildContext context){
-        return Container(
+        return SizedBox(
           height: 400,
           child: Center(
             child: Text(message),

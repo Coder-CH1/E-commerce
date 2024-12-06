@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import '../../../custom_widgets/custom_widgets.dart';
 
-///
+/// PARENT WIDGET
 class Categories extends StatefulWidget {
   const Categories({super.key});
   @override
@@ -36,6 +36,7 @@ class _CategoriesState extends State<Categories> {
   }
 }
 
+/// PARENT SEGMENTED CONTROL
 class CategoriesSegmentedControl extends StatefulWidget {
   const CategoriesSegmentedControl({super.key});
 
@@ -131,7 +132,7 @@ class _CategoriesSegmentedControlState extends State<CategoriesSegmentedControl>
   }
 }
 
-///
+/// WOMEN CLOTHING SEGMENT
 class Women extends StatefulWidget {
   const Women({super.key});
   @override
@@ -212,6 +213,7 @@ class _WomenState extends State<Women> with TickerProviderStateMixin {
         }
     );
   }
+  /// DISPOSING THE CONTROLLERS
   @override
   void dispose() {
     super.dispose();
@@ -221,7 +223,7 @@ class _WomenState extends State<Women> with TickerProviderStateMixin {
   }
 }
 
-///
+/// MEN CLOTHING SEGMENT
 class Men extends StatefulWidget {
   const Men({super.key});
   @override
@@ -309,6 +311,7 @@ class _MenState extends State<Men> with TickerProviderStateMixin {
         }
     );
   }
+  /// DISPOSING THE CONTROLLERS
   @override
   void dispose() {
     super.dispose();
@@ -318,6 +321,7 @@ class _MenState extends State<Men> with TickerProviderStateMixin {
   }
 }
 
+/// KIDS CLOTHING SEGMENT
 class Kids extends StatefulWidget {
   const Kids({Key? key}) : super(key: key);
 
@@ -402,6 +406,7 @@ class _KidsState extends State<Kids> with TickerProviderStateMixin {
       },),
     );
   }
+/// DISPOSING THE CONTROLLERS
   @override
   void dispose() {
     super.dispose();
