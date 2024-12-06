@@ -224,28 +224,26 @@ class _KidsState extends State<Kids> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Expanded(
-        child: GridView.count(
-          crossAxisCount: 2,
-          crossAxisSpacing: 10.0,
-          mainAxisSpacing: 10.0,
-          shrinkWrap: true,
-          children: List.generate(20, (index) {
-            return Padding(
-              padding: const EdgeInsets.all(10.0),
-              child: Container(
-                height: 300,
-                width: 100,
-                decoration: const BoxDecoration(
-                  color: redColor,
-                  borderRadius:
-                  BorderRadius.all(Radius.circular(50.0),),
-                ),
+      body: GridView.count(
+        crossAxisCount: 2,
+        crossAxisSpacing: 10.0,
+        mainAxisSpacing: 10.0,
+        shrinkWrap: true,
+        padding: EdgeInsets.zero,
+        children: List.generate(20, (index) {
+          return Padding(
+            padding: const EdgeInsets.all(10.0),
+            child: SizedBox(
+              height: 300,
+              width: 100,
+              child: Card(
+                color: redColor,
               ),
-            );
-          },),
-        ),
+            ),
+          );
+        },),
       ),
     );
   }
 }
+
