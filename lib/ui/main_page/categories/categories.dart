@@ -142,21 +142,20 @@ class _WomenState extends State<Women> {
   Widget build(BuildContext context) {
     //double width = MediaQuery.of(context).size.width/4;
     return ListView.builder(
-        padding: const EdgeInsets.only(bottom: 0),
+        padding: EdgeInsets.only(bottom: 0),
         itemCount: 10,
         itemBuilder: (context, index) {
-          return const Padding(
-            padding: EdgeInsets.all(5.0),
+          return Padding(
+            padding: const EdgeInsets.all(5.0),
             child: GridTile(
                 child: SizedBox(
                   height: 100,
                   width: 300,
                   child: Card(
-                    color: redColor,
-                    child: CustomText(
-                        text: 'hi',
-                        style: TextStyle()
-                    ),
+                      color: redColor,
+                      child: IconButton(
+                          onPressed: () {},
+                          icon: const Icon(Icons.favorite_border))
                   ),
                 )
             ),
@@ -177,7 +176,7 @@ class _MenState extends State<Men> {
   Widget build(BuildContext context) {
     return GridView.builder(
         shrinkWrap: true,
-        padding: const EdgeInsets.only(bottom: 0),
+        padding: EdgeInsets.only(bottom: 0),
         gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: 2,
           crossAxisSpacing: 4,
@@ -186,15 +185,17 @@ class _MenState extends State<Men> {
         ),
         itemCount: 20,
         itemBuilder: (context, index) {
-          return const Padding(
-            padding: EdgeInsets.all(5.0),
+          return Padding(
+            padding: const EdgeInsets.all(5.0),
             child: GridTile(
                 child: SizedBox(
                   height: 300,
                   width: 80,
                   child: Card(
-                    color: redColor,
-                    child: Icon(Icons.favorite_border),
+                      color: redColor,
+                      child:  IconButton(
+                          onPressed: () {},
+                          icon: const Icon(Icons.favorite_border))
                   ),
                 )
             ),
@@ -205,7 +206,7 @@ class _MenState extends State<Men> {
 }
 
 class Kids extends StatefulWidget {
-  const Kids({super.key});
+  const Kids({Key? key}) : super(key: key);
 
   @override
   State<Kids> createState() => _KidsState();
@@ -221,13 +222,16 @@ class _KidsState extends State<Kids> {
       shrinkWrap: true,
       padding: EdgeInsets.zero,
       children: List.generate(20, (index) {
-        return const Padding(
-          padding: EdgeInsets.all(10.0),
+        return Padding(
+          padding: const EdgeInsets.all(10.0),
           child: SizedBox(
             height: 300,
             width: 100,
             child: Card(
               color: redColor,
+              child:  IconButton(
+                  onPressed: () {},
+                  icon: const Icon(Icons.favorite_border)),
             ),
           ),
         );
