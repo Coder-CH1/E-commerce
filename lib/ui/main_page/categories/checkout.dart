@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-
 import '../../../custom_widgets/custom_widgets.dart';
 
-
+///
 class Checkout extends StatefulWidget {
   const Checkout({super.key});
 
@@ -58,6 +57,7 @@ class _CheckoutState extends State<Checkout> {
       ),
     );
   }
+///
   void _showOrdersPlacedSuccessfully() {
     showDialog(
         context: context,
