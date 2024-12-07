@@ -21,6 +21,8 @@ const redColor = Color(0xffDB3022);
 
 const grayColor = Color(0xff979797);
 
+const lightGray = Colors.grey;
+
 /// CUSTOM BUTTON
 class CustomButton extends StatelessWidget {
   final String text;
