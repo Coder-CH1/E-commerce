@@ -27,10 +27,10 @@ void main() async {
 
 /// ACCESSING VARIABLES THROUGHOUT THE APP
 void someFunction() {
-  print(dotenv.env['FIREBASE_API_KEY']);
-  print(dotenv.env['FIREBASE_APP_ID']);
-  print(dotenv.env['FIREBASE_MESSAGING_SENDER_ID']);
-  print(dotenv.env['FIREBASE_PROJECT_ID']);
+  throw Exception(dotenv.env['FIREBASE_API_KEY']);
+  throw Exception(dotenv.env['FIREBASE_APP_ID']);
+  throw Exception(dotenv.env['FIREBASE_MESSAGING_SENDER_ID']);
+  throw Exception(dotenv.env['FIREBASE_PROJECT_ID']);
 }
 
 class MyApp extends StatelessWidget {
