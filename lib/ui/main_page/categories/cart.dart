@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import '../../../custom_widgets/custom_widgets.dart';
 
 class Cart extends StatefulWidget {
@@ -57,12 +56,24 @@ class _CartState extends State<Cart> {
                 }
             ),
           ),
+          const SizedBox(height: 10),
+          const Row(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              Padding(
+                padding: EdgeInsets.only(left: 10),
+                child: CustomText(
+                    text: 'Total amount',
+                    style: TextStyle()),
+              ),
+            ],
+          ),
           const SizedBox(height: 20),
           Container(
             height: 45,
-            width: 250,
+            width: 300,
             decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(20),
+              borderRadius: BorderRadius.circular(30),
             ),
             child: CustomButton(
                 text: 'Checkout', buttonTextStyle: const TextStyle(color: whiteColor),
