@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import '../../../custom_widgets/custom_widgets.dart';
 
 class Cart extends StatefulWidget {
-  const Cart({super.key});
+  const Cart({Key? key}) : super(key: key);
 
   @override
   State<Cart> createState() => _CartState();
@@ -57,9 +57,18 @@ class _CartState extends State<Cart> {
                 }
             ),
           ),
-          CustomButton(
-              text: 'Checkout', buttonTextStyle: const TextStyle(color: whiteColor),
-              onPressed: () {},color: redColor),
+          const SizedBox(height: 20),
+          Container(
+            height: 45,
+            width: 250,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(20),
+            ),
+            child: CustomButton(
+                text: 'Checkout', buttonTextStyle: const TextStyle(color: whiteColor),
+                onPressed: () {},color: redColor),
+          ),
+          const SizedBox(height: 30),
         ],
       ),
     );

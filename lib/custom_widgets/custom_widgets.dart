@@ -49,7 +49,7 @@ class CustomButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialButton(
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(borderRadius ?? 12),
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(borderRadius ?? 15),
       side: side ?? BorderSide.none,
       ),
       height: buttonHeight ?? 40,
@@ -144,7 +144,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      title: Text(title, style: const TextStyle(color: titleAppBarColor)),
+      title: Text(title, style: const TextStyle()),
       leading: leading ?? IconButton(
           onPressed: () {
 
