@@ -1,5 +1,7 @@
+import 'package:checkout_screen_ui/checkout_ui.dart';
 import 'package:flutter/material.dart';
 import '../../../custom_widgets/custom_widgets.dart';
+import 'cart.dart';
 
 ///
 class Checkout extends StatefulWidget {
@@ -10,6 +12,7 @@ class Checkout extends StatefulWidget {
 }
 
 class _CheckoutState extends State<Checkout> {
+  final List<PriceItem> wearsBought = [];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -24,6 +27,21 @@ class _CheckoutState extends State<Checkout> {
       ),
       body: Column(
         children: [
+          Expanded(
+            child: CheckoutPage(data: CheckoutData(
+                priceItems: wearsBought,
+                payToName: '',
+                onCardPay: (paymentInfo, checkoutResult) =>
+                    const Cart(),
+            ),
+              footer: const CheckoutPageFooter(
+                  termsLink: 'http://example.com/terms',
+                  privacyLink: 'http://example.com/privacy',
+                note: 'Powered by Magic Payment Processor',
+                noteLink: 'http://example.com',
+              ),
+            ),
+          ),
           const Align(
             alignment: Alignment.centerLeft,
             child: Padding(
