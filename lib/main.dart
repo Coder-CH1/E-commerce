@@ -77,7 +77,7 @@ class _SplashState extends State<_Splash> {
         child: AnimatedTextKit(
           animatedTexts: [
             TyperAnimatedText(
-              'HOODIES',
+              'CLOT',
               speed: const Duration(milliseconds: 100),
               textStyle: const TextStyle(color: whiteColor, fontSize: 24, fontWeight: FontWeight.bold,
               ),
