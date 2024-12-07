@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import '../../../custom_widgets/custom_widgets.dart';
 
 class Cart extends StatefulWidget {
-  const Cart({Key? key}) : super(key: key);
+  const Cart({super.key});
 
   @override
   State<Cart> createState() => _CartState();
