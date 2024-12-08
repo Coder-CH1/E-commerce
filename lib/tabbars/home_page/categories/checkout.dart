@@ -97,6 +97,7 @@ class _CheckoutState extends State<Checkout> {
   }
 }
 
+/// PLACEHOLDER CLASS
 class EmptyClass extends StatelessWidget {
   const EmptyClass({super.key});
 
