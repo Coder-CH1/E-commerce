@@ -44,7 +44,7 @@ class _CheckoutState extends State<Checkout> {
               priceItems: wearsBought,
               payToName: '',
               onCardPay: (paymentInfo, checkoutResult) =>
-              const Empty(),
+              const EmptyClass(),
             ),
               footer: const CheckoutPageFooter(
                 termsLink: 'http://example.com/terms',
@@ -73,7 +73,7 @@ class _CheckoutState extends State<Checkout> {
       ),
     );
   }
-  ///
+  /// METHOD THAT SHOWS THE ALERT OF SUCCESSFUL PLACED ITEMS
   void _showOrdersPlacedSuccessfully() {
     showDialog(
         context: context,
@@ -97,11 +97,11 @@ class _CheckoutState extends State<Checkout> {
   }
 }
 
-class Empty extends StatelessWidget {
-  const Empty({super.key});
+class EmptyClass extends StatelessWidget {
+  const EmptyClass({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return Container();
   }
 }
