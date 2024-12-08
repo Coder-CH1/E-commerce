@@ -71,7 +71,7 @@ class Home extends StatefulWidget {
   State<Home> createState() => _HomeState();
 }
 class _HomeState extends State<Home> {
-  List<String> listHeader = ['New In','Top Selling','Categories'];
+  List<String> listHeader = ['New In','Top Selling'];
   @override
   Widget build(BuildContext context) {
     List items = [];
@@ -205,7 +205,7 @@ class _HomeState extends State<Home> {
           );
         } else {
           return Padding(
-            padding: const EdgeInsets.all(8.0),
+            padding: const EdgeInsets.only(top: 20, left: 8, right: 8, bottom: 2),
             child: SizedBox(
               height: 250,
               child: StaggeredGrid.count(
