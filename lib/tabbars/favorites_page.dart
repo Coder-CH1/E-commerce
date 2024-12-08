@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import '../custom_widgets/custom_widgets.dart';
 
-///
+/// TAB 3: FAVORITES
 class Favorites extends StatefulWidget {
   const Favorites({super.key});
 

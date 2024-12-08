@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import '../custom_widgets/custom_widgets.dart';
 
-///
+/// TAB 4: PROFILE
 class Profile extends StatefulWidget {
   const Profile({super.key});
 

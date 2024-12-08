@@ -63,6 +63,7 @@ class MainPageState extends State<MainPage> {
   }
 }
 
+/// TAB 0: HOME
 class Home extends StatefulWidget {
   const Home({super.key});
 
