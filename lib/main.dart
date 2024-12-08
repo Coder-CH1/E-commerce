@@ -1,6 +1,6 @@
 import 'dart:async';
 import 'package:ecommerce/custom_widgets/custom_widgets.dart';
-import 'package:ecommerce/ui/registration_login/signup.dart';
+import 'package:ecommerce/registration_login/signup.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
@@ -27,10 +27,10 @@ void main() async {
 
 /// ACCESSING VARIABLES THROUGHOUT THE APP
 void someFunction() {
-  throw Exception(dotenv.env['FIREBASE_API_KEY']);
-  throw Exception(dotenv.env['FIREBASE_APP_ID']);
-  throw Exception(dotenv.env['FIREBASE_MESSAGING_SENDER_ID']);
-  throw Exception(dotenv.env['FIREBASE_PROJECT_ID']);
+  print(dotenv.env['FIREBASE_API_KEY']);
+  print(dotenv.env['FIREBASE_APP_ID']);
+  print(dotenv.env['FIREBASE_MESSAGING_SENDER_ID']);
+  print(dotenv.env['FIREBASE_PROJECT_ID']);
 }
 
 class MyApp extends StatelessWidget {

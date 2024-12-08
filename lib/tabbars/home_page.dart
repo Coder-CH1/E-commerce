@@ -1,8 +1,11 @@
 import 'dart:math';
-
 import 'package:ecommerce/custom_widgets/custom_widgets.dart';
+import 'package:ecommerce/tabbars/profile_page.dart';
+import 'package:ecommerce/tabbars/shop_page.dart';
 import 'package:flutter/material.dart';
 import 'package:sticky_headers/sticky_headers/widget.dart';
+import 'bag_page.dart';
+import 'favorites_page.dart';
 
 ///
 class MainPage extends StatefulWidget {
@@ -201,78 +204,4 @@ class _HomeState extends State<Home> {
   }
 }
 
-///
-class Shop extends StatefulWidget {
-  const Shop({super.key});
 
-  @override
-  State<Shop> createState() => _ShopState();
-}
-
-class _ShopState extends State<Shop> {
-  @override
-  Widget build(BuildContext context) {
-    return  Scaffold(
-      body: Container(
-        color: darkBlue,
-      ),
-    );
-  }
-}
-
-///
-class Bag extends StatefulWidget {
-  const Bag({super.key});
-
-  @override
-  State<Bag> createState() => _BagState();
-}
-
-class _BagState extends State<Bag> {
-  @override
-  Widget build(BuildContext context) {
-    return   Scaffold(
-        body: Container(
-        color: redColor,
-    ),
-    );
-  }
-}
-
-///
-class Favorites extends StatefulWidget {
-  const Favorites({super.key});
-
-  @override
-  State<Favorites> createState() => _FavoritesState();
-}
-
-class _FavoritesState extends State<Favorites> {
-  @override
-  Widget build(BuildContext context) {
-    return  Scaffold(
-        body: Container(
-        color: lightBlue,
-    ),
-    );
-  }
-}
-
-///
-class Profile extends StatefulWidget {
-  const Profile({super.key});
-
-  @override
-  State<Profile> createState() => _ProfileState();
-}
-
-class _ProfileState extends State<Profile> {
-  @override
-  Widget build(BuildContext context) {
-    return  Scaffold(
-        body: Container(
-        color: grayColor,
-    ),
-    );
-  }
-}
