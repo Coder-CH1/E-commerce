@@ -212,26 +212,26 @@ class _HomeState extends State<Home> {
                 crossAxisCount: 4,
                 mainAxisSpacing: 8,
                 crossAxisSpacing: 8,
-                children: const [
+                children: [
                   StaggeredGridTile.count(
                     crossAxisCellCount: 2,
                     mainAxisCellCount: 2,
-                    child: Tile(imageAsset: 'assets/images/img01.png'),
+                    child: Tile(imageAsset: 'assets/images/img01.png', text: 'New collection', ontap: () {},),
                   ),
                   StaggeredGridTile.count(
                     crossAxisCellCount: 2,
                     mainAxisCellCount: 1,
-                    child: Tile(imageAsset: 'assets/images/img02.png'),
+                    child: Tile(imageAsset: 'assets/images/img02.png', text: 'Trendy', ontap: () {},),
                   ),
                   StaggeredGridTile.count(
                     crossAxisCellCount: 1,
                     mainAxisCellCount: 1,
-                    child: Tile(imageAsset: 'assets/images/img03.png'),
+                    child: Tile(imageAsset: 'assets/images/img03.png', text: 'Cutiez', ontap: () {},),
                   ),
                   StaggeredGridTile.count(
                     crossAxisCellCount: 1,
                     mainAxisCellCount: 1,
-                    child: Tile(imageAsset: 'assets/images/img04.png'),
+                    child: Tile(imageAsset: 'assets/images/img04.png', text: 'Image 4', ontap: () {},),
                   ),
                 ],
               ),
@@ -239,24 +239,6 @@ class _HomeState extends State<Home> {
           );
         }
       },
-    );
-  }
-}
-
-class Tile extends StatelessWidget {
-  final String imageAsset;
-  const Tile({super.key, required this.imageAsset});
-
-  @override
-  Widget build(BuildContext context) {
-    return ClipRRect(
-      borderRadius: BorderRadius.circular(8),
-      child: Image.asset(
-       imageAsset,
-       fit: BoxFit.cover,
-       width: double.infinity,
-       height: double.infinity,
-      ),
     );
   }
 }

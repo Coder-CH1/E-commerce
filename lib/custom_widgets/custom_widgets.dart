@@ -223,6 +223,43 @@ void showCustomBottomSheet(BuildContext context, String message, Widget customBu
       });
 }
 
+///
+class Tile extends StatelessWidget {
+  final String text;
+  final String imageAsset;
+  final VoidCallback ontap;
+  const Tile({super.key, required this.imageAsset, required this.text, required this.ontap});
+
+  @override
+  Widget build(BuildContext context) {
+    return ClipRRect(
+      borderRadius: BorderRadius.circular(8),
+      child: Stack(
+        fit: StackFit.expand,
+        children: [
+          Image.asset(
+            imageAsset,
+            fit: BoxFit.cover,
+            width: double.infinity,
+            height: double.infinity,
+          ),
+          Positioned(
+              top: 30,
+              left: 20,
+              child: InkWell(
+                onTap: (){},
+                child: Container(
+                  child: Text(text,
+                    style: const TextStyle(fontSize: 24, color: whiteColor, fontWeight: FontWeight.bold),
+                  ),
+                ),
+              )
+          )
+        ],
+      ),
+    );
+  }
+}
 
 
 
