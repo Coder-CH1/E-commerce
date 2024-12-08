@@ -49,8 +49,6 @@ class _CheckoutState extends State<Checkout> {
               footer: const CheckoutPageFooter(
                 termsLink: 'http://example.com/terms',
                 privacyLink: 'http://example.com/privacy',
-                note: 'Powered by Magic Payment Processor',
-                noteLink: 'http://example.com',
               ),
             ),
           ),
