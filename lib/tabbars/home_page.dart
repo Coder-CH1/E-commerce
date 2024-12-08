@@ -72,12 +72,6 @@ class Home extends StatefulWidget {
 }
 class _HomeState extends State<Home> {
   List<String> listHeader = ['New In','Top Selling','Categories'];
-  List<String> images = [
-    'assets/images/img01.png',
-    'assets/images/img02.png',
-    'assets/images/img03.png',
-    'assets/images/img04.png'
-  ];
   @override
   Widget build(BuildContext context) {
     List items = [];
@@ -214,24 +208,32 @@ class _HomeState extends State<Home> {
             padding: const EdgeInsets.all(8.0),
             child: SizedBox(
               height: 250,
-              child: MasonryGridView.count(
+              child: StaggeredGrid.count(
                 crossAxisCount: 4,
-                crossAxisSpacing: 8,
                 mainAxisSpacing: 8,
-                itemCount: images.length,
-                itemBuilder: (context, index) {
-                  double height = (index % 3 + 1) * 100;
-                  return Card(
-                    child: ClipRRect(
-                      borderRadius: BorderRadius.circular(8),
-                      child: Image.asset(
-                        images[index],
-                        fit: BoxFit.cover,
-                        height: height,
-                      ),
-                    ),
-                  );
-                },
+                crossAxisSpacing: 8,
+                children: const [
+                  StaggeredGridTile.count(
+                    crossAxisCellCount: 2,
+                    mainAxisCellCount: 2,
+                    child: Tile(imageAsset: 'assets/images/img01.png'),
+                  ),
+                  StaggeredGridTile.count(
+                    crossAxisCellCount: 2,
+                    mainAxisCellCount: 1,
+                    child: Tile(imageAsset: 'assets/images/img02.png'),
+                  ),
+                  StaggeredGridTile.count(
+                    crossAxisCellCount: 1,
+                    mainAxisCellCount: 1,
+                    child: Tile(imageAsset: 'assets/images/img03.png'),
+                  ),
+                  StaggeredGridTile.count(
+                    crossAxisCellCount: 1,
+                    mainAxisCellCount: 1,
+                    child: Tile(imageAsset: 'assets/images/img04.png'),
+                  ),
+                ],
               ),
             ),
           );
@@ -241,3 +243,20 @@ class _HomeState extends State<Home> {
   }
 }
 
+class Tile extends StatelessWidget {
+  final String imageAsset;
+  const Tile({super.key, required this.imageAsset});
+
+  @override
+  Widget build(BuildContext context) {
+    return ClipRRect(
+      borderRadius: BorderRadius.circular(8),
+      child: Image.asset(
+       imageAsset,
+       fit: BoxFit.cover,
+       width: double.infinity,
+       height: double.infinity,
+      ),
+    );
+  }
+}
