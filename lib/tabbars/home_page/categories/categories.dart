@@ -332,11 +332,9 @@ class _MenState extends State<Men> with TickerProviderStateMixin {
 /// KIDS CLOTHING SEGMENT
 class Kids extends StatefulWidget {
   const Kids({super.key});
-
   @override
   State<Kids> createState() => _KidsState();
 }
-
 class _KidsState extends State<Kids> with TickerProviderStateMixin {
   late List<bool> _favorites;
   late List<AnimationController> _controller;

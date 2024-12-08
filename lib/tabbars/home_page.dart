@@ -66,11 +66,9 @@ class MainPageState extends State<MainPage> {
 /// TAB 0: HOME
 class Home extends StatefulWidget {
   const Home({super.key});
-
   @override
   State<Home> createState() => _HomeState();
 }
-
 class _HomeState extends State<Home> {
   List<String> listHeader = ['New In','Top Selling','Hot Deals','Categories','Hot Picks','Trending',];
   @override

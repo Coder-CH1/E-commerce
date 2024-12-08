@@ -5,11 +5,9 @@ import '../../../custom_widgets/custom_widgets.dart';
 ///
 class Checkout extends StatefulWidget {
   const Checkout({super.key});
-
   @override
   State<Checkout> createState() => _CheckoutState();
 }
-
 class _CheckoutState extends State<Checkout> {
   final List<PriceItem> wearsBought = [];
   @override
