@@ -71,6 +71,12 @@ class Home extends StatefulWidget {
 }
 class _HomeState extends State<Home> {
   List<String> listHeader = ['New In','Top Selling','Categories'];
+  List<String> images = [
+    'assets/images/img01.png',
+    'assets/images/img02.png',
+    'assets/images/img03.png',
+    'assets/images/img04.png'
+  ];
   @override
   Widget build(BuildContext context) {
     List items = [];
@@ -129,78 +135,109 @@ class _HomeState extends State<Home> {
   }
   Widget gridHeader() {
     return ListView.builder(
-      itemCount: listHeader.length,
+      itemCount: listHeader.length + 1,
       shrinkWrap: true,
       physics: const NeverScrollableScrollPhysics(),
       itemBuilder: (context, index) {
         double height = (index % 2 == 0) ? 250.0 : 150.0;
         double width = Random().nextInt(70) + 60.0;
-        return StickyHeader(
-          header: Container(
-              height: 38.0,
-              color: Colors.white,
-              padding: const EdgeInsets.symmetric(horizontal: 12.0),
-              alignment: Alignment.centerLeft,
-              child: Row(
-                children: [
-                  Text(listHeader[index],
-                    style: const TextStyle(color: redColor, fontSize: 20,fontWeight: FontWeight.bold),
-                  ),
-                  const SizedBox(width: 180),
-                  CustomTextButton(
-                    text: 'See All',
-                    onPressed: (){},
-                    buttonTextStyle: const TextStyle(color: Colors.red),
-                  ),
-                ],
-              )
-          ),
-          content: SizedBox(
-              height: height,
-              //width: width,
-              child: Column(
-                children: [
-                  Expanded(
-                    child: GridView.builder(
-                      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                        crossAxisCount: 1,
-                        mainAxisSpacing: 10,
-                        crossAxisSpacing: 10,
-                      ),
-                      shrinkWrap: true,
-                      scrollDirection: Axis.horizontal,
-                      itemCount: 7,
-                      itemBuilder: (context, index){
-                        return SizedBox(
-                          height: height,
-                          width: width,
-                          child: Card(
-                            margin: const EdgeInsets.all(4.0),
-                            color: redColor,
-                            shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(10)
-                            ),
-                            child: const Padding(
-                              padding: EdgeInsets.only(left: 12.0, top: 6.0, bottom: 2.0),
-                              child: Center(
-                                  child: Text( 'New',
-                                    style: TextStyle(
-                                        fontSize: 14,
-                                        color: whiteColor),)
+        if (index < listHeader.length) {
+          return StickyHeader(
+            header: Container(
+                height: 38.0,
+                color: Colors.white,
+                padding: const EdgeInsets.symmetric(horizontal: 12.0),
+                alignment: Alignment.centerLeft,
+                child: Row(
+                  children: [
+                    Text(listHeader[index],
+                      style: const TextStyle(color: redColor,
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold),
+                    ),
+                    const SizedBox(width: 180),
+                    CustomTextButton(
+                      text: 'See All',
+                      onPressed: () {},
+                      buttonTextStyle: const TextStyle(color: Colors.red),
+                    ),
+                  ],
+                )
+            ),
+            content: SizedBox(
+                height: height,
+                //width: width,
+                child: Column(
+                  children: [
+                    Expanded(
+                      child: GridView.builder(
+                        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                          crossAxisCount: 1,
+                          mainAxisSpacing: 10,
+                          crossAxisSpacing: 10,
+                        ),
+                        shrinkWrap: true,
+                        scrollDirection: Axis.horizontal,
+                        itemCount: 7,
+                        itemBuilder: (context, index) {
+                          return SizedBox(
+                            height: height,
+                            width: width,
+                            child: Card(
+                              margin: const EdgeInsets.all(4.0),
+                              color: redColor,
+                              shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(10)
+                              ),
+                              child: const Padding(
+                                padding: EdgeInsets.only(
+                                    left: 12.0, top: 6.0, bottom: 2.0),
+                                child: Center(
+                                    child: Text('nnnn',
+                                      style: TextStyle(
+                                          fontSize: 14,
+                                          color: whiteColor),)
+                                ),
                               ),
                             ),
-                          ),
-                        );
-                      },
+                          );
+                        },
+                      ),
                     ),
+                  ],
+                )
+            ),
+          );
+        } else {
+          return Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: SizedBox(
+              height: 250,
+              child: GridView.builder(
+                  gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
+                    maxCrossAxisExtent: 250,
+                    crossAxisSpacing: 10,
+                    mainAxisSpacing: 10,
+                    childAspectRatio: 1.5,
                   ),
-                ],
-              )
-          ),
-        );
+                  itemCount: images.length,
+                  itemBuilder: (context, index) {
+                    return Card(
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(8),
+                        child: Image.asset(
+                          images[index],
+                          fit: BoxFit.cover,
+                        ),
+                      ),
+                    );
+                  }
+              ),
+            ),
+          );
+        }
       },
     );
   }
 }
-
 
