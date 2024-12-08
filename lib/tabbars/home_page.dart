@@ -3,6 +3,7 @@ import 'package:ecommerce/custom_widgets/custom_widgets.dart';
 import 'package:ecommerce/tabbars/profile_page.dart';
 import 'package:ecommerce/tabbars/shop_page.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:sticky_headers/sticky_headers/widget.dart';
 import 'bag_page.dart';
 import 'favorites_page.dart';
@@ -193,7 +194,7 @@ class _HomeState extends State<Home> {
                                 padding: EdgeInsets.only(
                                     left: 12.0, top: 6.0, bottom: 2.0),
                                 child: Center(
-                                    child: Text('nnnn',
+                                    child: Text('New',
                                       style: TextStyle(
                                           fontSize: 14,
                                           color: whiteColor),)
@@ -213,25 +214,24 @@ class _HomeState extends State<Home> {
             padding: const EdgeInsets.all(8.0),
             child: SizedBox(
               height: 250,
-              child: GridView.builder(
-                  gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
-                    maxCrossAxisExtent: 250,
-                    crossAxisSpacing: 10,
-                    mainAxisSpacing: 10,
-                    childAspectRatio: 1.5,
-                  ),
-                  itemCount: images.length,
-                  itemBuilder: (context, index) {
-                    return Card(
-                      child: ClipRRect(
-                        borderRadius: BorderRadius.circular(8),
-                        child: Image.asset(
-                          images[index],
-                          fit: BoxFit.cover,
-                        ),
+              child: MasonryGridView.count(
+                crossAxisCount: 4,
+                crossAxisSpacing: 8,
+                mainAxisSpacing: 8,
+                itemCount: images.length,
+                itemBuilder: (context, index) {
+                  double height = (index % 3 + 1) * 100;
+                  return Card(
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(8),
+                      child: Image.asset(
+                        images[index],
+                        fit: BoxFit.cover,
+                        height: height,
                       ),
-                    );
-                  }
+                    ),
+                  );
+                },
               ),
             ),
           );
