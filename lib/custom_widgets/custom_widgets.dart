@@ -245,7 +245,8 @@ class Tile extends StatelessWidget {
           ),
           Positioned(
               top: 30,
-              left: 20,
+              left: 5,
+              bottom: 10,
               child: InkWell(
                 onTap: (){},
                 child: Container(
