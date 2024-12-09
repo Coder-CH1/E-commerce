@@ -232,17 +232,32 @@ class _HomeState extends State<Home> {
                   StaggeredGridTile.count(
                     crossAxisCellCount: 2,
                     mainAxisCellCount: 2,
-                    child: Tile(imageAsset: 'assets/images/women.png', text: 'Women', ontap: () {},),
+                    child: Tile(imageAsset: 'assets/images/women.png', text: 'Women', ontap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => const Categories())
+                      );
+                    },),
                   ),
                   StaggeredGridTile.count(
                     crossAxisCellCount: 2,
                     mainAxisCellCount: 1,
-                    child: Tile(imageAsset: 'assets/images/men.png', text: 'Men', ontap: () {},),
+                    child: Tile(imageAsset: 'assets/images/men.png', text: 'Men', ontap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => const Categories())
+                      );
+                    },),
                   ),
                   StaggeredGridTile.count(
                     crossAxisCellCount: 1,
                     mainAxisCellCount: 1,
-                    child: Tile(imageAsset: 'assets/images/kids.png', text: 'Kids', ontap: () {},),
+                    child: Tile(imageAsset: 'assets/images/kids.png', text: 'Kids', ontap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => const Categories())
+                      );
+                    },),
                   ),
                 ],
               ),
