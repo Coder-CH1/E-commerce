@@ -9,12 +9,12 @@ Main({required this.img, required this.title});
 }
 
 ///
-class Women {
+class WomenModel {
   final String img;
   final String title;
 
 ///
-  Women({required this.img, required this.title});
+  WomenModel({required this.img, required this.title});
 }
 
 class WomenTop {

@@ -40,11 +40,11 @@ Future<List<Main>> fetchMainData() async {
     }
 }
 
-  Future<List<Women>> fetchWomenData() async {
+  Future<List<WomenModel>> fetchWomenData() async {
     try {
       QuerySnapshot snapshot = await _firestore.collection('women').get();
-      List<Women> mainList = snapshot.docs.map((doc) {
-        return Women(
+      List<WomenModel> mainList = snapshot.docs.map((doc) {
+        return WomenModel(
             img: doc['img1'],
             title: doc['text1']
         );

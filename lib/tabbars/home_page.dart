@@ -1,5 +1,6 @@
 import 'dart:math';
 import 'package:ecommerce/custom_widgets/custom_widgets.dart';
+import 'package:ecommerce/tabbars/home_page/categories/categories.dart';
 import 'package:ecommerce/tabbars/profile_page.dart';
 import 'package:ecommerce/tabbars/shop_page.dart';
 import 'package:flutter/material.dart';
@@ -219,22 +220,28 @@ class _HomeState extends State<Home> {
                   StaggeredGridTile.count(
                     crossAxisCellCount: 2,
                     mainAxisCellCount: 2,
-                    child: Tile(imageAsset: 'assets/images/img02.png', text: 'New collection', ontap: () {},),
+                    child: Tile(imageAsset: 'assets/images/img02.png', text: 'Women', ontap: () {
+                      const Women();
+                    },),
                   ),
                   StaggeredGridTile.count(
                     crossAxisCellCount: 2,
                     mainAxisCellCount: 1,
-                    child: Tile(imageAsset: 'assets/images/img03.png', text: 'Trendy', ontap: () {},),
+                    child: Tile(imageAsset: 'assets/images/img03.png', text: 'Men', ontap: () {
+                      const Men();
+                    },),
                   ),
                   StaggeredGridTile.count(
                     crossAxisCellCount: 1,
                     mainAxisCellCount: 1,
-                    child: Tile(imageAsset: 'assets/images/img02.png', text: 'Cutiez', ontap: () {},),
+                    child: Tile(imageAsset: 'assets/images/img02.png', text: 'Kids', ontap: () {
+                      const Kids();
+                    },),
                   ),
                   StaggeredGridTile.count(
                     crossAxisCellCount: 1,
                     mainAxisCellCount: 1,
-                    child: Tile(imageAsset: 'assets/images/img03.png', text: 'Cheeky', ontap: () {},),
+                    child: Tile(imageAsset: 'assets/images/img03.png', text: 'Top Selling', ontap: () {},),
                   ),
                 ],
               ),
