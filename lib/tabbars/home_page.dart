@@ -135,14 +135,13 @@ class _HomeState extends State<Home> {
       shrinkWrap: true,
       physics: const NeverScrollableScrollPhysics(),
       itemBuilder: (context, index) {
-        double height = (index % 2 == 0) ? 250.0 : 150.0;
-        double width = Random().nextInt(70) + 60.0;
+        double height = (index % 2 == 0) ? 250.0 : 120.0;
+        double width = Random().nextInt(70) + 40.0;
         if (index < listHeader.length) {
           return StickyHeader(
             header: Container(
                 height: 38.0,
                 color: Colors.white,
-                //padding: const EdgeInsets.symmetric(horizontal: 12.0),
                 alignment: Alignment.centerLeft,
                 child: Row(
                   children: [
@@ -165,7 +164,6 @@ class _HomeState extends State<Home> {
             ),
             content: SizedBox(
                 height: height,
-                //width: width,
                 child: Column(
                   children: [
                     Expanded(
@@ -211,7 +209,7 @@ class _HomeState extends State<Home> {
           return Padding(
             padding: const EdgeInsets.only(top: 30),
             child: SizedBox(
-              height: 200,
+              height: 225,
               child: StaggeredGrid.count(
                 crossAxisCount: 3,
                 mainAxisSpacing: 8,
