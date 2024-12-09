@@ -213,35 +213,28 @@ class _HomeState extends State<Home> {
             child: SizedBox(
               height: 200,
               child: StaggeredGrid.count(
-                crossAxisCount: 4,
+                crossAxisCount: 3,
                 mainAxisSpacing: 8,
                 crossAxisSpacing: 8,
                 children: [
                   StaggeredGridTile.count(
                     crossAxisCellCount: 2,
                     mainAxisCellCount: 2,
-                    child: Tile(imageAsset: 'assets/images/img02.png', text: 'Women', ontap: () {
+                    child: Tile(imageAsset: 'assets/images/women.png', text: 'Women', ontap: () {
                       const Women();
                     },),
                   ),
                   StaggeredGridTile.count(
                     crossAxisCellCount: 2,
                     mainAxisCellCount: 1,
-                    child: Tile(imageAsset: 'assets/images/img03.png', text: 'Men', ontap: () {
+                    child: Tile(imageAsset: 'assets/images/men.png', text: 'Men', ontap: () {
                       const Men();
                     },),
                   ),
                   StaggeredGridTile.count(
                     crossAxisCellCount: 1,
                     mainAxisCellCount: 1,
-                    child: Tile(imageAsset: 'assets/images/img02.png', text: 'Kids', ontap: () {
-                      const Kids();
-                    },),
-                  ),
-                  StaggeredGridTile.count(
-                    crossAxisCellCount: 1,
-                    mainAxisCellCount: 1,
-                    child: Tile(imageAsset: 'assets/images/img03.png', text: 'Top Selling', ontap: () {},),
+                    child: Tile(imageAsset: 'assets/images/kids.png', text: 'Top Selling', ontap: () {},),
                   ),
                 ],
               ),
