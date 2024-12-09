@@ -150,7 +150,7 @@ class _HomeState extends State<Home> {
                       child: Text(listHeader[index],
                         style: const TextStyle(color: redColor,
                             fontSize: 20,
-                            fontWeight: FontWeight.bold),
+                            fontWeight: FontWeight.w900),
                       ),
                     ),
                     const SizedBox(width: 200),
