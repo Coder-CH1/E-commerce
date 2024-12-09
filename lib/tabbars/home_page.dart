@@ -141,7 +141,7 @@ class _HomeState extends State<Home> {
           return StickyHeader(
             header: Container(
                 height: 38.0,
-                color: Colors.white,
+                color: whiteColor,
                 alignment: Alignment.centerLeft,
                 child: Row(
                   children: [
@@ -171,7 +171,7 @@ class _HomeState extends State<Home> {
                           );
                         }
                       },
-                      buttonTextStyle: const TextStyle(color: Colors.red),
+                      buttonTextStyle: const TextStyle(color: redColor),
                     ),
                   ],
                 )
