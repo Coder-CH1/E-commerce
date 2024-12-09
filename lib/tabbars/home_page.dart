@@ -216,12 +216,12 @@ class _HomeState extends State<Home> {
                   StaggeredGridTile.count(
                     crossAxisCellCount: 2,
                     mainAxisCellCount: 2,
-                    child: Tile(imageAsset: 'assets/images/img01.png', text: 'New collection', ontap: () {},),
+                    child: Tile(imageAsset: 'assets/images/img02.png', text: 'New collection', ontap: () {},),
                   ),
                   StaggeredGridTile.count(
                     crossAxisCellCount: 2,
                     mainAxisCellCount: 1,
-                    child: Tile(imageAsset: 'assets/images/img02.png', text: 'Trendy', ontap: () {},),
+                    child: Tile(imageAsset: 'assets/images/img03.png', text: 'Trendy', ontap: () {},),
                   ),
                   StaggeredGridTile.count(
                     crossAxisCellCount: 1,
@@ -231,7 +231,7 @@ class _HomeState extends State<Home> {
                   StaggeredGridTile.count(
                     crossAxisCellCount: 1,
                     mainAxisCellCount: 1,
-                    child: Tile(imageAsset: 'assets/images/img04.png', text: 'Image 4', ontap: () {},),
+                    child: Tile(imageAsset: 'assets/images/img02.png', text: 'Image 4', ontap: () {},),
                   ),
                 ],
               ),
