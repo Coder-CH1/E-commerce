@@ -234,7 +234,7 @@ class _HomeState extends State<Home> {
                   StaggeredGridTile.count(
                     crossAxisCellCount: 1,
                     mainAxisCellCount: 1,
-                    child: Tile(imageAsset: 'assets/images/kids.png', text: 'Top Selling', ontap: () {},),
+                    child: Tile(imageAsset: 'assets/images/kids.png', text: 'Kids', ontap: () {},),
                   ),
                 ],
               ),
