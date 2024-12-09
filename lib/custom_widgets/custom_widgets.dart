@@ -250,7 +250,7 @@ class Tile extends StatelessWidget {
               child: InkWell(
                 onTap: (){},
                 child: Text(text,
-                  style: const TextStyle(fontSize: 24, color: whiteColor, fontWeight: FontWeight.bold),
+                  style: const TextStyle(fontSize: 20, color: whiteColor, fontWeight: FontWeight.bold),
                 ),
               )
           )
