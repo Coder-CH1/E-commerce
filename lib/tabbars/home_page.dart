@@ -141,16 +141,19 @@ class _HomeState extends State<Home> {
             header: Container(
                 height: 38.0,
                 color: Colors.white,
-                padding: const EdgeInsets.symmetric(horizontal: 12.0),
+                //padding: const EdgeInsets.symmetric(horizontal: 12.0),
                 alignment: Alignment.centerLeft,
                 child: Row(
                   children: [
-                    Text(listHeader[index],
-                      style: const TextStyle(color: redColor,
-                          fontSize: 20,
-                          fontWeight: FontWeight.bold),
+                    Padding(
+                      padding: const EdgeInsets.only(left: 8),
+                      child: Text(listHeader[index],
+                        style: const TextStyle(color: redColor,
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold),
+                      ),
                     ),
-                    const SizedBox(width: 180),
+                    const SizedBox(width: 200),
                     CustomTextButton(
                       text: 'See All',
                       onPressed: () {},
@@ -205,9 +208,9 @@ class _HomeState extends State<Home> {
           );
         } else {
           return Padding(
-            padding: const EdgeInsets.only(top: 20, left: 8, right: 8, bottom: 2),
+            padding: const EdgeInsets.only(top: 30),
             child: SizedBox(
-              height: 250,
+              height: 200,
               child: StaggeredGrid.count(
                 crossAxisCount: 4,
                 mainAxisSpacing: 8,
@@ -226,12 +229,12 @@ class _HomeState extends State<Home> {
                   StaggeredGridTile.count(
                     crossAxisCellCount: 1,
                     mainAxisCellCount: 1,
-                    child: Tile(imageAsset: 'assets/images/img03.png', text: 'Cutiez', ontap: () {},),
+                    child: Tile(imageAsset: 'assets/images/img02.png', text: 'Cutiez', ontap: () {},),
                   ),
                   StaggeredGridTile.count(
                     crossAxisCellCount: 1,
                     mainAxisCellCount: 1,
-                    child: Tile(imageAsset: 'assets/images/img02.png', text: 'Image 4', ontap: () {},),
+                    child: Tile(imageAsset: 'assets/images/img03.png', text: 'Cheeky', ontap: () {},),
                   ),
                 ],
               ),
