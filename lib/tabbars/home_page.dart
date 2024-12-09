@@ -72,7 +72,7 @@ class Home extends StatefulWidget {
   State<Home> createState() => _HomeState();
 }
 class _HomeState extends State<Home> {
-  List<String> listHeader = ['New In','Top Selling'];
+  List<String> listHeader = ['New In','Categories'];
   @override
   Widget build(BuildContext context) {
     List items = [];
@@ -218,16 +218,12 @@ class _HomeState extends State<Home> {
                   StaggeredGridTile.count(
                     crossAxisCellCount: 2,
                     mainAxisCellCount: 2,
-                    child: Tile(imageAsset: 'assets/images/women.png', text: 'Women', ontap: () {
-                      const Women();
-                    },),
+                    child: Tile(imageAsset: 'assets/images/women.png', text: 'Women', ontap: () {},),
                   ),
                   StaggeredGridTile.count(
                     crossAxisCellCount: 2,
                     mainAxisCellCount: 1,
-                    child: Tile(imageAsset: 'assets/images/men.png', text: 'Men', ontap: () {
-                      const Men();
-                    },),
+                    child: Tile(imageAsset: 'assets/images/men.png', text: 'Men', ontap: () {},),
                   ),
                   StaggeredGridTile.count(
                     crossAxisCellCount: 1,
