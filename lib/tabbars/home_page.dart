@@ -76,7 +76,6 @@ class _HomeState extends State<Home> {
   List<String> listHeader = ['New In','Categories'];
   @override
   Widget build(BuildContext context) {
-    List items = [];
     double screenHeight = MediaQuery.of(context).size.height;
     double screenWidth = MediaQuery.of(context).size.width;
     return Scaffold(
