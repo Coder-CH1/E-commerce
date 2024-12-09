@@ -8,6 +8,7 @@ import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:sticky_headers/sticky_headers/widget.dart';
 import 'bag_page.dart';
 import 'favorites_page.dart';
+import 'home_page/categories/checkout.dart';
 
 ///
 class MainPage extends StatefulWidget {
@@ -156,7 +157,21 @@ class _HomeState extends State<Home> {
                     const SizedBox(width: 200),
                     CustomTextButton(
                       text: 'See All',
-                      onPressed: () {},
+                      onPressed: () {
+                        if (listHeader[index] == 'New In') {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context) => const EmptyClass())
+                          );
+                        } else if (listHeader[index] == 'Categories')
+                        {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (
+                                  context) => const Categories())
+                          );
+                        }
+                      },
                       buttonTextStyle: const TextStyle(color: Colors.red),
                     ),
                   ],
