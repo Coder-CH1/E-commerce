@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../../../custom_widgets/custom_widgets.dart';
+import 'cart.dart';
 
 /// PARENT WIDGET
 class Categories extends StatefulWidget {
@@ -166,7 +167,12 @@ class _WomenState extends State<Women> with TickerProviderStateMixin {
                     onTap: () {
                       showCustomBottomSheet(context, 'Bottom sheet for the women', CustomButton(
                         text: 'Women index item added to the cart', buttonTextStyle: const TextStyle(color: whiteColor),
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context) => const Cart())
+                          );
+                        },
                         color: redColor,
                       ),);
                     },
@@ -268,7 +274,12 @@ class _MenState extends State<Men> with TickerProviderStateMixin {
                     onTap: () {
                       showCustomBottomSheet(context, 'Bottom sheet for the men', CustomButton(
                         text: 'Men index item added to the cart', buttonTextStyle: const TextStyle(color: whiteColor),
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context) => const Cart())
+                          );
+                        },
                         color: redColor,
                       ),);
                     },
@@ -366,7 +377,12 @@ class _KidsState extends State<Kids> with TickerProviderStateMixin {
               onTap: () {
                 showCustomBottomSheet(context, 'Bottom sheet for the kids', CustomButton(
                   text: 'Kids index item added to the cart', buttonTextStyle: const TextStyle(color: whiteColor),
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => const Cart())
+                    );
+                  },
                   color: redColor,
                 ),);
               },

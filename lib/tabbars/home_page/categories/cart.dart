@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../../../custom_widgets/custom_widgets.dart';
+import 'checkout.dart';
 
 ///
 class Cart extends StatefulWidget {
@@ -76,7 +77,12 @@ class _CartState extends State<Cart> {
             ),
             child: CustomButton(
                 text: 'Checkout', buttonTextStyle: const TextStyle(color: whiteColor),
-                onPressed: () {},color: redColor),
+                onPressed: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => const Checkout())
+                  );
+                },color: redColor),
           ),
           const SizedBox(height: 30),
         ],
