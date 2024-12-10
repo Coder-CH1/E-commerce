@@ -2,7 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 
 class AuthManager {
   final FirebaseAuth _auth = FirebaseAuth.instance;
-  get user => _auth.currentUser;
+  User? get user => _auth.currentUser;
 
   /// SIGN UP METHOD
   Future signUp({required String email, required String password}) async {
@@ -13,7 +13,7 @@ class AuthManager {
       );
       return null;
     } on FirebaseAuthException catch (e) {
-      return e.message;
+      return e.message ?? 'an error occured during sign up';
     }
   }
 
@@ -23,13 +23,16 @@ class AuthManager {
       await _auth.signInWithEmailAndPassword(email: email, password: password);
       return null;
     } on FirebaseAuthException catch (e) {
-      return e.message;
+      return e.message ?? 'an error occured during sign in';
     }
   }
 
   /// SIGN OUT METHOD
   Future signOut() async {
-    await _auth.signOut();
-    throw Exception('');
+    try {
+      await _auth.signOut();
+    } catch (e) {
+      throw Exception('an error occured during sign out $e');
+    }
   }
 }
