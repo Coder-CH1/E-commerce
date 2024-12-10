@@ -59,7 +59,7 @@ class _SplashState extends State<_Splash> {
   @override
   void initState() {
     super.initState();
-    Timer(const Duration(seconds: 3),
+    Timer(const Duration(seconds: 7),
             ()=>Navigator.pushReplacement(context,
             MaterialPageRoute(builder:
                 (context) =>
@@ -73,17 +73,16 @@ class _SplashState extends State<_Splash> {
     return Scaffold(
       backgroundColor: splashColor,
       body: Center(
-        child: AnimatedTextKit(
-          animatedTexts: [
-            TyperAnimatedText(
-              'CLOTIN WEARZ',
-              speed: const Duration(milliseconds: 100),
-              textStyle: const TextStyle(color: whiteColor, fontSize: 24, fontWeight: FontWeight.bold,
-              ),
+          child: DefaultTextStyle(
+            style: const TextStyle(color: whiteColor, fontSize: 30, fontWeight: FontWeight.bold),
+            child: AnimatedTextKit(
+                repeatForever: false,
+                isRepeatingAnimation: false,
+                animatedTexts: [
+                  WavyAnimatedText('CLOTIN WEARZ')
+                ]
             ),
-          ],
-          totalRepeatCount: 2,
-        ),
+          )
       ),
     );
   }
