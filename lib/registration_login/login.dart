@@ -44,6 +44,7 @@ class _LoginState extends State<Login> {
               CustomTextField(
                 controller: passwordController,
                 labelText: 'password',
+                  obscureText: true,
                   validator: (value) {
                     if (value == null || value.length < 6) {
                       return 'Password must be at least 6 characters';

@@ -1,4 +1,5 @@
 import 'package:ecommerce/custom_widgets/custom_widgets.dart';
+import 'package:ecommerce/firebase/auth_manager/auth.dart';
 import 'package:flutter/material.dart';
 import '../tabbars/home_page.dart';
 
@@ -13,6 +14,35 @@ class _SignupState extends State<Signup> {
   final _formKey = GlobalKey<FormState>();
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
+  bool isLoading = false;
+
+  final AuthManager _authManager = AuthManager();
+
+  // Method to handle sign-up
+  Future<void> _signup() async {
+    if (_formKey.currentState?.validate() ?? false) {
+      setState(() {
+        isLoading = true;
+      });
+      String? email = emailController.text.trim();
+      String? password = passwordController.text.trim();
+
+      String? result = await _authManager.signUp(email: email, password: password);
+
+      setState(() {
+        isLoading = false;
+      });
+
+      if (result == null) {
+        Navigator.pushReplacement(context,
+            MaterialPageRoute(builder: (context) => const MainPage()),
+        );
+      } else {
+        _formKey.currentState?.validate();
+      }
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -40,6 +70,7 @@ class _SignupState extends State<Signup> {
                CustomTextField(
                 controller: passwordController,
                 labelText: 'password',
+                   obscureText: true,
                    validator: (value) {
                      if (value == null || value.length < 6) {
                        return 'Password must be at least 6 characters';
@@ -57,11 +88,8 @@ class _SignupState extends State<Signup> {
                 alignment: Alignment.bottomCenter,
               child: CustomButton(
                 text: 'SIGNUP', buttonTextStyle: const TextStyle(color: whiteColor),
-                  onPressed: (){
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => const MainPage()),
-                    );
+                  onPressed: () {
+                    if (!isLoading) _signup();
                   },
                   color: redColor,
                 side: BorderSide.none,
