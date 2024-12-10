@@ -244,7 +244,7 @@ class Tile extends StatelessWidget {
             height: double.infinity,
           ),
           Positioned(
-              top: 30,
+              top: 33,
               left: 5,
               bottom: 10,
               child: InkWell(
