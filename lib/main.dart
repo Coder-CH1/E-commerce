@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'package:ecommerce/custom_widgets/custom_widgets.dart';
+import 'package:ecommerce/registration_login/login.dart';
 import 'package:ecommerce/registration_login/signup.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
@@ -49,7 +50,7 @@ class _SplashState extends State<_Splash> {
             ()=>Navigator.pushReplacement(context,
             MaterialPageRoute(builder:
                 (context) =>
-            const Signup(),
+            const Login(),
             )
         )
     );

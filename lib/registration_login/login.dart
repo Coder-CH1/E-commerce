@@ -1,5 +1,7 @@
 import 'package:ecommerce/custom_widgets/custom_widgets.dart';
+import 'package:ecommerce/registration_login/signup.dart';
 import 'package:flutter/material.dart';
+import '../firebase/auth_manager/auth.dart';
 import '../tabbars/home_page.dart';
 
 /// LOGIN SCREEN
@@ -13,6 +15,34 @@ class _LoginState extends State<Login> {
   final _formKey = GlobalKey<FormState>();
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
+  bool isLoading = false;
+
+  final AuthManager _authManager = AuthManager();
+
+  /// METHOD TO HANDLE SIGN UP FOR A FIREBASE USER
+  Future<void> _signin() async {
+    if (_formKey.currentState?.validate() ?? false) {
+      setState(() {
+        isLoading = true;
+      });
+      String? email = emailController.text.trim();
+      String? password = passwordController.text.trim();
+
+      String? result = await _authManager.signIn(email: email, password: password);
+
+      setState(() {
+        isLoading = false;
+      });
+
+      if (result == null) {
+        Navigator.pushReplacement(context,
+          MaterialPageRoute(builder: (context) => const MainPage()),
+        );
+      } else {
+
+      }
+    }
+  }
   
   @override
   Widget build(BuildContext context) {
@@ -63,10 +93,7 @@ class _LoginState extends State<Login> {
                 child: CustomButton(
                   text: 'LOGIN', buttonTextStyle: const TextStyle(color: whiteColor),
                   onPressed: (){
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => const MainPage()),
-                    );
+                    if (!isLoading) _signin();
                   },
                   color: redColor,
                   side: BorderSide.none,
@@ -74,6 +101,20 @@ class _LoginState extends State<Login> {
                   buttonWidth: MediaQuery.of(context).size.width,
                   borderRadius: 25,
                 ),
+              ),
+              Row(
+                children: [
+                  const CustomText(text: 'Dont have an account?', style: TextStyle(fontSize: 18, color: redColor)),
+                  CustomTextButton(
+                    text: 'Sign up',
+                    buttonTextStyle: const TextStyle(fontSize: 20),
+                    onPressed: (){
+                      Navigator.pushReplacement(context,
+                        MaterialPageRoute(builder: (context) => const Signup()),
+                      );
+                    },
+                  ),
+                ],
               )
             ],
           ),
