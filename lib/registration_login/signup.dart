@@ -18,7 +18,7 @@ class _SignupState extends State<Signup> {
 
   final AuthManager _authManager = AuthManager();
 
-  // Method to handle sign-up
+/// METHOD TO HANDLE SIGN UP FOR A FIREBASE USER
   Future<void> _signup() async {
     if (_formKey.currentState?.validate() ?? false) {
       setState(() {
