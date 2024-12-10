@@ -19,7 +19,7 @@ class _LoginState extends State<Login> {
 
   final AuthManager _authManager = AuthManager();
 
-  /// METHOD TO HANDLE SIGN UP FOR A FIREBASE USER
+  /// METHOD TO HANDLE SIGN IN FOR A FIREBASE USER
   Future<void> _signin() async {
     if (_formKey.currentState?.validate() ?? false) {
       setState(() {
