@@ -2,6 +2,8 @@ import 'package:ecommerce/custom_widgets/custom_widgets.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
+import '../registration_login/login.dart';
+
 
 /// TAB 4: PROFILE
 class Profile extends StatefulWidget {
@@ -15,6 +17,19 @@ class _ProfileState extends State<Profile> {
   void initState(){
     super.initState();
     _currentUser = FirebaseAuth.instance.currentUser;
+  }
+
+  Future<void> _logout() async {
+    try {
+      await FirebaseAuth.instance.signOut();
+      if (!mounted) return;
+      Navigator.pushReplacement(
+          context,
+      MaterialPageRoute(builder: (context) => const Login()),
+      );
+    } catch (e) {
+      print('');
+    }
   }
   @override
   Widget build(BuildContext context) {
@@ -76,7 +91,9 @@ class _ProfileState extends State<Profile> {
             padding: const EdgeInsets.all(15.0),
             child: CustomButton(
                 text: 'Logout',buttonTextStyle: const TextStyle(color: whiteColor),
-                onPressed: (){},
+                onPressed: (){
+                  _logout();
+                },
                 color: redColor,
             ),
           )
