@@ -104,7 +104,7 @@ class _LoginState extends State<Login> {
               ),
               Row(
                 children: [
-                  const CustomText(text: 'Dont have an account?', style: TextStyle(fontSize: 18, color: redColor)),
+                  const CustomText(text: "Don't have an account?", style: TextStyle(fontSize: 18, color: redColor)),
                   CustomTextButton(
                     text: 'Sign up',
                     buttonTextStyle: const TextStyle(fontSize: 20),
