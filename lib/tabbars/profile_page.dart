@@ -72,6 +72,14 @@ class _ProfileState extends State<Profile> {
                 }
             ),
           ),
+          Padding(
+            padding: const EdgeInsets.all(15.0),
+            child: CustomButton(
+                text: 'Logout',buttonTextStyle: const TextStyle(color: whiteColor),
+                onPressed: (){},
+                color: redColor,
+            ),
+          )
         ],
       )
     );
