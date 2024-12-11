@@ -49,6 +49,29 @@ class _ProfileState extends State<Profile> {
           )
             ],
           ),
+          Expanded(
+            child: ListView.builder(
+                padding: const EdgeInsets.only(bottom: 0),
+                itemCount: 10,
+                itemBuilder: (context, index) {
+                  return Padding(
+                    padding: const EdgeInsets.all(5.0),
+                    child: GridTile(
+                        child: SizedBox(
+                          height: 100,
+                          width: 300,
+                          child: Container(
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(8),
+                              color: lightGray,
+                            ),
+                          ),
+                        )
+                    ),
+                  );
+                }
+            ),
+          ),
         ],
       )
     );
