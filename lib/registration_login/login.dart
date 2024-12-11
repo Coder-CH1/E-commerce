@@ -44,19 +44,12 @@ class _LoginState extends State<Login> {
       }
     }
   }
-  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: CustomAppBar(
+      appBar: const CustomAppBar(
           title: 'Login',
-          leading: IconButton(
-          onPressed: () {
-    Navigator.pop(context);
-    },
-        icon: const
-        Icon(Icons.arrow_back_ios_new_sharp, color: darkBlue)
-    ),
+        leading: null,
       ),
       body: Padding(
         padding: const EdgeInsets.only(top: 50, left: 20, right: 20),

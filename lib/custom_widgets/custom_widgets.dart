@@ -145,12 +145,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   Widget build(BuildContext context) {
     return AppBar(
       title: Text(title, style: const TextStyle()),
-      leading: leading ?? IconButton(
-          onPressed: () {
-
-          },
-          icon: const Icon(Icons.arrow_back_ios_new_sharp)
-      ),
+      leading: leading ?? Container(),
       backgroundColor: background,
       actions: [
         if (trailingWidget != null) trailingWidget!
