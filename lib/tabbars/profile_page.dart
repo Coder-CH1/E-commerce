@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import '../custom_widgets/custom_widgets.dart';
 
 /// TAB 4: PROFILE
 class Profile extends StatefulWidget {
@@ -10,10 +9,12 @@ class Profile extends StatefulWidget {
 class _ProfileState extends State<Profile> {
   @override
   Widget build(BuildContext context) {
-    return  Scaffold(
-      body: Container(
-        color: grayColor,
-      ),
+    return  const Scaffold(
+      body: Column(
+        children: [
+
+        ],
+      )
     );
   }
 }
