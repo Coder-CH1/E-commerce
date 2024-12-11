@@ -117,7 +117,7 @@ class _LoginState extends State<Login> {
                     text: 'Sign up',
                     buttonTextStyle: const TextStyle(fontSize: 26),
                     onPressed: (){
-                      Navigator.pushReplacement(context,
+                      Navigator.push(context,
                         MaterialPageRoute(builder: (context) => const Signup()),
                       );
                     },
