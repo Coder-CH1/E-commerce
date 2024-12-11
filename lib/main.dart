@@ -1,7 +1,6 @@
 import 'dart:async';
 import 'package:ecommerce/custom_widgets/custom_widgets.dart';
 import 'package:ecommerce/registration_login/login.dart';
-import 'package:ecommerce/tabbars/home_page.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:animated_text_kit/animated_text_kit.dart';
@@ -30,7 +29,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         scaffoldBackgroundColor: opacityWhite,
       ),
-      home: const MainPage(),
+      home: const _Splash(),
     );
   }
 }
