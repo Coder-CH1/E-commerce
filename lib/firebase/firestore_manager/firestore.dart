@@ -6,7 +6,7 @@ class DatabaseManager {
   /// INSTANCE OF FIRESTORE TO INTERACT WITH FIRESTORE DATABASE
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
   /// ASYNCHRONOUS METHOD TO CREATE A FIRESTORE USER IF THEY DON'T ALREADY EXIST
-  Future createUserInFirestore(User user) async {
+  Future createUserInFirestore(UserModel user) async {
     try {
       DocumentSnapshot doc = await _firestore.collection('users')
           .doc(user.uid)
