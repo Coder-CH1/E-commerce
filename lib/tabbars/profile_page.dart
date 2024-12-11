@@ -33,15 +33,14 @@ class _ProfileState extends State<Profile> {
         children: [
           Row(
             children: [
-              SizedBox(
-                height: 80,
-                width: 80,
-                child: IconButton(
-                    onPressed: (){},
-                    icon: const Icon(Icons.person_pin)
-                ),
+              IconButton(
+                  onPressed: (){},
+                  icon: const Icon(Icons.person_pin,
+                  size: 80,
+                  )
               ),
           Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
               const CustomText(text: 'Email:', style: TextStyle(fontWeight: FontWeight.bold)),
