@@ -30,7 +30,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         scaffoldBackgroundColor: opacityWhite,
       ),
-      home: const Profile(),
+      home: const Login(),
     );
   }
 }
