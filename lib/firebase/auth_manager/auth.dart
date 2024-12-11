@@ -23,6 +23,7 @@ class AuthManager {
       await _auth.signInWithEmailAndPassword(email: email, password: password);
       return null;
     } on FirebaseAuthException catch (e) {
+      print('FirebaseAuthException: ${e.code} - ${e.message}');
       return e.message ?? 'an error occured during sign in';
     }
   }
