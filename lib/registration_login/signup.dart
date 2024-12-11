@@ -34,6 +34,7 @@ class _SignupState extends State<Signup> {
       });
 
       if (result == null) {
+        if (!mounted) return;
         Navigator.pushReplacement(context,
             MaterialPageRoute(builder: (context) => const MainPage()),
         );
@@ -46,7 +47,15 @@ class _SignupState extends State<Signup> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: const CustomAppBar(title: 'Sign up'),
+      appBar: CustomAppBar(title: 'Sign up',
+          leading: IconButton(
+          onPressed: () {
+    Navigator.pop(context);
+    },
+        icon: const
+        Icon(Icons.arrow_back_ios_new_sharp, color: darkBlue)
+    ),
+      ),
       body: Padding(
         padding: const EdgeInsets.only(top: 50, left: 20, right: 20),
         child: Form(

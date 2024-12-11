@@ -48,8 +48,15 @@ class _LoginState extends State<Login> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: const CustomAppBar(
-          title: 'Login'
+      appBar: CustomAppBar(
+          title: 'Login',
+          leading: IconButton(
+          onPressed: () {
+    Navigator.pop(context);
+    },
+        icon: const
+        Icon(Icons.arrow_back_ios_new_sharp, color: darkBlue)
+    ),
       ),
       body: Padding(
         padding: const EdgeInsets.only(top: 50, left: 20, right: 20),
@@ -105,7 +112,7 @@ class _LoginState extends State<Login> {
               ),
               Row(
                 children: [
-                  const CustomText(text: "Don't have an account?", style: TextStyle(fontSize: 14, color: redColor)),
+                  const CustomText(text: "Don't have an account?", style: TextStyle(fontSize: 14)),
                   CustomTextButton(
                     text: 'Sign up',
                     buttonTextStyle: const TextStyle(fontSize: 26),
