@@ -1,9 +1,7 @@
 import 'package:ecommerce/custom_widgets/custom_widgets.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-
 import '../registration_login/login.dart';
-
 
 /// TAB 4: PROFILE
 class Profile extends StatefulWidget {
