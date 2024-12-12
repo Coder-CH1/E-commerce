@@ -13,6 +13,9 @@ class Profile extends StatefulWidget {
 }
 class _ProfileState extends State<Profile> {
   User? _currentUser;
+  final List<Widget> listViewItems = [
+
+  ];
   @override
   void initState(){
     super.initState();
