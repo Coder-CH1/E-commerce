@@ -13,7 +13,15 @@ class Profile extends StatefulWidget {
 }
 class _ProfileState extends State<Profile> {
   User? _currentUser;
-  final List<Map<String, dynamic>> listViewItems = [
+  final List<Map<String, dynamic>> listViewItems = [{
+    'title': 'My Orders',
+    'screen': const MyOrders(),},
+    {
+      'title': 'Payment Methods',
+      'screen': const PaymentMethod(),},
+    {
+      'title': 'Settings',
+      'screen': const Settings(),}
 
   ];
   @override
@@ -70,22 +78,22 @@ class _ProfileState extends State<Profile> {
           Expanded(
             child: ListView.builder(
                 padding: const EdgeInsets.only(bottom: 0),
-                itemCount: 10,
+                itemCount: listViewItems.length,
                 itemBuilder: (context, index) {
+                  final item = listViewItems[index];
                   return Padding(
                     padding: const EdgeInsets.all(5.0),
-                    child: GridTile(
-                        child: SizedBox(
-                          height: 100,
-                          width: 300,
-                          child: Container(
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(8),
-                              color: lightGray,
-                            ),
-                          ),
-                        )
-                    ),
+                    child: ListTile(
+                        title: Text(item['title']),
+                      trailing: const Icon(Icons.arrow_forward_ios),
+                      onTap: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (
+                                context) => item['screen'])
+                        );
+                      }
+                    )
                   );
                 }
             ),
@@ -103,5 +111,33 @@ class _ProfileState extends State<Profile> {
         ],
       )
     );
+  }
+}
+
+
+class MyOrders extends StatelessWidget {
+  const MyOrders({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return const Placeholder();
+  }
+}
+
+class PaymentMethod extends StatelessWidget {
+  const PaymentMethod({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return const Placeholder();
+  }
+}
+
+class Settings extends StatelessWidget {
+  const Settings({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return const Placeholder();
   }
 }
