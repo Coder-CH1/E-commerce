@@ -22,6 +22,7 @@ class _ProfileState extends State<Profile> {
       'screen': const Settings(),}
 
   ];
+
   @override
   void initState(){
     super.initState();
@@ -40,6 +41,7 @@ class _ProfileState extends State<Profile> {
       print('');
     }
   }
+
   @override
   Widget build(BuildContext context) {
     String userEmail = _currentUser?.email ?? 'No email available';
