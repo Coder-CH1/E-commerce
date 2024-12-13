@@ -203,8 +203,8 @@ class _HomeState extends State<Home> {
                               child: const Padding(
                                 padding: EdgeInsets.only(
                                     left: 12.0, top: 6.0, bottom: 2.0),
-                                child: Padding(
-                                  padding: EdgeInsets.only(left: 10, top: 10),
+                                child: Align(
+                                  alignment: Alignment.topLeft,
                                   child: Text('New',
                                     style: TextStyle(
                                         fontSize: 14,
