@@ -120,7 +120,17 @@ class MyOrders extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return Scaffold(
+      appBar: CustomAppBar(title: 'My Orders',
+        leading: IconButton(
+            onPressed: () {
+              Navigator.pop(context);
+            },
+            icon: const
+            Icon(Icons.arrow_back_ios_new_sharp, color: darkBlue)
+        ),
+      ),
+    );
   }
 }
 
@@ -129,7 +139,17 @@ class PaymentMethod extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return Scaffold(
+      appBar: CustomAppBar(title: 'Payment Method',
+        leading: IconButton(
+            onPressed: () {
+              Navigator.pop(context);
+            },
+            icon: const
+            Icon(Icons.arrow_back_ios_new_sharp, color: darkBlue)
+        ),
+      ),
+    );
   }
 }
 
@@ -138,6 +158,16 @@ class Settings extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return Scaffold(
+      appBar: CustomAppBar(title: 'Settings',
+        leading: IconButton(
+            onPressed: () {
+              Navigator.pop(context);
+            },
+            icon: const
+            Icon(Icons.arrow_back_ios_new_sharp, color: darkBlue)
+        ),
+      ),
+    );
   }
 }
