@@ -196,7 +196,7 @@ class _HomeState extends State<Home> {
                             width: width,
                             child: Card(
                               margin: const EdgeInsets.all(4.0),
-                              color: redColor,
+                              color: whiteColor,
                               shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(10)
                               ),
@@ -208,7 +208,7 @@ class _HomeState extends State<Home> {
                                   child: Text('New',
                                     style: TextStyle(
                                         fontSize: 14,
-                                        color: whiteColor),),
+                                        color: redColor),),
                                 ),
                               ),
                             ),
