@@ -65,7 +65,7 @@ class _SplashState extends State<_Splash> {
                 repeatForever: false,
                 isRepeatingAnimation: false,
                 animatedTexts: [
-                  WavyAnimatedText('CLOTIN WEARZ')
+                  WavyAnimatedText('CLOTIN WEARZ...')
                 ]
             ),
           )
