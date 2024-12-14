@@ -46,14 +46,8 @@ class _ProfileState extends State<Profile> {
   Widget build(BuildContext context) {
     String userEmail = _currentUser?.email ?? 'No email available';
     return  Scaffold(
-      appBar: CustomAppBar(title: 'Profile',
-        leading: IconButton(
-            onPressed: () {
-              Navigator.pop(context);
-            },
-            icon: const
-            Icon(Icons.arrow_back_ios_new_sharp, color: darkBlue)
-        ),
+      appBar:  const CustomAppBar(title: 'Profile',
+        leading: null,
       ),
       body: Column(
         children: [
