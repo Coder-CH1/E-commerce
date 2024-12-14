@@ -19,7 +19,11 @@ class _ProfileState extends State<Profile> {
       'screen': const PaymentMethod(),},
     {
       'title': 'Settings',
-      'screen': const Settings(),}
+      'screen': const Settings(),},
+    {
+      'title': 'Contact Us',
+      'screen': const ContactUs(),
+    }
 
   ];
 
@@ -154,6 +158,25 @@ class Settings extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: CustomAppBar(title: 'Settings',
+        leading: IconButton(
+            onPressed: () {
+              Navigator.pop(context);
+            },
+            icon: const
+            Icon(Icons.arrow_back_ios_new_sharp, color: darkBlue)
+        ),
+      ),
+    );
+  }
+}
+
+class ContactUs extends StatelessWidget {
+  const ContactUs({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: CustomAppBar(title: 'Contact Us',
         leading: IconButton(
             onPressed: () {
               Navigator.pop(context);
