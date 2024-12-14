@@ -10,6 +10,7 @@ class Profile extends StatefulWidget {
   State<Profile> createState() => _ProfileState();
 }
 class _ProfileState extends State<Profile> {
+///
   User? _currentUser;
   final List<Map<String, dynamic>> listViewItems = [{
     'title': 'My Orders',
@@ -24,15 +25,16 @@ class _ProfileState extends State<Profile> {
       'title': 'Contact Us',
       'screen': const ContactUs(),
     }
-
   ];
 
+///
   @override
   void initState(){
     super.initState();
     _currentUser = FirebaseAuth.instance.currentUser;
   }
 
+///
   Future<void> _logout() async {
     try {
       await FirebaseAuth.instance.signOut();
@@ -112,7 +114,7 @@ class _ProfileState extends State<Profile> {
   }
 }
 
-
+///
 class MyOrders extends StatelessWidget {
   const MyOrders({super.key});
 
@@ -132,6 +134,7 @@ class MyOrders extends StatelessWidget {
   }
 }
 
+///
 class PaymentMethod extends StatelessWidget {
   const PaymentMethod({super.key});
 
@@ -151,6 +154,7 @@ class PaymentMethod extends StatelessWidget {
   }
 }
 
+///
 class Settings extends StatelessWidget {
   const Settings({super.key});
 
@@ -170,6 +174,7 @@ class Settings extends StatelessWidget {
   }
 }
 
+///
 class ContactUs extends StatelessWidget {
   const ContactUs({super.key});
 
